@@ -1,13 +1,10 @@
 ﻿using System.Text;
 
 
-namespace PLib.Extensions.Strings
+namespace PLib.Extensions.Core.System.String
 {
 
-	/// <summary>
-	///     Provides functionality for encoding and decoding string to and from byte arrays.
-	/// </summary>
-	public static class StringEncodingExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>

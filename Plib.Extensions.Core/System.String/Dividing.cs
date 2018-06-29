@@ -1,13 +1,10 @@
 ﻿using System;
 
 
-namespace PLib.Extensions.Strings
+namespace PLib.Extensions.Core.System.String
 {
 
-	/// <summary>
-	///     Provides functionality for dividing strings into smaller pieces.
-	/// </summary>
-	public static class StringDividingExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>
@@ -27,7 +24,7 @@ namespace PLib.Extensions.Strings
 
 			if (length <= 0)
 			{
-				return String.Empty;
+				return string.Empty;
 			}
 
 			if (length >= @this.Length)
@@ -57,7 +54,7 @@ namespace PLib.Extensions.Strings
 
 			if (length <= 0)
 			{
-				return String.Empty;
+				return string.Empty;
 			}
 
 			if (length >= @this.Length)

@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Linq;
 
-namespace PLib.Extensions.Strings
+
+namespace PLib.Extensions.Core.System.String
 {
 
-	/// <summary>
-	///     Provides functionality for extending strings up to a specified minimum length.
-	/// </summary>
-	public static class StringPaddingExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>

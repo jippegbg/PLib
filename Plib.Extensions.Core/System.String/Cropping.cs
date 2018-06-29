@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Linq;
 
-namespace PLib.Extensions.Strings
+
+namespace PLib.Extensions.Core.System.String
 {
 
-	/// <summary>
-	///     Provides functionality for shortening strings down to a specified maximum length.
-	/// </summary>
-	public static class StringCroppingExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>

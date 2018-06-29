@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Extensions", "PLib.Extensions\PLib.Extensions.csproj", "{27D71E6E-41EB-4A19-BAC1-86E4BF2D2032}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PLib.Extensions", "PLib.Extensions", "{8694D264-5D08-49EB-84F1-9FFEC70CF8DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plib.Extensions.Core", "Plib.Extensions.Core\Plib.Extensions.Core.csproj", "{9E9C73CB-94B5-4108-97EB-9135BB911766}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +13,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{27D71E6E-41EB-4A19-BAC1-86E4BF2D2032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27D71E6E-41EB-4A19-BAC1-86E4BF2D2032}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27D71E6E-41EB-4A19-BAC1-86E4BF2D2032}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27D71E6E-41EB-4A19-BAC1-86E4BF2D2032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E9C73CB-94B5-4108-97EB-9135BB911766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E9C73CB-94B5-4108-97EB-9135BB911766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E9C73CB-94B5-4108-97EB-9135BB911766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E9C73CB-94B5-4108-97EB-9135BB911766}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9E9C73CB-94B5-4108-97EB-9135BB911766} = {8694D264-5D08-49EB-84F1-9FFEC70CF8DC}
 	EndGlobalSection
 EndGlobal

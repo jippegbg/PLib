@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 
 
-namespace PLib.Extensions.Strings
+namespace PLib.Extensions.Core.System.String
 {
 
-	/// <summary>
-	///     Provides funtionality for modifying strings in terms of adjusting case,
-	/// </summary>
-	public static class StringModificationExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>
@@ -58,7 +55,7 @@ namespace PLib.Extensions.Strings
 		/// <returns></returns>
 		public static string InvertCase(this string @this)
 		{
-			return @this?.Select(c => Char.IsUpper(c) ? Char.ToLower(c) : Char.ToUpper(c)).ToString();
+			return @this?.Select(c => char.IsUpper(c) ? char.ToLower(c) : char.ToUpper(c)).ToString();
 		}
 
 
@@ -99,7 +96,7 @@ namespace PLib.Extensions.Strings
 		/// <returns>An unwrapped string where all line breaks are removed and replaced with a space.</returns>
 		public static string UnWrap(this string @this)
 		{
-			return @this?.Replace(Environment.NewLine, StringExtensionConstants.STRING_SPACE);
+			return @this?.Replace(Environment.NewLine, STRING_SPACE);
 		}
 
 
@@ -126,7 +123,7 @@ namespace PLib.Extensions.Strings
 
 			// Split the string into separate words.
 			string[]
-				words = @this.UnWrap().Split(StringExtensionConstants.CHAR_SPACE); // Note that words can end with .,!? etc. i.e. character in the PUNCTUATIONS constant.
+				words = @this.UnWrap().Split(CHAR_SPACE); // Note that words can end with .,!? etc. i.e. character in the PUNCTUATIONS constant.
 
 			// A list of all the lines added. Start with an empty list.
 			List<string> resultLines = new List<string>();
@@ -154,14 +151,14 @@ namespace PLib.Extensions.Strings
 					while (maxLineLength <= remainder.Length)
 					{
 						// Don't hyphenate a single ending punctuation character.
-						if (remainder.Length == maxLineLength && StringExtensionConstants.PUNCTUATIONS.Contains(remainder.Last()))
+						if (remainder.Length == maxLineLength && PUNCTUATIONS.Contains(remainder.Last()))
 						{
 							// Just add the remainder, which precisely fits, and return. There's nothing left to add to the current line.
 							resultLines.Add(remainder);
 							return;
 						}
 
-						resultLines.Add(remainder.Substring(0, maxLineLength - 1) + StringExtensionConstants.STRING_HYPHEN);
+						resultLines.Add(remainder.Substring(0, maxLineLength - 1) + STRING_HYPHEN);
 						remainder = remainder.Substring(maxLineLength - 1);
 					}
 
@@ -183,7 +180,7 @@ namespace PLib.Extensions.Strings
 				{
 					// The current line isn't empty, but the word, including a separating space, still fits.
 					// Add it with a space before.
-					line.Append(StringExtensionConstants.STRING_SPACE + word);
+					line.Append(STRING_SPACE + word);
 				}
 				else
 				{

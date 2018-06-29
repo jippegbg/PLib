@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Linq;
 
-namespace PLib.Extensions.Strings
+
+namespace PLib.Extensions.Core.System.String
 {
 
-	/// <summary>
-	///     Provides functionality for extending strings with a specified number of characters at the
-	///     start or end.
-	/// </summary>
-	public static class StringExtendingExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>
@@ -32,7 +29,7 @@ namespace PLib.Extensions.Strings
 				throw new ArgumentOutOfRangeException(nameof(numSpaces), numSpaces, "The number of spaces cannot be less than zero.");
 			}
 
-			return new string(StringExtensionConstants.CHAR_SPACE, numSpaces) + @this;
+			return new string(CHAR_SPACE, numSpaces) + @this;
 		}
 
 
@@ -86,7 +83,7 @@ namespace PLib.Extensions.Strings
 				throw new ArgumentOutOfRangeException(nameof(numSpaces), numSpaces, "The number of spaces cannot be less than zero.");
 			}
 
-			return @this + new string(StringExtensionConstants.CHAR_SPACE, numSpaces);
+			return @this + new string(CHAR_SPACE, numSpaces);
 		}
 
 
@@ -291,7 +288,10 @@ namespace PLib.Extensions.Strings
 		///     This is actually an alias for the <see cref="ExtendLinesLeft(string, int)"/> method.
 		///     It works with single line strings as well.
 		/// </remarks>
-		public static string Indent(this string @this, int numSpaces) => ExtendLinesLeft(@this, numSpaces);
+		public static string Indent(this string @this, int numSpaces)
+		{
+			return ExtendLinesLeft(@this, numSpaces);
+		}
 
 		#endregion [ Multi-Line ]
 

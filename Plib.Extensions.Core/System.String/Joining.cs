@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 
 
-namespace PLib.Extensions.Strings
+namespace PLib.Extensions.Core.System.String
 {
 
-	/// <summary>
-	///     Provides functionality for joining together strings.
-	/// </summary>
-	public static class StringJoiningExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>

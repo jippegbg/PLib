@@ -1,15 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace PLib.Extensions.Strings
+
+namespace PLib.Extensions.Core.System.String
 {
-	using static StringExtensionConstants;
 
-
-
-	/// <summary>
-	///     Provides functionality fro removing parts of a string by either index, length or content.
-	/// </summary>
-	public static class StringRemovingExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>
@@ -203,10 +198,6 @@ namespace PLib.Extensions.Strings
 		{
 			return @this?.Replace(substring, string.Empty);
 		}
-
-
-
-		
 
 
 

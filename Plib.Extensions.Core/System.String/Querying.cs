@@ -2,16 +2,10 @@
 using System.Linq;
 
 
-namespace PLib.Extensions.Strings {
+namespace PLib.Extensions.Core.System.String
+{
 
-	using static StringExtensionConstants;
-
-
-
-	/// <summary>
-	///     Contains methods for getting information about strings without modifying them.
-	/// </summary>
-	public static class StringQueryingExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>
@@ -52,7 +46,10 @@ namespace PLib.Extensions.Strings {
 		/// </summary>
 		/// <param name="this">The string to test.</param>
 		/// <returns><c>true</c> if the current string has any letters; otherwise, <c>false</c>.</returns>
-		public static bool HasAlpha(this string @this) => @this != null && @this.Any(char.IsLetter);
+		public static bool HasAlpha(this string @this)
+		{
+			return @this != null && @this.Any(char.IsLetter);
+		}
 
 
 
@@ -63,7 +60,10 @@ namespace PLib.Extensions.Strings {
 		/// <returns>
 		///     <c>true</c> if the current string has any decimal digits; otherwise, <c>false</c>.
 		/// </returns>
-		public static bool HasDecimalDigits(this string @this) => @this != null && @this.Any(char.IsDigit);
+		public static bool HasDecimalDigits(this string @this)
+		{
+			return @this != null && @this.Any(char.IsDigit);
+		}
 
 
 
@@ -75,7 +75,10 @@ namespace PLib.Extensions.Strings {
 		///     <c>true</c> if the string is not <c>null</c> nor an empty string (""); otherwise,
 		///     false <c>false</c>.
 		/// </returns>
-		public static bool HasLength(this string @this) => !string.IsNullOrEmpty(@this);
+		public static bool HasLength(this string @this)
+		{
+			return !string.IsNullOrEmpty(@this);
+		}
 
 
 
@@ -88,7 +91,10 @@ namespace PLib.Extensions.Strings {
 		///     <c>true</c> if the string is not <c>null</c> nor an empty string (""), and if the
 		///     string doesn't consists exclusively of white-space characters; otherwise, <c>false</c>.
 		/// </returns>
-		public static bool HasValue(this string @this) => !string.IsNullOrWhiteSpace(@this);
+		public static bool HasValue(this string @this)
+		{
+			return !string.IsNullOrWhiteSpace(@this);
+		}
 
 
 
@@ -101,8 +107,10 @@ namespace PLib.Extensions.Strings {
 		///     <c>true</c> if the current string is composed of all letter characters (and spaces);
 		///     otherwise, <c>false</c>.
 		/// </returns>
-		public static bool IsAlpha(this string @this, bool includeSpace = false) =>
-			!string.IsNullOrEmpty(@this) && @this.All(c => char.IsLetter(c) || c == ' ' && includeSpace);
+		public static bool IsAlpha(this string @this, bool includeSpace = false)
+		{
+			return !string.IsNullOrEmpty(@this) && @this.All(c => char.IsLetter(c) || c == ' ' && includeSpace);
+		}
 
 
 
@@ -116,8 +124,10 @@ namespace PLib.Extensions.Strings {
 		///     <c>true</c> if the current string has only letters and decimal digits (and spaces);
 		///     otherwise, <c>false</c>.
 		/// </returns>
-		public static bool IsAlphaNumeric(this string @this, bool includeSpace = false) =>
-			!string.IsNullOrEmpty(@this) && @this.All(c => char.IsLetterOrDigit(c) || c == ' ' && includeSpace);
+		public static bool IsAlphaNumeric(this string @this, bool includeSpace = false)
+		{
+			return !string.IsNullOrEmpty(@this) && @this.All(c => char.IsLetterOrDigit(c) || c == ' ' && includeSpace);
+		}
 
 
 
@@ -126,7 +136,10 @@ namespace PLib.Extensions.Strings {
 		/// </summary>
 		/// <param name="this">The string to test.</param>
 		/// <returns><c>true</c> if the current string is an email address; otherwise, <c>false</c>.</returns>
-		public static bool IsEmailAddress(this string @this) => !string.IsNullOrEmpty(@this) && RxEmailAddress.Value.IsMatch(@this);
+		public static bool IsEmailAddress(this string @this)
+		{
+			return !string.IsNullOrEmpty(@this) && RxEmailAddress.Value.IsMatch(@this);
+		}
 
 
 
@@ -137,7 +150,10 @@ namespace PLib.Extensions.Strings {
 		/// <returns>
 		///     <c>true</c> if the current string is a valid IPv4 address; otherwise, <c>false</c>.
 		/// </returns>
-		public static bool IsIPv4Address(this string @this) => !string.IsNullOrEmpty(@this) && RxIPv4Address.Value.IsMatch(@this);
+		public static bool IsIPv4Address(this string @this)
+		{
+			return !string.IsNullOrEmpty(@this) && RxIPv4Address.Value.IsMatch(@this);
+		}
 
 
 
@@ -149,7 +165,10 @@ namespace PLib.Extensions.Strings {
 		///     <c>true</c> if all letters in the current string are all lower case; otherwise, <c>false</c>.
 		/// </returns>
 		/// <remarks>If the string contains no letters, <c>true</c> is returned.</remarks>
-		public static bool IsLower(this string @this) => @this != null && @this.All(c => !char.IsLetter(c) || char.IsLower(c));
+		public static bool IsLower(this string @this)
+		{
+			return @this != null && @this.All(c => !char.IsLetter(c) || char.IsLower(c));
+		}
 
 
 
@@ -160,7 +179,10 @@ namespace PLib.Extensions.Strings {
 		/// <returns>
 		///     <c>true</c> if the string is <c>null</c> or an empty string (""); otherwise, false <c>false</c>.
 		/// </returns>
-		public static bool IsNullOrEmpty(this string @this) => string.IsNullOrEmpty(@this);
+		public static bool IsNullOrEmpty(this string @this)
+		{
+			return string.IsNullOrEmpty(@this);
+		}
 
 
 
@@ -173,7 +195,10 @@ namespace PLib.Extensions.Strings {
 		///     <c>true</c> if the string is <c>null</c> or an empty string (""), or if the string
 		///     consists exclusively of white-space characters; otherwise, <c>false</c>.
 		/// </returns>
-		public static bool IsNullOrWhiteSpace(this string @this) => string.IsNullOrWhiteSpace(@this);
+		public static bool IsNullOrWhiteSpace(this string @this)
+		{
+			return string.IsNullOrWhiteSpace(@this);
+		}
 
 
 
@@ -185,7 +210,10 @@ namespace PLib.Extensions.Strings {
 		///     <c>true</c> if all letters in the current string are all upper case; otherwise, <c>false</c>.
 		/// </returns>
 		/// <remarks>If the string contains no letters, <c>true</c> is returned.</remarks>
-		public static bool IsUpper(this string @this) => @this != null && @this.All(c => !char.IsLetter(c) || char.IsUpper(c));
+		public static bool IsUpper(this string @this)
+		{
+			return @this != null && @this.All(c => !char.IsLetter(c) || char.IsUpper(c));
+		}
 
 	}
 

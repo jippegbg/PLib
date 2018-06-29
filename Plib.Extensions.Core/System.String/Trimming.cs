@@ -1,13 +1,10 @@
 ﻿using System.Linq;
 
-namespace PLib.Extensions.Strings
+
+namespace PLib.Extensions.Core.System.String
 {
 
-	/// <summary>
-	///     Provides functionality for shortening strings down with a specified number of characters, and
-	///     removing unwanted characters or substrings from the start or end.
-	/// </summary>
-	public static class StringTrimmingExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>

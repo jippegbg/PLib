@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PLib.Extensions")]
+[assembly: AssemblyTitle("Plib.Extensions.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("PLib.Extensions")]
+[assembly: AssemblyProduct("Plib.Extensions.Core")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("27d71e6e-41eb-4a19-bac1-86e4bf2d2032")]
+[assembly: Guid("9e9c73cb-94b5-4108-97eb-9135bb911766")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Linq;
 
-namespace PLib.Extensions.Strings
+
+namespace PLib.Extensions.Core.System.String
 {
 
-	/// <summary>
-	///     Provides functionality for extending or shortening strings to fit between specified
-	///     minimum and maximum lengths.
-	/// </summary>
-	public static class StringResizingExtensions
+	public static partial class Extensions
 	{
 
 		/// <summary>
