@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 
 namespace PLib.Extensions.Core.System.String
@@ -27,6 +28,10 @@ namespace PLib.Extensions.Core.System.String
 		///     <para>
 		///         If the <paramref name="separator"/> is omitted or null, an empty string will be
 		///         used as separator instead.
+		///     </para>
+		///     <para>
+		///         When joining/concatenating more than about 1000 strings, use a
+		///         <see cref="StringBuilder"/> instead, for better performance.
 		///     </para>
 		/// </remarks>
 		public static string Join(this IEnumerable<string> @this, string separator = null)

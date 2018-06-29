@@ -3,7 +3,8 @@ using System.Text.RegularExpressions;
 using System.Threading;
 
 
-namespace PLib.Extensions.Core.System.String {
+namespace PLib.Extensions.Core.System.String
+{
 
 	public static partial class Extensions
 	{

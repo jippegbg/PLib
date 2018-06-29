@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 
@@ -12,31 +15,65 @@ namespace PLib.Extensions.Core.System.String
 		///     Checks if a string contains another sub-string.
 		/// </summary>
 		/// <param name="this">The current string.</param>
-		/// <param name="substring">The sub-string to search for.</param>
+		/// <param name="value">The sub-string to search for.</param>
 		/// <param name="comparisonType">
 		///     One of the enumeration values that specifies the rules for the search.
+		///     Default <see cref="StringComparison.CurrentCulture"/>.
 		/// </param>
 		/// <returns>
 		///     <c>true</c> if the current string contains the given substring; otherwise <c>false</c>.
 		/// </returns>
-		public static bool Contains(this string @this, string substring, StringComparison comparisonType)
+		public static bool Contains(this string @this, string value, StringComparison comparisonType = StringComparison.CurrentCulture)
 		{
-			if (@this == null)
+			return @this.IndexOf(value, comparisonType) != -1;
+		}
+
+
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="this">The this.</param>
+		/// <param name="comparisonType">Type of the comparison.</param>
+		/// <param name="values">The values.</param>
+		/// <returns>
+		///   <c>true</c> if the specified comparison type contains all; otherwise, <c>false</c>.
+		/// </returns>
+		public static bool ContainsAll(this string @this, StringComparison comparisonType = StringComparison.CurrentCulture, params string[] values)
+		{
+			foreach (string value in values)
 			{
-				return false;
+				if (@this.IndexOf(value, comparisonType) == -1)
+				{
+					return false;
+				}
 			}
 
-			if (substring == null)
+			return true;
+		}
+
+
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="this">The this.</param>
+		/// <param name="comparisonType">Type of the comparison.</param>
+		/// <param name="values">The values.</param>
+		/// <returns>
+		///   <c>true</c> if the specified comparison type contains any; otherwise, <c>false</c>.
+		/// </returns>
+		public static bool ContainsAny(this string @this, StringComparison comparisonType = StringComparison.CurrentCulture, params string[] values)
+		{
+			foreach (string value in values)
 			{
-				throw new ArgumentNullException(nameof(substring), "substring cannot be null.");
+				if (@this.IndexOf(value, comparisonType) != -1)
+				{
+					return true;
+				}
 			}
 
-			if (!Enum.IsDefined(typeof(StringComparison), comparisonType))
-			{
-				throw new ArgumentException("Not a member of StringComparison", nameof(comparisonType));
-			}
-
-			return @this.IndexOf(substring, comparisonType) >= 0;
+			return false;
 		}
 
 
@@ -75,7 +112,7 @@ namespace PLib.Extensions.Core.System.String
 		///     <c>true</c> if the string is not <c>null</c> nor an empty string (""); otherwise,
 		///     false <c>false</c>.
 		/// </returns>
-		public static bool HasLength(this string @this)
+		public static bool IsNotNullOrEmpty(this string @this)
 		{
 			return !string.IsNullOrEmpty(@this);
 		}
@@ -91,9 +128,43 @@ namespace PLib.Extensions.Core.System.String
 		///     <c>true</c> if the string is not <c>null</c> nor an empty string (""), and if the
 		///     string doesn't consists exclusively of white-space characters; otherwise, <c>false</c>.
 		/// </returns>
-		public static bool HasValue(this string @this)
+		public static bool IsNotNullOrWhiteSpace(this string @this)
 		{
 			return !string.IsNullOrWhiteSpace(@this);
+		}
+
+
+
+		/// <summary>
+		///     Determines whether the the current string is equal to any of strings in the provided array.
+		/// </summary>
+		/// <param name="this">The current string.</param>
+		/// <param name="values">A list of strings to compare with the current one.</param>
+		/// <returns>
+		///     true if the list of strings contains an element that equals the current string;
+		///     otherwise, <c>false</c>.
+		/// </returns>
+		/// <remarks>Comparison is case sensitive.</remarks>
+		public static bool IsIn(this string @this, params string[] values)
+		{
+			return Array.IndexOf(values, @this) != -1;
+		}
+
+
+
+		/// <summary>
+		///     Determines whether the the current string is equal to any of strings in the provided sequence.
+		/// </summary>
+		/// <param name="this">The current string.</param>
+		/// <param name="values">A sequence of strings to compare with the current one.</param>
+		/// <param name="ignoreCase">If case should be ignored when comparing stings.</param>
+		/// <returns>
+		///     true if the sequence of strings contains an element that equals the current string;
+		///     otherwise, <c>false</c>.
+		/// </returns>
+		public static bool IsIn(this string @this, IEnumerable<string> values, bool ignoreCase = false)
+		{
+			return values.Contains(@this, ignoreCase ? StringComparer.OrdinalIgnoreCase : StringComparer.Ordinal);
 		}
 
 
