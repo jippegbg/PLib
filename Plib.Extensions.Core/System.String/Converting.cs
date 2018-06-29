@@ -9,11 +9,10 @@ namespace PLib.Extensions.Core.System.String
 	{
 
 		/// <summary>
-		/// To the date time.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
 		public static DateTime ToDateTime(this string @this)
 		{
 			return DateTime.Parse(@this);
@@ -24,10 +23,10 @@ namespace PLib.Extensions.Core.System.String
 		/// <summary>
 		/// To the date time.
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <param name="provider">The provider.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
+		/// TODO Edit XML Comment
 		public static DateTime ToDateTime(this string @this, IFormatProvider provider)
 		{
 			return DateTime.Parse(@this, provider);
@@ -36,13 +35,12 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the date time.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
 		public static DateTime ToDateTime(this string @this, IFormatProvider provider, DateTimeStyles styles)
 		{
 			return DateTime.Parse(@this, provider, styles);
@@ -51,12 +49,11 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the date time.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
 		public static bool ToDateTime(this string @this, out DateTime value)
 		{
 			return DateTime.TryParse(@this, out value);
@@ -65,14 +62,13 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the date time.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
 		public static bool ToDateTime(this string @this, IFormatProvider provider, DateTimeStyles styles, out DateTime value)
 		{
 			return DateTime.TryParse(@this, provider, styles, out value);
@@ -81,13 +77,12 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the date time.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <param name="format">The format.</param>
 		/// <param name="provider">The provider.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
 		public static DateTime ToDateTime(this string @this, string format, IFormatProvider provider)
 		{
 			return DateTime.ParseExact(@this, format, provider);
@@ -96,14 +91,13 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the date time.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <param name="format">The format.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
 		public static DateTime ToDateTime(this string @this, string format, IFormatProvider provider, DateTimeStyles styles)
 		{
 			return DateTime.ParseExact(@this, format, provider, styles);
@@ -112,14 +106,13 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the date time.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <param name="formats">The formats.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
 		public static DateTime ToDateTime(this string @this, string[] formats, IFormatProvider provider, DateTimeStyles styles)
 		{
 			return DateTime.ParseExact(@this, formats, provider, styles);
@@ -128,15 +121,14 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the date time.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <param name="format">The format.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
 		public static bool ToDateTime(this string @this, string format, IFormatProvider provider, DateTimeStyles styles, out DateTime value)
 		{
 			return DateTime.TryParseExact(@this, format, provider, styles, out value);
@@ -145,15 +137,14 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the date time.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <param name="formats">The formats.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToDateTime
 		public static bool ToDateTime(this string @this, string[] formats, IFormatProvider provider, DateTimeStyles styles, out DateTime value)
 		{
 			return DateTime.TryParseExact(@this, formats, provider, styles, out value);
@@ -168,7 +159,6 @@ namespace PLib.Extensions.Core.System.String
 		/// <param name="this">The current string.</param>
 		/// <param name="result">The result.</param>
 		/// <returns>A value of the specified enum type, or the the default value if no match.</returns>
-		/// <exception cref="System.ArgumentException"></exception>
 		/// <exception cref="ArgumentException">
 		///     if the type <typeparamref name="T"/> is not an enum type.
 		/// </exception>
@@ -187,12 +177,12 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the enum.
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <returns></returns>
-		/// <exception cref="System.ArgumentException"></exception>
+		/// <exception cref="ArgumentException"></exception>
 		public static T ToEnum<T>(this string @this) where T : struct
 		{
 			T result;
@@ -207,7 +197,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -219,7 +209,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -232,7 +222,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -244,7 +234,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -257,7 +247,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -269,7 +259,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -282,7 +272,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -294,7 +284,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -307,7 +297,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -319,7 +309,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -332,7 +322,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -344,7 +334,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -357,7 +347,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -369,7 +359,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -382,7 +372,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -394,7 +384,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -407,7 +397,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -419,7 +409,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -432,7 +422,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -444,7 +434,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -457,7 +447,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <returns></returns>
@@ -469,7 +459,7 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// TODO
+		/// TODO Edit XML Comment
 		/// </summary>
 		/// <param name="this">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -482,9 +472,9 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		/// To the boolean.
+		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="this">The current string.</param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException">if the current string cannot be interpreted as a boolean value.</exception>
 		public static bool ToBoolean(this string @this)
