@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 
 
-namespace PLib.Extensions.Core.System.String
+namespace PLib.Extensions.System
 {
 
-	public static partial class Extensions
+	public static partial class StringExtensions
 	{
 
 		/// <summary>
@@ -67,7 +67,21 @@ namespace PLib.Extensions.Core.System.String
 		/// <returns>A copy of the current string with characters in reverse order.</returns>
 		public static string Reverse(this string @this)
 		{
-			return @this?.Reverse<char>().ToString();
+			//return @this?.Reverse<char>().ToString();
+
+			if (@this == null)
+			{
+				return null;
+			}
+
+			if (@this.Length <= 1)
+			{
+				return @this;
+			}
+
+			char[] chars = @this.ToCharArray();
+			Array.Reverse(chars);
+			return new string(chars);
 		}
 
 

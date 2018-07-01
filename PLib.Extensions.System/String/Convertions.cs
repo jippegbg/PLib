@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
+using System.Text;
+using System.Xml;
+using System.Xml.Linq;
 
 
-namespace PLib.Extensions.Core.System.String
+namespace PLib.Extensions.System
 {
 
-	public static partial class Extensions
+	public static partial class StringExtensions
 	{
 
 		/// <summary>
@@ -153,45 +157,98 @@ namespace PLib.Extensions.Core.System.String
 
 
 		/// <summary>
-		///     Converts the current string to an enum value of a specified type.
+		///     Converts the the current string as a representation of the name or numeric
+		///     value of one or more enumerated constants to an equivalent enumerated
+		///     object. An optional parameter specifies whether the operation is
+		///     case-insensitive. The return value indicates whether the conversion succeeded.
 		/// </summary>
-		/// <typeparam name="T">The enum type to convert the string value into.</typeparam>
+		/// <typeparam name="T">
+		///     The enumeration type into which to convert the current string.
+		/// </typeparam>
 		/// <param name="this">The current string.</param>
-		/// <param name="result">The result.</param>
-		/// <returns>A value of the specified enum type, or the the default value if no match.</returns>
-		/// <exception cref="ArgumentException">
-		///     if the type <typeparamref name="T"/> is not an enum type.
-		/// </exception>
-		public static bool ToEnum<T>(this string @this, out T result) where T : struct
+		/// <param name="result">
+		///     When this method returns, contains an object of type
+		///     <typeparamref name="T"/> whose value is represented by the current string.
+		///     This parameter is passed uninitialized.
+		/// </param>
+		/// <param name="ignoreCase">
+		///     If <c>true</c>, ignore case; otherwise, regard case. Default is true.
+		/// </param>
+		/// <returns>
+		///     <c>true</c> if the value parameter was converted successfully; otherwise, <c>false</c>.
+		/// </returns>
+		public static bool ToEnum<T>(this string @this, out T result, bool ignoreCase) where T : struct
 		{
-			Type type = typeof(T);
-
-			if (!type.IsEnum)
-			{
-				throw new ArgumentException($"Type {typeof(T).Name} is not an enum.");
-			}
-
 			return Enum.TryParse(@this, out result);
 		}
 
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		///     Converts the current string as a representation of the name or numeric
+		///     value of one or more enumerated constants to an equivalent enumerated
+		///     object. An optional parameter specifies whether the operation is case-insensitive.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="T">
+		///     The enumeration type into which to convert the current string.
+		/// </typeparam>
 		/// <param name="this">The current string.</param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentException"></exception>
-		public static T ToEnum<T>(this string @this) where T : struct
+		/// <param name="ignoreCase">
+		///     If <c>true</c>, ignore case; otherwise, regard case. Default is true.
+		/// </param>
+		/// <returns>
+		///     An object of type <typeparamref name="T"/> whose value is represented by
+		///     the current string.
+		/// </returns>
+		public static T ToEnum<T>(this string @this, bool ignoreCase = true) where T : struct
 		{
-			T result;
-			if (!@this.ToEnum(out result))
+			return (T)Enum.Parse(typeof(T), @this, ignoreCase);
+		}
+
+
+
+		/// <summary>
+		///     Creates a new non-resizable <see cref="MemoryStream"/> based on the current
+		///     string encoded according to the current system code page.
+		/// </summary>
+		/// <param name="this">The current string.</param>
+		/// <param name="writable">
+		///     The setting of the <see cref="MemoryStream.CanWrite"/> property, which
+		///     determines whether the stream supports writing.
+		/// </param>
+		/// <returns>
+		///     A new non-resizable <see cref="MemoryStream"/> based on the current string
+		///     encoded according to the current system code page.
+		/// </returns>
+		public static MemoryStream ToMemoryStream(this string @this, bool writable = true)
+		{
+			return new MemoryStream(Encoding.Default.GetBytes(@this), writable);
+		}
+
+
+
+		/// <summary>
+		///     Creates a new non-resizable <see cref="MemoryStream"/> based on the current
+		///     string encoded as specified.
+		/// </summary>
+		/// <param name="this">The current string.</param>
+		/// <param name="encoding">The encoding to use for converting the string.</param>
+		/// <param name="writable">
+		///     The setting of the <see cref="MemoryStream.CanWrite"/> property, which
+		///     determines whether the stream supports writing.
+		/// </param>
+		/// <returns>
+		///     A new non-resizable <see cref="MemoryStream"/> based on the current string
+		///     encoded as specified.
+		/// </returns>
+		public static MemoryStream ToMemoryStream(this string @this, Encoding encoding = null, bool writable = true)
+		{
+			if (encoding == null)
 			{
-				throw new ArgumentException($"Current string could not be interpreted as an enum value of type {typeof(T).Name}.");
+				encoding = Encoding.Default;
 			}
 
-			return result;
+			return new MemoryStream(encoding.GetBytes(@this), writable);
 		}
 
 
@@ -494,6 +551,47 @@ namespace PLib.Extensions.Core.System.String
 				default:
 					throw new ArgumentException("Not a boolean expression.", nameof(@this));
 			}
+		}
+
+
+
+		/// <summary>
+		/// TODO Edit XML Comment
+		/// </summary>
+		/// <param name="this">The current string.</param>
+		/// <returns></returns>
+		public static DirectoryInfo ToDirectoryInfo(this string @this) => new DirectoryInfo(@this);
+
+
+
+		/// <summary>
+		/// TODO Edit XML Comment
+		/// </summary>
+		/// <param name="this">The current string.</param>
+		/// <returns></returns>
+		public static FileInfo ToFileInfo(this string @this) => new FileInfo(@this);
+
+
+
+		/// <summary>
+		/// TODO Edit XML Comment
+		/// </summary>
+		/// <param name="this">The current string.</param>
+		/// <returns></returns>
+		public static XDocument ToXDocument(this string @this) => XDocument.Parse(@this);
+
+
+
+		/// <summary>
+		/// TODO Edit XML Comment
+		/// </summary>
+		/// <param name="this">The current string.</param>
+		/// <returns></returns>
+		public static XmlDocument ToXmlDocument(this string @this)
+		{
+			XmlDocument doc = new XmlDocument();
+			doc.LoadXml(@this);
+			return doc;
 		}
 
 	}

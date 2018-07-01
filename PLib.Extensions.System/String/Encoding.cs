@@ -1,10 +1,10 @@
 ﻿using System.Text;
 
 
-namespace PLib.Extensions.Core.System.String
+namespace PLib.Extensions.System
 {
 
-	public static partial class Extensions
+	public static partial class StringExtensions
 	{
 
 		/// <summary>

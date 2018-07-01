@@ -1,10 +1,10 @@
 ﻿using System;
 
 
-namespace PLib.Extensions.Core.System.String
+namespace PLib.Extensions.System
 {
 
-	public static partial class Extensions
+	public static partial class StringExtensions
 	{
 
 		/// <summary>
@@ -17,22 +17,7 @@ namespace PLib.Extensions.Core.System.String
 		/// </returns>
 		public static string Left(this string @this, int length)
 		{
-			if (@this == null)
-			{
-				return null;
-			}
-
-			if (length <= 0)
-			{
-				return string.Empty;
-			}
-
-			if (length >= @this.Length)
-			{
-				return @this;
-			}
-
-			return @this.Substring(0, length);
+			return @this?.Substring(0, Math.Min(length, @this.Length));
 		}
 
 
@@ -47,22 +32,7 @@ namespace PLib.Extensions.Core.System.String
 		/// </returns>
 		public static string Right(this string @this, int length)
 		{
-			if (@this == null)
-			{
-				return null;
-			}
-
-			if (length <= 0)
-			{
-				return string.Empty;
-			}
-
-			if (length >= @this.Length)
-			{
-				return @this;
-			}
-
-			return @this.Substring(@this.Length - length);
+			return @this?.Substring(Math.Max(0, @this.Length - length));
 		}
 
 

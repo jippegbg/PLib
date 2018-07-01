@@ -3,10 +3,14 @@ using System.Text.RegularExpressions;
 using System.Threading;
 
 
-namespace PLib.Extensions.Core.System.String
+namespace PLib.Extensions.System
 {
 
-	public static partial class Extensions
+	/// <summary>
+	/// bla bla bla
+	/// </summary>
+	/// TODO Edit XML Comment Template for Extensions
+	public static partial class StringExtensions
 	{
 
 		private const char CHAR_SPACE = ' ';
