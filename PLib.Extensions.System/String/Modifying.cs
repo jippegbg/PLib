@@ -14,7 +14,7 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Returns the current string with right-aligned line numbers at the start of each line.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns>
 		///     A copy of the current string with right-aligned line numbers at the start of each line.
 		/// </returns>
@@ -23,15 +23,15 @@ namespace PLib.Extensions.System
 		///     required, the string needs to be re-wrapped with a smaller maximum line length before
 		///     adding line numbers, which in turn can increase the number of lines.
 		/// </remarks>
-		public static string AddLineNumbers(this string @this)
+		public static string AddLineNumbers(this string me)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
 
 			// Split the string into separate lines.
-			string[] lines = @this.Lines();
+			string[] lines = me.Lines();
 
 			// How many digits are needed to display the highest line number?
 			int nDigits = (int)Math.Floor(Math.Log10(lines.Length)) + 1;
@@ -51,11 +51,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// Inverts the casing for each character in a string.
 		/// </summary>
-		/// <param name="this">The this.</param>
+		/// <param name="me">The this.</param>
 		/// <returns></returns>
-		public static string InvertCase(this string @this)
+		public static string InvertCase(this string me)
 		{
-			return @this?.Select(c => char.IsUpper(c) ? char.ToLower(c) : char.ToUpper(c)).ToString();
+			return me?.Select(c => char.IsUpper(c) ? char.ToLower(c) : char.ToUpper(c)).ToString();
 		}
 
 
@@ -63,23 +63,23 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Reverses the specified string.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns>A copy of the current string with characters in reverse order.</returns>
-		public static string Reverse(this string @this)
+		public static string Reverse(this string me)
 		{
-			//return @this?.Reverse<char>().ToString();
+			//return me?.Reverse<char>().ToString();
 
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
 
-			if (@this.Length <= 1)
+			if (me.Length <= 1)
 			{
-				return @this;
+				return me;
 			}
 
-			char[] chars = @this.ToCharArray();
+			char[] chars = me.ToCharArray();
 			Array.Reverse(chars);
 			return new string(chars);
 		}
@@ -89,16 +89,16 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Converts the current string to title-case.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns>TODO</returns>
-		public static string ToTitleCase(this string @this)
+		public static string ToTitleCase(this string me)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
 
-			return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(@this);
+			return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(me);
 		}
 
 
@@ -106,11 +106,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Returns an unwrapped string where all line breaks are removed and replaced with a space.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns>An unwrapped string where all line breaks are removed and replaced with a space.</returns>
-		public static string UnWrap(this string @this)
+		public static string UnWrap(this string me)
 		{
-			return @this?.Replace(Environment.NewLine, STRING_SPACE);
+			return me?.Replace(Environment.NewLine, STRING_SPACE);
 		}
 
 
@@ -119,7 +119,7 @@ namespace PLib.Extensions.System
 		///     Returns a string that is wrapped into multiple lines, where every line is at its most
 		///     a specified number of characters long.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="maxLineLength">The maximum line length.</param>
 		/// <returns>
 		///     A multi-line string where every line is at most a specified number of characters long.
@@ -128,16 +128,16 @@ namespace PLib.Extensions.System
 		///     If the string already is multi-line, the string is first made into a single line
 		///     string by unwrapping it, before it's wrapped again with a new maximum line length.
 		/// </remarks>
-		public static string Wrap(this string @this, int maxLineLength)
+		public static string Wrap(this string me, int maxLineLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
 
 			// Split the string into separate words.
 			string[]
-				words = @this.UnWrap().Split(CHAR_SPACE); // Note that words can end with .,!? etc. i.e. character in the PUNCTUATIONS constant.
+				words = me.UnWrap().Split(CHAR_SPACE); // Note that words can end with .,!? etc. i.e. character in the PUNCTUATIONS constant.
 
 			// A list of all the lines added. Start with an empty list.
 			List<string> resultLines = new List<string>();

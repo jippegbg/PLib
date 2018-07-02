@@ -17,19 +17,19 @@ namespace PLib.Extensions.System
 		/// Indexes the of.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException">this</exception>
 		/// TODO Edit XML Comment Template for IndexOf`1
-		public static int IndexOf<T>([NotNull] this T[] @this, T value)
+		public static int IndexOf<T>([NotNull] this T[] me, T value)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
-			return Array.IndexOf(@this, value);
+			return Array.IndexOf(me, value);
 		}
 
 
@@ -38,19 +38,19 @@ namespace PLib.Extensions.System
 		/// Lasts the index of.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException">this</exception>
 		/// TODO Edit XML Comment Template for LastIndexOf`1
-		public static int LastIndexOf<T>([NotNull] this T[] @this, T value)
+		public static int LastIndexOf<T>([NotNull] this T[] me, T value)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
-			return Array.LastIndexOf(@this, value);
+			return Array.LastIndexOf(me, value);
 		}
 
 
@@ -59,17 +59,19 @@ namespace PLib.Extensions.System
 		/// Clears the specified this.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <exception cref="ArgumentNullException">this</exception>
 		/// TODO Edit XML Comment Template for Clear`1
-		public static void Clear<T>([NotNull] this T[] @this)
+		public static T[] Clear<T>([NotNull] this T[] me)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
-			Array.Clear(@this, 0, @this.Length);
+			Array.Clear(me, 0, me.Length);
+
+			return me;
 		}
 
 
@@ -78,31 +80,33 @@ namespace PLib.Extensions.System
 		/// Clears the specified offset.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="offset">The offset.</param>
 		/// <param name="length">The length.</param>
 		/// <exception cref="ArgumentNullException">this</exception>
 		/// <exception cref="ArgumentOutOfRangeException">offset</exception>
 		/// <exception cref="ArgumentException">The length is greater than the number of elements from offset to the end of the current array.</exception>
 		/// TODO Edit XML Comment Template for Clear`1
-		public static void Clear<T>([NotNull] this T[] @this, int offset, int length)
+		public static T[] Clear<T>([NotNull] this T[] me, int offset, int length)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
-			if (offset < 0 || @this.Length <= offset)
+			if (offset < 0 || me.Length <= offset)
 			{
 				throw new ArgumentOutOfRangeException(nameof(offset));
 			}
 
-			if (@this.Length < offset + length)
+			if (me.Length < offset + length)
 			{
 				throw new ArgumentException("The length is greater than the number of elements from offset to the end of the current array.");
 			}
 
-			Array.Clear(@this, offset, length);
+			Array.Clear(me, offset, length);
+
+			return me;
 		}
 
 
@@ -111,21 +115,21 @@ namespace PLib.Extensions.System
 		/// Determines whether [is within bounds] [the specified index].
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="index">The index.</param>
 		/// <returns>
 		///   <c>true</c> if [is within bounds] [the specified index]; otherwise, <c>false</c>.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">this</exception>
 		/// TODO Edit XML Comment Template for IsWithinBounds`1
-		public static bool IsWithinBounds<T>([NotNull] this T[] @this, int index)
+		public static bool IsWithinBounds<T>([NotNull] this T[] me, int index)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
-			return 0 <= index && index < @this.Length;
+			return 0 <= index && index < me.Length;
 		}
 
 
@@ -134,21 +138,21 @@ namespace PLib.Extensions.System
 		/// Determines whether [is within bounds] [the specified index].
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="index">The index.</param>
 		/// <returns>
 		///   <c>true</c> if [is within bounds] [the specified index]; otherwise, <c>false</c>.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">this</exception>
 		/// TODO Edit XML Comment Template for IsWithinBounds`1
-		public static bool IsWithinBounds<T>([NotNull] this T[] @this, long index)
+		public static bool IsWithinBounds<T>([NotNull] this T[] me, long index)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
-			return 0L <= index && index < @this.LongLength;
+			return 0L <= index && index < me.LongLength;
 		}
 
 
@@ -156,12 +160,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Reverses the sequence of the elements in the entire current one-dimensional array.
 		/// </summary>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <returns>The current array after the elements have been reversed.</returns>
-		public static Array Reverse(this Array @this)
+		public static Array Reverse(this Array me)
 		{
-			Array.Reverse(@this);
-			return @this;
+			Array.Reverse(me);
+			return me;
 		}
 
 
@@ -170,14 +174,30 @@ namespace PLib.Extensions.System
 		///     Reverses the sequence of the elements in a section of elements in the current
 		///     one-dimensional array.
 		/// </summary>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="offset">The starting index of the section to reverse.</param>
 		/// <param name="length">The number of elements in the section to reverse.</param>
 		/// <returns>The current array after the elements have been reversed.</returns>
-		public static Array Reverse(this Array @this, int offset, int length)
+		public static Array Reverse(this Array me, int offset, int length)
 		{
-			Array.Reverse(@this, offset, length);
-			return @this;
+			Array.Reverse(me, offset, length);
+			return me;
+		}
+
+
+
+		/// <summary>
+		/// Resizes the specified new size.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">Me.</param>
+		/// <param name="newSize">The new size.</param>
+		/// <returns></returns>
+		/// TODO Edit XML Comment Template for Resize`1
+		public static T[] Resize<T>(this T[] me, int newSize)
+		{
+			Array.Resize(ref me, newSize);
+			return me;
 		}
 
 	}

@@ -11,7 +11,7 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Returns a copy of the current string with ensured minimum and maximum length.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLength">
 		///     The minimum length of the resulting string. Pads with spaces on the right side if the
 		///     current string is shorter than this length.
@@ -26,9 +26,9 @@ namespace PLib.Extensions.System
 		///     If the string is longer than the minimum length but shorter than the maximum length,
 		///     it will be left untouched.
 		/// </remarks>
-		public static string ResizeLeft(this string @this, int minLength, int maxLength)
+		public static string ResizeLeft(this string me, int minLength, int maxLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
@@ -38,7 +38,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentException("Maximum length is less than minimum length.");
 			}
 
-			return @this.PadLeft(minLength).CropLeft(maxLength);
+			return me.PadLeft(minLength).CropLeft(maxLength);
 		}
 
 
@@ -46,7 +46,7 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Returns a copy of the current string with ensured minimum and maximum length.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLength">
 		///     The minimum length of the resulting string. Pads with spaces on the left side if the
 		///     current string is shorter than this length.
@@ -61,9 +61,9 @@ namespace PLib.Extensions.System
 		///     If the string is longer than the minimum length but shorter than the maximum length,
 		///     it will be left untouched.
 		/// </remarks>
-		public static string ResizeRight(this string @this, int minLength, int maxLength)
+		public static string ResizeRight(this string me, int minLength, int maxLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
@@ -73,7 +73,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentException("Maximum length is less than minimum length.");
 			}
 
-			return @this.PadRight(minLength).CropRight(maxLength);
+			return me.PadRight(minLength).CropRight(maxLength);
 		}
 
 
@@ -81,7 +81,7 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Returns a copy of the current string with ensured minimum and maximum length.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLength">
 		///     The minimum length of the resulting string. Pads with spaces on the left if positive,
 		///     and on the right if negative.
@@ -96,9 +96,9 @@ namespace PLib.Extensions.System
 		///     If the string is longer than the minimum length but shorter than the maximum length,
 		///     it will be left untouched.
 		/// </remarks>
-		public static string Resize(this string @this, int minLength, int maxLength)
+		public static string Resize(this string me, int minLength, int maxLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
@@ -108,7 +108,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentException("Maximum length is less than minimum length.");
 			}
 
-			return @this.Pad(minLength).Crop(maxLength); // As long as |minLen| <= |maxLen| the operations are commutative, i.e. the order doesn't matter.
+			return me.Pad(minLength).Crop(maxLength); // As long as |minLen| <= |maxLen| the operations are commutative, i.e. the order doesn't matter.
 		}
 
 
@@ -118,13 +118,13 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO
 		/// </summary>
-		/// <param name="this"></param>
+		/// <param name="me"></param>
 		/// <param name="minLineLength"></param>
 		/// <param name="maxLineLength"></param>
 		/// <returns></returns>
-		public static string ResizeLinesLeft(this string @this, int minLineLength, int maxLineLength)
+		public static string ResizeLinesLeft(this string me, int minLineLength, int maxLineLength)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.ResizeLeft(minLineLength, maxLineLength))
 				.JoinLines();
@@ -135,13 +135,13 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO
 		/// </summary>
-		/// <param name="this"></param>
+		/// <param name="me"></param>
 		/// <param name="minLineLength"></param>
 		/// <param name="maxLineLength"></param>
 		/// <returns></returns>
-		public static string ResizeLinesRight(this string @this, int minLineLength, int maxLineLength)
+		public static string ResizeLinesRight(this string me, int minLineLength, int maxLineLength)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.ResizeRight(minLineLength, maxLineLength))
 				.JoinLines();
@@ -153,7 +153,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string with ensured minimum and maximum length of every
 		///     line in the current string.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLineLength">
 		///     The minimum length of every line in the resulting string. Pads with spaces on the
 		///     left if positive, and on the right if negative.
@@ -170,9 +170,9 @@ namespace PLib.Extensions.System
 		///     The lines that are longer than the minimum length but shorter than the maximum length
 		///     will be left untouched.
 		/// </remarks>
-		public static string ResizeLines(this string @this, int minLineLength, int maxLineLength)
+		public static string ResizeLines(this string me, int minLineLength, int maxLineLength)
 		{
-			return @this?.Lines()
+			return me?.Lines()
 				.Select(line => line.Resize(minLineLength, maxLineLength))
 				.JoinLines();
 		}

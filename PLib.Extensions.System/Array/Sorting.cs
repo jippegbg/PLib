@@ -14,17 +14,17 @@ namespace PLib.Extensions.System
 		/// Sorts the specified this.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The this.</param>
+		/// <param name="me">The this.</param>
 		/// <exception cref="ArgumentNullException">this</exception>
 		/// TODO Edit XML Comment Template for Sort`1
-		public static void Sort<T>([NotNull] this T[] @this)
+		public static void Sort<T>([NotNull] this T[] me)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
-			Array.Sort(@this);
+			Array.Sort(me);
 		}
 
 
@@ -33,7 +33,7 @@ namespace PLib.Extensions.System
 		/// Sorts the specified comparer.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The this.</param>
+		/// <param name="me">The this.</param>
 		/// <param name="comparer">The comparer.</param>
 		/// <exception cref="ArgumentNullException">
 		/// this
@@ -41,11 +41,11 @@ namespace PLib.Extensions.System
 		/// comparer
 		/// </exception>
 		/// TODO Edit XML Comment Template for Sort`1
-		public static void Sort<T>([NotNull] this T[] @this, [NotNull] IComparer<T> comparer)
+		public static void Sort<T>([NotNull] this T[] me, [NotNull] IComparer<T> comparer)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
 			if (comparer == null)
@@ -53,7 +53,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentNullException(nameof(comparer));
 			}
 
-			Array.Sort(@this, comparer);
+			Array.Sort(me, comparer);
 		}
 
 
@@ -62,7 +62,7 @@ namespace PLib.Extensions.System
 		/// Sorts the specified comparison.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="this">The this.</param>
+		/// <param name="me">The this.</param>
 		/// <param name="comparison">The comparison.</param>
 		/// <exception cref="ArgumentNullException">
 		/// this
@@ -70,11 +70,11 @@ namespace PLib.Extensions.System
 		/// comparison
 		/// </exception>
 		/// TODO Edit XML Comment Template for Sort`1
-		public static void Sort<T>([NotNull] this T[] @this, [NotNull] Comparison<T> comparison)
+		public static void Sort<T>([NotNull] this T[] me, [NotNull] Comparison<T> comparison)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
 			if (comparison == null)
@@ -82,7 +82,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentNullException(nameof(comparison));
 			}
 
-			Array.Sort(@this, comparison);
+			Array.Sort(me, comparison);
 		}
 
 	}

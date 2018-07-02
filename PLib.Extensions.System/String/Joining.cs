@@ -13,11 +13,11 @@ namespace PLib.Extensions.System
 		///     Concatenates all the elements of a string sequence, using the specified separator
 		///     between each element.
 		/// </summary>
-		/// <param name="this">The string sequence to concatenate.</param>
+		/// <param name="me">The string sequence to concatenate.</param>
 		/// <param name="separator">The string to use as a separator. Optional.</param>
 		/// <returns>
-		///     A string that consists of the elements in <paramref name="this"/> delimited by the
-		///     <paramref name="separator"/> string. If <paramref name="this"/> is an empty sequence,
+		///     A string that consists of the elements in <paramref name="me"/> delimited by the
+		///     <paramref name="separator"/> string. If <paramref name="me"/> is an empty sequence,
 		///     the method returns <see cref="string.Empty"/>.
 		/// </returns>
 		/// <remarks>
@@ -34,9 +34,9 @@ namespace PLib.Extensions.System
 		///         <see cref="StringBuilder"/> instead, for better performance.
 		///     </para>
 		/// </remarks>
-		public static string Join(this IEnumerable<string> @this, string separator = null)
+		public static string Join(this IEnumerable<string> me, string separator = null)
 		{
-			return string.Join(separator, @this);
+			return string.Join(separator, me);
 		}
 
 
@@ -45,14 +45,14 @@ namespace PLib.Extensions.System
 		///     Concatenates all the elements of a string sequence into one string delimited by a
 		///     new-line separator.
 		/// </summary>
-		/// <param name="this">The string sequence to concatenate.</param>
+		/// <param name="me">The string sequence to concatenate.</param>
 		/// <returns>
-		///     A string that consists of the elements in <paramref name="this"/> delimited by a line
-		///     separator. If <paramref name="this"/> is an empty sequence, the method returns <see cref="string.Empty"/>.
+		///     A string that consists of the elements in <paramref name="me"/> delimited by a line
+		///     separator. If <paramref name="me"/> is an empty sequence, the method returns <see cref="string.Empty"/>.
 		/// </returns>
-		public static string JoinLines(this IEnumerable<string> @this)
+		public static string JoinLines(this IEnumerable<string> me)
 		{
-			return string.Join(Environment.NewLine, @this);
+			return string.Join(Environment.NewLine, me);
 		}
 
 	}

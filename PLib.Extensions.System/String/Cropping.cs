@@ -12,16 +12,16 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string with ensured maximum length, by removing
 		///     characters from the start, if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="maxLength">The maximum number of characters in the resulting string.</param>
 		/// <returns>A copy of the current string with ensured maximum length.</returns>
 		/// <exception cref="ArgumentOutOfRangeException">
 		///     maxLength - The maximum number of characters cannot be less than zero.
 		/// </exception>
 		/// <remarks>If the string is shorter than the maximum length, it will be left untouched.</remarks>
-		public static string CropLeft(this string @this, int maxLength)
+		public static string CropLeft(this string me, int maxLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
@@ -34,7 +34,7 @@ namespace PLib.Extensions.System
 					"The maximum number of characters cannot be less than zero.");
 			}
 
-			return maxLength < @this.Length ? @this.Substring(@this.Length - maxLength, maxLength) : @this;
+			return maxLength < me.Length ? me.Substring(me.Length - maxLength, maxLength) : me;
 		}
 
 
@@ -43,16 +43,16 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string with ensured maximum length, by removing
 		///     characters from the end, if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="maxLength">The maximum number of characters in the resulting string.</param>
 		/// <returns>A copy of the current string with ensured maximum length.</returns>
 		/// <exception cref="ArgumentOutOfRangeException">
 		///     maxLength - The maximum number of characters cannot be less than zero.
 		/// </exception>
 		/// <remarks>If the string is shorter than the maximum length, it will be left untouched.</remarks>
-		public static string CropRight(this string @this, int maxLength)
+		public static string CropRight(this string me, int maxLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
@@ -65,7 +65,7 @@ namespace PLib.Extensions.System
 					"The maximum number of characters cannot be less than zero.");
 			}
 
-			return maxLength < @this.Length ? @this.Substring(0, maxLength) : @this;
+			return maxLength < me.Length ? me.Substring(0, maxLength) : me;
 		}
 
 
@@ -73,7 +73,7 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Returns a copy of the current string with ensured maximum length.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="maxLength">
 		///     The maximum length of the resulting string. Removes characters from the start if
 		///     positive, and from the end if negative.
@@ -82,14 +82,14 @@ namespace PLib.Extensions.System
 		/// <remarks>
 		///     If the string is shorter than the maximum length, the string will be left untouched.
 		/// </remarks>
-		public static string Crop(this string @this, int maxLength)
+		public static string Crop(this string me, int maxLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
 
-			return maxLength < 0 ? @this.CropRight(-maxLength) : @this.CropLeft(maxLength);
+			return maxLength < 0 ? me.CropRight(-maxLength) : me.CropLeft(maxLength);
 		}
 
 
@@ -100,7 +100,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string with ensured maximum length of every line, by
 		///     removing characters from the start if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="maxLineLength">
 		///     The maximum number of characters of every line in the resulting string.
 		/// </param>
@@ -109,9 +109,9 @@ namespace PLib.Extensions.System
 		///     maxLineLength - The maximum number of characters cannot be less than zero.
 		/// </exception>
 		/// <remarks>The lines that are shorter than the maximum length will be left untouched.</remarks>
-		public static string CropLinesLeft(this string @this, int maxLineLength)
+		public static string CropLinesLeft(this string me, int maxLineLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
@@ -124,7 +124,7 @@ namespace PLib.Extensions.System
 					"The maximum number of characters cannot be less than zero.");
 			}
 
-			return @this
+			return me
 				.Lines()
 				.Select(line => line.CropLeft(maxLineLength))
 				.JoinLines();
@@ -136,7 +136,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string with ensured maximum length of every line, by
 		///     removing characters from the end if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="maxLineLength">
 		///     The maximum number of characters of every line in the resulting string.
 		/// </param>
@@ -145,9 +145,9 @@ namespace PLib.Extensions.System
 		///     maxLineLength - The maximum number of characters cannot be less than zero.
 		/// </exception>
 		/// <remarks>The lines that are shorter than the maximum length will be left untouched.</remarks>
-		public static string CropLinesRight(this string @this, int maxLineLength)
+		public static string CropLinesRight(this string me, int maxLineLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
@@ -160,7 +160,7 @@ namespace PLib.Extensions.System
 					"The maximum number of characters cannot be less than zero.");
 			}
 
-			return @this
+			return me
 				.Lines()
 				.Select(line => line.CropRight(maxLineLength))
 				.JoinLines();
@@ -171,16 +171,16 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Returns a copy of the current string with ensured maximum length of every line.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="maxLineLength">
 		///     The maximum number of characters of every line in the resulting string. Removes
 		///     characters from the start if positive, and the end if negative.
 		/// </param>
 		/// <returns>A copy of the current string with ensured maximum length of every line.</returns>
 		/// <remarks>The lines that are shorter than the maximum length will be left untouched.</remarks>
-		public static string CropLines(this string @this, int maxLineLength)
+		public static string CropLines(this string me, int maxLineLength)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.Crop(maxLineLength))
 				.JoinLines();

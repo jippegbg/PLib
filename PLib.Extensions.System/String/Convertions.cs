@@ -15,11 +15,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static DateTime ToDateTime(this string @this)
+		public static DateTime ToDateTime(this string me)
 		{
-			return DateTime.Parse(@this);
+			return DateTime.Parse(me);
 		}
 
 
@@ -27,13 +27,13 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// To the date time.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="provider">The provider.</param>
 		/// <returns></returns>
 		/// TODO Edit XML Comment
-		public static DateTime ToDateTime(this string @this, IFormatProvider provider)
+		public static DateTime ToDateTime(this string me, IFormatProvider provider)
 		{
-			return DateTime.Parse(@this, provider);
+			return DateTime.Parse(me, provider);
 		}
 
 
@@ -41,41 +41,13 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
-		/// <param name="provider">The provider.</param>
-		/// <param name="styles">The styles.</param>
-		/// <returns></returns>
-		public static DateTime ToDateTime(this string @this, IFormatProvider provider, DateTimeStyles styles)
-		{
-			return DateTime.Parse(@this, provider, styles);
-		}
-
-
-
-		/// <summary>
-		/// TODO Edit XML Comment
-		/// </summary>
-		/// <param name="this">The current string.</param>
-		/// <param name="value">The value.</param>
-		/// <returns></returns>
-		public static bool ToDateTime(this string @this, out DateTime value)
-		{
-			return DateTime.TryParse(@this, out value);
-		}
-
-
-
-		/// <summary>
-		/// TODO Edit XML Comment
-		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
-		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToDateTime(this string @this, IFormatProvider provider, DateTimeStyles styles, out DateTime value)
+		public static DateTime ToDateTime(this string me, IFormatProvider provider, DateTimeStyles styles)
 		{
-			return DateTime.TryParse(@this, provider, styles, out value);
+			return DateTime.Parse(me, provider, styles);
 		}
 
 
@@ -83,13 +55,41 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
+		/// <param name="value">The value.</param>
+		/// <returns></returns>
+		public static bool ToDateTime(this string me, out DateTime value)
+		{
+			return DateTime.TryParse(me, out value);
+		}
+
+
+
+		/// <summary>
+		/// TODO Edit XML Comment
+		/// </summary>
+		/// <param name="me">The current string.</param>
+		/// <param name="provider">The provider.</param>
+		/// <param name="styles">The styles.</param>
+		/// <param name="value">The value.</param>
+		/// <returns></returns>
+		public static bool ToDateTime(this string me, IFormatProvider provider, DateTimeStyles styles, out DateTime value)
+		{
+			return DateTime.TryParse(me, provider, styles, out value);
+		}
+
+
+
+		/// <summary>
+		/// TODO Edit XML Comment
+		/// </summary>
+		/// <param name="me">The current string.</param>
 		/// <param name="format">The format.</param>
 		/// <param name="provider">The provider.</param>
 		/// <returns></returns>
-		public static DateTime ToDateTime(this string @this, string format, IFormatProvider provider)
+		public static DateTime ToDateTime(this string me, string format, IFormatProvider provider)
 		{
-			return DateTime.ParseExact(@this, format, provider);
+			return DateTime.ParseExact(me, format, provider);
 		}
 
 
@@ -97,14 +97,14 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="format">The format.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <returns></returns>
-		public static DateTime ToDateTime(this string @this, string format, IFormatProvider provider, DateTimeStyles styles)
+		public static DateTime ToDateTime(this string me, string format, IFormatProvider provider, DateTimeStyles styles)
 		{
-			return DateTime.ParseExact(@this, format, provider, styles);
+			return DateTime.ParseExact(me, format, provider, styles);
 		}
 
 
@@ -112,14 +112,14 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="formats">The formats.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <returns></returns>
-		public static DateTime ToDateTime(this string @this, string[] formats, IFormatProvider provider, DateTimeStyles styles)
+		public static DateTime ToDateTime(this string me, string[] formats, IFormatProvider provider, DateTimeStyles styles)
 		{
-			return DateTime.ParseExact(@this, formats, provider, styles);
+			return DateTime.ParseExact(me, formats, provider, styles);
 		}
 
 
@@ -127,15 +127,15 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="format">The format.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToDateTime(this string @this, string format, IFormatProvider provider, DateTimeStyles styles, out DateTime value)
+		public static bool ToDateTime(this string me, string format, IFormatProvider provider, DateTimeStyles styles, out DateTime value)
 		{
-			return DateTime.TryParseExact(@this, format, provider, styles, out value);
+			return DateTime.TryParseExact(me, format, provider, styles, out value);
 		}
 
 
@@ -143,15 +143,15 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="formats">The formats.</param>
 		/// <param name="provider">The provider.</param>
 		/// <param name="styles">The styles.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToDateTime(this string @this, string[] formats, IFormatProvider provider, DateTimeStyles styles, out DateTime value)
+		public static bool ToDateTime(this string me, string[] formats, IFormatProvider provider, DateTimeStyles styles, out DateTime value)
 		{
-			return DateTime.TryParseExact(@this, formats, provider, styles, out value);
+			return DateTime.TryParseExact(me, formats, provider, styles, out value);
 		}
 
 
@@ -165,7 +165,7 @@ namespace PLib.Extensions.System
 		/// <typeparam name="T">
 		///     The enumeration type into which to convert the current string.
 		/// </typeparam>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="result">
 		///     When this method returns, contains an object of type
 		///     <typeparamref name="T"/> whose value is represented by the current string.
@@ -177,9 +177,9 @@ namespace PLib.Extensions.System
 		/// <returns>
 		///     <c>true</c> if the value parameter was converted successfully; otherwise, <c>false</c>.
 		/// </returns>
-		public static bool ToEnum<T>(this string @this, out T result, bool ignoreCase) where T : struct
+		public static bool ToEnum<T>(this string me, out T result, bool ignoreCase) where T : struct
 		{
-			return Enum.TryParse(@this, out result);
+			return Enum.TryParse(me, out result);
 		}
 
 
@@ -192,7 +192,7 @@ namespace PLib.Extensions.System
 		/// <typeparam name="T">
 		///     The enumeration type into which to convert the current string.
 		/// </typeparam>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="ignoreCase">
 		///     If <c>true</c>, ignore case; otherwise, regard case. Default is true.
 		/// </param>
@@ -200,9 +200,9 @@ namespace PLib.Extensions.System
 		///     An object of type <typeparamref name="T"/> whose value is represented by
 		///     the current string.
 		/// </returns>
-		public static T ToEnum<T>(this string @this, bool ignoreCase = true) where T : struct
+		public static T ToEnum<T>(this string me, bool ignoreCase = true) where T : struct
 		{
-			return (T)Enum.Parse(typeof(T), @this, ignoreCase);
+			return (T)Enum.Parse(typeof(T), me, ignoreCase);
 		}
 
 
@@ -211,7 +211,7 @@ namespace PLib.Extensions.System
 		///     Creates a new non-resizable <see cref="MemoryStream"/> based on the current
 		///     string encoded according to the current system code page.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="writable">
 		///     The setting of the <see cref="MemoryStream.CanWrite"/> property, which
 		///     determines whether the stream supports writing.
@@ -220,9 +220,9 @@ namespace PLib.Extensions.System
 		///     A new non-resizable <see cref="MemoryStream"/> based on the current string
 		///     encoded according to the current system code page.
 		/// </returns>
-		public static MemoryStream ToMemoryStream(this string @this, bool writable = true)
+		public static MemoryStream ToMemoryStream(this string me, bool writable = true)
 		{
-			return new MemoryStream(Encoding.Default.GetBytes(@this), writable);
+			return new MemoryStream(Encoding.Default.GetBytes(me), writable);
 		}
 
 
@@ -231,7 +231,7 @@ namespace PLib.Extensions.System
 		///     Creates a new non-resizable <see cref="MemoryStream"/> based on the current
 		///     string encoded as specified.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="encoding">The encoding to use for converting the string.</param>
 		/// <param name="writable">
 		///     The setting of the <see cref="MemoryStream.CanWrite"/> property, which
@@ -241,14 +241,14 @@ namespace PLib.Extensions.System
 		///     A new non-resizable <see cref="MemoryStream"/> based on the current string
 		///     encoded as specified.
 		/// </returns>
-		public static MemoryStream ToMemoryStream(this string @this, Encoding encoding = null, bool writable = true)
+		public static MemoryStream ToMemoryStream(this string me, Encoding encoding = null, bool writable = true)
 		{
 			if (encoding == null)
 			{
 				encoding = Encoding.Default;
 			}
 
-			return new MemoryStream(encoding.GetBytes(@this), writable);
+			return new MemoryStream(encoding.GetBytes(me), writable);
 		}
 
 
@@ -256,11 +256,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static sbyte ToSByte(this string @this)
+		public static sbyte ToSByte(this string me)
 		{
-			return sbyte.Parse(@this);
+			return sbyte.Parse(me);
 		}
 
 
@@ -268,12 +268,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToSByte(this string @this, out sbyte value)
+		public static bool ToSByte(this string me, out sbyte value)
 		{
-			return sbyte.TryParse(@this, out value);
+			return sbyte.TryParse(me, out value);
 		}
 
 
@@ -281,11 +281,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static byte ToByte(this string @this)
+		public static byte ToByte(this string me)
 		{
-			return byte.Parse(@this);
+			return byte.Parse(me);
 		}
 
 
@@ -293,12 +293,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToByte(this string @this, out byte value)
+		public static bool ToByte(this string me, out byte value)
 		{
-			return byte.TryParse(@this, out value);
+			return byte.TryParse(me, out value);
 		}
 
 
@@ -306,11 +306,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static ushort ToUInt16(this string @this)
+		public static ushort ToUInt16(this string me)
 		{
-			return ushort.Parse(@this);
+			return ushort.Parse(me);
 		}
 
 
@@ -318,12 +318,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToUInt16(this string @this, out ushort value)
+		public static bool ToUInt16(this string me, out ushort value)
 		{
-			return ushort.TryParse(@this, out value);
+			return ushort.TryParse(me, out value);
 		}
 
 
@@ -331,11 +331,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static short ToInt16(this string @this)
+		public static short ToInt16(this string me)
 		{
-			return short.Parse(@this);
+			return short.Parse(me);
 		}
 
 
@@ -343,12 +343,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToInt16(this string @this, out short value)
+		public static bool ToInt16(this string me, out short value)
 		{
-			return short.TryParse(@this, out value);
+			return short.TryParse(me, out value);
 		}
 
 
@@ -356,11 +356,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static uint ToUInt32(this string @this)
+		public static uint ToUInt32(this string me)
 		{
-			return uint.Parse(@this);
+			return uint.Parse(me);
 		}
 
 
@@ -368,12 +368,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToUInt32(this string @this, out uint value)
+		public static bool ToUInt32(this string me, out uint value)
 		{
-			return uint.TryParse(@this, out value);
+			return uint.TryParse(me, out value);
 		}
 
 
@@ -381,11 +381,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static int ToInt32(this string @this)
+		public static int ToInt32(this string me)
 		{
-			return int.Parse(@this);
+			return int.Parse(me);
 		}
 
 
@@ -393,12 +393,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToInt32(this string @this, out int value)
+		public static bool ToInt32(this string me, out int value)
 		{
-			return int.TryParse(@this, out value);
+			return int.TryParse(me, out value);
 		}
 
 
@@ -406,11 +406,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static ulong ToUInt64(this string @this)
+		public static ulong ToUInt64(this string me)
 		{
-			return ulong.Parse(@this);
+			return ulong.Parse(me);
 		}
 
 
@@ -418,12 +418,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToUInt64(this string @this, out ulong value)
+		public static bool ToUInt64(this string me, out ulong value)
 		{
-			return ulong.TryParse(@this, out value);
+			return ulong.TryParse(me, out value);
 		}
 
 
@@ -431,11 +431,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static long ToInt64(this string @this)
+		public static long ToInt64(this string me)
 		{
-			return long.Parse(@this);
+			return long.Parse(me);
 		}
 
 
@@ -443,12 +443,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToInt64(this string @this, out long value)
+		public static bool ToInt64(this string me, out long value)
 		{
-			return long.TryParse(@this, out value);
+			return long.TryParse(me, out value);
 		}
 
 
@@ -456,11 +456,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static decimal ToDecimal(this string @this)
+		public static decimal ToDecimal(this string me)
 		{
-			return decimal.Parse(@this);
+			return decimal.Parse(me);
 		}
 
 
@@ -468,12 +468,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToDecimal(this string @this, out decimal value)
+		public static bool ToDecimal(this string me, out decimal value)
 		{
-			return decimal.TryParse(@this, out value);
+			return decimal.TryParse(me, out value);
 		}
 
 
@@ -481,11 +481,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static double ToDouble(this string @this)
+		public static double ToDouble(this string me)
 		{
-			return double.Parse(@this);
+			return double.Parse(me);
 		}
 
 
@@ -493,12 +493,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToDouble(this string @this, out double value)
+		public static bool ToDouble(this string me, out double value)
 		{
-			return double.TryParse(@this, out value);
+			return double.TryParse(me, out value);
 		}
 
 
@@ -506,11 +506,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static float ToFloat(this string @this)
+		public static float ToFloat(this string me)
 		{
-			return float.Parse(@this);
+			return float.Parse(me);
 		}
 
 
@@ -518,12 +518,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool ToFloat(this string @this, out float value)
+		public static bool ToFloat(this string me, out float value)
 		{
-			return float.TryParse(@this, out value);
+			return float.TryParse(me, out value);
 		}
 
 
@@ -531,12 +531,12 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException">if the current string cannot be interpreted as a boolean value.</exception>
-		public static bool ToBoolean(this string @this)
+		public static bool ToBoolean(this string me)
 		{
-			switch (@this.Trim().ToLower())
+			switch (me.Trim().ToLower())
 			{
 				case "true":
 				case "yes":
@@ -549,7 +549,7 @@ namespace PLib.Extensions.System
 				case "0":
 					return false;
 				default:
-					throw new ArgumentException("Not a boolean expression.", nameof(@this));
+					throw new ArgumentException("Not a boolean expression.", nameof(me));
 			}
 		}
 
@@ -558,40 +558,104 @@ namespace PLib.Extensions.System
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static DirectoryInfo ToDirectoryInfo(this string @this) => new DirectoryInfo(@this);
+		public static DirectoryInfo ToDirectoryInfo(this string me) => new DirectoryInfo(me);
 
 
 
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static FileInfo ToFileInfo(this string @this) => new FileInfo(@this);
+		public static FileInfo ToFileInfo(this string me) => new FileInfo(me);
 
 
 
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static XDocument ToXDocument(this string @this) => XDocument.Parse(@this);
+		public static XDocument ToXDocument(this string me) => XDocument.Parse(me);
 
 
 
 		/// <summary>
 		/// TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns></returns>
-		public static XmlDocument ToXmlDocument(this string @this)
+		public static XmlDocument ToXmlDocument(this string me)
 		{
 			XmlDocument doc = new XmlDocument();
-			doc.LoadXml(@this);
+			doc.LoadXml(me);
 			return doc;
+		}
+
+
+
+		/// <summary>
+		///     Encodes the current string using UTF-8 encoding, and converts the resulting
+		///     byte array to a Base64 string.
+		/// </summary>
+		/// <param name="me">The current string.</param>
+		/// <returns>
+		///     A new Base64 string created from the UTF-8 encoding of the current string.
+		/// </returns>
+		public static string ToBase64String(this string me)
+		{
+			return Convert.ToBase64String(Encoding.UTF8.GetBytes(me));
+		}
+
+
+
+		/// <summary>
+		///     Encodes the current string using the specified encoding, and converts the
+		///     resulting byte array to a Base64 string.
+		/// </summary>
+		/// <param name="me">The current string.</param>
+		/// <param name="encoding">
+		///     The character encoding used for the bytes converted to Base64 string.
+		/// </param>
+		/// <returns>
+		///     A new Base64 string created from the specified encoding of the current string.
+		/// </returns>
+		public static string ToBase64String(this string me, Encoding encoding)
+		{
+			return Convert.ToBase64String(encoding.GetBytes(me));
+		}
+
+
+
+		/// <summary>
+		///     Converts the current string from Base64 and decodes the resulting bytes as UTF-8.
+		/// </summary>
+		/// <param name="me">The current Base64 string.</param>
+		/// <returns>
+		///     A new string created from the current Base64 string using the UTF-8 encoding.
+		/// </returns>
+		public static string FromBase64String(this string me)
+		{
+			return Encoding.UTF8.GetString(Convert.FromBase64String(me));
+		}
+
+
+		/// <summary>
+		///     Converts the current string from Base64 and decodes the resulting bytes
+		///     using the specified encoding.
+		/// </summary>
+		/// <param name="me">The current Base64 string.</param>
+		/// <param name="encoding">
+		///     The character encoding used for the bytes converted as the current Base64 string.
+		/// </param>
+		/// <returns>
+		///     A new string created from the current Base64 string using the specified encoding.
+		/// </returns>
+		public static string FromBase64String(this string me, Encoding encoding)
+		{
+			return encoding.GetString(Convert.FromBase64String(me));
 		}
 
 	}

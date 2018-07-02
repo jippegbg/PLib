@@ -11,7 +11,7 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Returns a copy of the current string with ensured minimum length.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLength">
 		///     The minimum length of the resulting string. Pads to the left if positive, and on the
 		///     right if negative.
@@ -20,9 +20,9 @@ namespace PLib.Extensions.System
 		/// <remarks>
 		///     If the string is longer than the minimum length, the string is left untouched.
 		/// </remarks>
-		public static string Pad(this string @this, int minLength)
+		public static string Pad(this string me, int minLength)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
@@ -31,7 +31,7 @@ namespace PLib.Extensions.System
 			//	throw new ArgumentOutOfRangeException("minLength", minLength, "The minimum length cannot be less than zero.");
 			//}
 
-			return minLength < 0 ? @this.PadRight(-minLength) : @this.PadLeft(minLength);
+			return minLength < 0 ? me.PadRight(-minLength) : me.PadLeft(minLength);
 		}
 
 
@@ -39,7 +39,7 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Returns a copy of the current string with ensured minimum length.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLength">
 		///     The minimum length of the resulting string. Pads to the left if positive, and on the
 		///     right if negative.
@@ -49,14 +49,14 @@ namespace PLib.Extensions.System
 		/// <remarks>
 		///     If the string is longer than the minimum length, the string is left untouched.
 		/// </remarks>
-		public static string Pad(this string @this, int minLength, char paddingChar)
+		public static string Pad(this string me, int minLength, char paddingChar)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
 
-			return minLength < 0 ? @this.PadRight(-minLength, paddingChar) : @this.PadLeft(minLength, paddingChar);
+			return minLength < 0 ? me.PadRight(-minLength, paddingChar) : me.PadLeft(minLength, paddingChar);
 		}
 
 
@@ -67,15 +67,15 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where the minimum length of every line in a
 		///     string are ensured, by adding spaces to the left if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLineLength">The minimum length of every line in a string.</param>
 		/// <returns>TODO</returns>
 		/// <remarks>
 		///     If a line in the string is longer than the minimum length, it is left untouched.
 		/// </remarks>
-		public static string PadLinesLeft(this string @this, int minLineLength)
+		public static string PadLinesLeft(this string me, int minLineLength)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.PadLeft(minLineLength))
 				.JoinLines();
@@ -87,16 +87,16 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where the minimum length of every line in a
 		///     string are ensured, by adding characters to the left if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLineLength">The minimum length of every line in a string.</param>
 		/// <param name="paddingChar">A Unicode padding character.</param>
 		/// <returns>TODO</returns>
 		/// <remarks>
 		///     If a line in the string is longer than the minimum length, it is left untouched.
 		/// </remarks>
-		public static string PadLinesLeft(this string @this, int minLineLength, char paddingChar)
+		public static string PadLinesLeft(this string me, int minLineLength, char paddingChar)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.PadLeft(minLineLength, paddingChar))
 				.JoinLines();
@@ -108,15 +108,15 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where the minimum length of every line in a
 		///     string are ensured, by adding spaces to the right if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLineLength">The minimum length of every line in a string.</param>
 		/// <returns>TODO</returns>
 		/// <remarks>
 		///     If a line in the string is longer than the minimum length, it is left untouched.
 		/// </remarks>
-		public static string PadLinesRight(this string @this, int minLineLength)
+		public static string PadLinesRight(this string me, int minLineLength)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.PadRight(minLineLength))
 				.Join(Environment.NewLine);
@@ -128,16 +128,16 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where the minimum length of every line in a
 		///     string are ensured, by adding characters to the right if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLineLength">The minimum length of every line in a string.</param>
 		/// <param name="paddingChar">A Unicode padding character.</param>
 		/// <returns>TODO</returns>
 		/// <remarks>
 		///     If a line in the string is longer than the minimum length, it is left untouched.
 		/// </remarks>
-		public static string PadLinesRight(this string @this, int minLineLength, char paddingChar)
+		public static string PadLinesRight(this string me, int minLineLength, char paddingChar)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.PadRight(minLineLength, paddingChar))
 				.JoinLines();
@@ -149,7 +149,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where the minimum length of every line in a
 		///     string are ensured, by adding spaces if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLineLength">
 		///     The minimum length of every line in a string. Pads on the left if positive, and on
 		///     the right if negative.
@@ -158,9 +158,9 @@ namespace PLib.Extensions.System
 		/// <remarks>
 		///     If a line in the string is longer than the minimum length, it is left untouched.
 		/// </remarks>
-		public static string PadLines(this string @this, int minLineLength)
+		public static string PadLines(this string me, int minLineLength)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.Pad(minLineLength))
 				.JoinLines();
@@ -172,7 +172,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where the minimum length of every line in a
 		///     string are ensured, by adding characters if necessary.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="minLineLength">
 		///     The minimum length of every line in a string. Pads on the left if positive, and on
 		///     the right if negative.
@@ -182,9 +182,9 @@ namespace PLib.Extensions.System
 		/// <remarks>
 		///     If a line in the string is longer than the minimum length, it is left untouched.
 		/// </remarks>
-		public static string PadLines(this string @this, int minLineLength, char paddingChar)
+		public static string PadLines(this string me, int minLineLength, char paddingChar)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.Pad(minLineLength, paddingChar))
 				.JoinLines();

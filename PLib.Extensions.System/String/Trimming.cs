@@ -11,7 +11,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where a specified number of character has been
 		///     removed from the start.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="numChars">The number of characters to remove.</param>
 		/// <returns>
 		///     A copy of the current string where a specified number of character has been removed
@@ -22,19 +22,19 @@ namespace PLib.Extensions.System
 		///     If <paramref name="numChars"/> is grater than the length of the string, an empty
 		///     string will be returned.
 		/// </remarks>
-		public static string TrimStart(this string @this, int numChars)
+		public static string TrimStart(this string me, int numChars)
 		{
-			if (@this == null || numChars < 0)
+			if (me == null || numChars < 0)
 			{
-				return @this;
+				return me;
 			}
 
-			if (@this.Length < numChars)
+			if (me.Length < numChars)
 			{
 				return string.Empty;
 			}
 
-			return @this.Substring(numChars);
+			return me.Substring(numChars);
 		}
 
 
@@ -43,7 +43,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where a specified number of character has been
 		///     removed from the end.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="numChars">The number of characters to remove.</param>
 		/// <returns>
 		///     A copy of the current string where a specified number of character has been removed
@@ -54,19 +54,19 @@ namespace PLib.Extensions.System
 		///     If <paramref name="numChars"/> is grater than the length of the string, an empty
 		///     string will be returned.
 		/// </remarks>
-		public static string TrimEnd(this string @this, int numChars)
+		public static string TrimEnd(this string me, int numChars)
 		{
-			if (@this == null || numChars < 0)
+			if (me == null || numChars < 0)
 			{
-				return @this;
+				return me;
 			}
 
-			if (@this.Length < numChars)
+			if (me.Length < numChars)
 			{
 				return string.Empty;
 			}
 
-			return @this.Substring(0, @this.Length - numChars);
+			return me.Substring(0, me.Length - numChars);
 		}
 
 
@@ -75,7 +75,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where a specified number of character has been
 		///     removed from either side.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="numChars">
 		///     The number of characters to remove. Removes characters from the start if
 		///     positive, and end if negative.
@@ -88,14 +88,14 @@ namespace PLib.Extensions.System
 		///     If the absolute value of <paramref name="numChars"/> is greater than the length of
 		///     the string, an empty string will be returned.
 		/// </remarks>
-		public static string Trim(this string @this, int numChars)
+		public static string Trim(this string me, int numChars)
 		{
-			if (@this == null)
+			if (me == null)
 			{
 				return null;
 			}
 
-			return numChars < 0 ? @this.TrimEnd(-numChars) : @this.TrimStart(numChars);
+			return numChars < 0 ? me.TrimEnd(-numChars) : me.TrimStart(numChars);
 		}
 
 
@@ -105,11 +105,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Removes all leading white-space characters from every line of the current string.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns>TODO</returns>
-		public static string TrimLineStarts(this string @this)
+		public static string TrimLineStarts(this string me)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.TrimStart())
 				.JoinLines();
@@ -121,7 +121,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where a specified number of character has been
 		///     removed from the start of every line.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="numChars">The number of characters to remove from every line.</param>
 		/// <returns>
 		///     A copy of the current string where a specified number of character has been removed
@@ -131,9 +131,9 @@ namespace PLib.Extensions.System
 		///     If <paramref name="numChars"/> is zero or less, the original string will be returned.
 		///     Lines that are shorter than <paramref name="numChars"/> will be empty in the result.
 		/// </remarks>
-		public static string TrimLineStarts(this string @this, int numChars)
+		public static string TrimLineStarts(this string me, int numChars)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.TrimStart(numChars))
 				.JoinLines();
@@ -144,11 +144,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Removes all trailing white-space characters from every line of the current string.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns>TODO</returns>
-		public static string TrimLineEnds(this string @this)
+		public static string TrimLineEnds(this string me)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.TrimEnd())
 				.JoinLines();
@@ -160,7 +160,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where a specified number of character has been
 		///     removed from the end of every line.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="numChars">The number of characters to remove from every line.</param>
 		/// <returns>
 		///     A copy of the current string where a specified number of character has been removed
@@ -170,9 +170,9 @@ namespace PLib.Extensions.System
 		///     If <paramref name="numChars"/> is zero or less, the original string will be returned.
 		///     Lines that are shorter than <paramref name="numChars"/> will be empty in the result.
 		/// </remarks>
-		public static string TrimLineEnds(this string @this, int numChars)
+		public static string TrimLineEnds(this string me, int numChars)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.TrimEnd(numChars))
 				.JoinLines();
@@ -183,11 +183,11 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     Removes all leading and trailing white-space characters from every line of the current string.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <returns>TODO</returns>
-		public static string TrimLines(this string @this)
+		public static string TrimLines(this string me)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.Trim())
 				.JoinLines();
@@ -199,7 +199,7 @@ namespace PLib.Extensions.System
 		///     Returns a copy of the current string where a specified number of character has been
 		///     removed from either side of every line.
 		/// </summary>
-		/// <param name="this">The current string.</param>
+		/// <param name="me">The current string.</param>
 		/// <param name="numChars">
 		///     The number of characters to remove from every line. Removes characters from the left
 		///     side if positive, and end if negative.
@@ -213,9 +213,9 @@ namespace PLib.Extensions.System
 		///     that are shorter than the absolute value of <paramref name="numChars"/> will be empty
 		///     in the result.
 		/// </remarks>
-		public static string TrimLines(this string @this, int numChars)
+		public static string TrimLines(this string me, int numChars)
 		{
-			return @this?
+			return me?
 				.Lines()
 				.Select(line => line.Trim(numChars))
 				.JoinLines();

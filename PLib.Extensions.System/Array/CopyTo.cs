@@ -12,21 +12,21 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
 		/// <exception cref="ArgumentNullException">
-		///     <paramref name="this"/> is null
+		///     <paramref name="me"/> is null
 		///     -or-
 		///     <paramref name="dstArray"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		///     The destination array is to short to fit the element of the current array.
 		/// </exception>
-		public static void CopyTo([NotNull] this Array @this, [NotNull] Array dstArray)
+		public static void CopyTo([NotNull] this Array me, [NotNull] Array dstArray)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
 			if (dstArray == null)
@@ -34,12 +34,12 @@ namespace PLib.Extensions.System
 				throw new ArgumentNullException(nameof(dstArray));
 			}
 
-			if (dstArray.LongLength < @this.LongLength)
+			if (dstArray.LongLength < me.LongLength)
 			{
 				throw new ArgumentException("The destination array is to short to fit the element of the current array.");
 			}
 
-			Array.Copy(@this, dstArray, @this.LongLength);
+			Array.Copy(me, dstArray, me.LongLength);
 		}
 
 
@@ -47,23 +47,23 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
 		/// <param name="length">The length.</param>
 		/// <exception cref="ArgumentNullException">
-		///     <paramref name="this"/> is null
+		///     <paramref name="me"/> is null
 		///     -or-
 		///     <paramref name="dstArray"/>
 		/// </exception>
 		/// <exception cref="ArgumentOutOfRangeException">
 		///     if the <paramref name="length"/> is ouside the bound of either
-		///     <paramref name="this"/> or <paramref name="dstArray"/>
+		///     <paramref name="me"/> or <paramref name="dstArray"/>
 		/// </exception>
-		public static void CopyTo([NotNull] this Array @this, [NotNull] Array dstArray, int length)
+		public static void CopyTo([NotNull] this Array me, [NotNull] Array dstArray, int length)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
 			if (dstArray == null)
@@ -71,12 +71,12 @@ namespace PLib.Extensions.System
 				throw new ArgumentNullException(nameof(dstArray));
 			}
 
-			if (length < 0 || @this.Length < length || dstArray.Length < length)
+			if (length < 0 || me.Length < length || dstArray.Length < length)
 			{
 				throw new ArgumentOutOfRangeException(nameof(length));
 			}
 
-			Array.Copy(@this, dstArray, length);
+			Array.Copy(me, dstArray, length);
 		}
 
 
@@ -84,13 +84,13 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="offset">The offset.</param>
 		/// <param name="dstArray">The destination array.</param>
 		/// <param name="dstOffset">The destination offest.</param>
 		/// <param name="length">The length.</param>
 		/// <exception cref="ArgumentNullException">
-		///     <paramref name="this"/> is null
+		///     <paramref name="me"/> is null
 		///     -or-
 		///     <paramref name="dstArray"/> is null.
 		/// </exception>
@@ -107,11 +107,11 @@ namespace PLib.Extensions.System
 		///     from <paramref name="dstOffset"/> to the end of the
 		///     <paramref name="dstArray"/> array.
 		/// </exception>
-		public static void CopyTo([NotNull] this Array @this, int offset, [NotNull] Array dstArray, int dstOffset, int length)
+		public static void CopyTo([NotNull] this Array me, int offset, [NotNull] Array dstArray, int dstOffset, int length)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
 			if (dstArray == null)
@@ -119,7 +119,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentNullException(nameof(dstArray));
 			}
 
-			if (offset < 0 || @this.Length <= offset)
+			if (offset < 0 || me.Length <= offset)
 			{
 				throw new ArgumentOutOfRangeException(nameof(offset));
 			}
@@ -129,7 +129,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentOutOfRangeException(nameof(dstOffset));
 			}
 
-			if (@this.Length < offset + length)
+			if (me.Length < offset + length)
 			{
 				throw new ArgumentException("The length is greater than the number of elements from offset to the end of the current array.");
 			}
@@ -139,7 +139,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentException("The length is greater than the number of elements from destination offset to the end of the destination array.");
 			}
 
-			Array.Copy(@this, offset, dstArray, dstOffset, length);
+			Array.Copy(me, offset, dstArray, dstOffset, length);
 		}
 
 
@@ -147,23 +147,23 @@ namespace PLib.Extensions.System
 		/// <summary>
 		///     TODO Edit XML Comment
 		/// </summary>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
 		/// <param name="length">The length.</param>
 		/// <exception cref="ArgumentNullException">
-		///     <paramref name="this"/> is null
+		///     <paramref name="me"/> is null
 		///     -or-
 		///     <paramref name="dstArray"/>
 		/// </exception>
 		/// <exception cref="ArgumentOutOfRangeException">
 		///     if the <paramref name="length"/> is ouside the bound of either
-		///     <paramref name="this"/> or <paramref name="dstArray"/>
+		///     <paramref name="me"/> or <paramref name="dstArray"/>
 		/// </exception>
-		public static void CopyTo([NotNull] this Array @this, [NotNull] Array dstArray, long length)
+		public static void CopyTo([NotNull] this Array me, [NotNull] Array dstArray, long length)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
 			if (dstArray == null)
@@ -171,12 +171,12 @@ namespace PLib.Extensions.System
 				throw new ArgumentNullException(nameof(dstArray));
 			}
 
-			if (length < 0 || @this.LongLength < length || dstArray.LongLength < length)
+			if (length < 0 || me.LongLength < length || dstArray.LongLength < length)
 			{
 				throw new ArgumentOutOfRangeException(nameof(length));
 			}
 
-			Array.Copy(@this, dstArray, length);
+			Array.Copy(me, dstArray, length);
 		}
 
 
@@ -185,16 +185,16 @@ namespace PLib.Extensions.System
 		/// TODO Edit XML Comment
 		/// </summary>
 		/// <typeparam name="T">The type of the elements in the array.</typeparam>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="offset">The offset.</param>
 		/// <param name="dstArray">The destination array.</param>
 		/// <param name="dstOffset">The destination offset.</param>
 		/// <param name="length">The length.</param>
-		public static void CopyTo<T>([NotNull] this Array @this, long offset, [NotNull] Array dstArray, long dstOffset, long length)
+		public static void CopyTo<T>([NotNull] this Array me, long offset, [NotNull] Array dstArray, long dstOffset, long length)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
 			if (dstArray == null)
@@ -202,7 +202,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentNullException(nameof(dstArray));
 			}
 
-			if (offset < 0L || @this.LongLength <= offset)
+			if (offset < 0L || me.LongLength <= offset)
 			{
 				throw new ArgumentOutOfRangeException(nameof(offset));
 			}
@@ -212,7 +212,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentOutOfRangeException(nameof(dstOffset));
 			}
 
-			if (@this.LongLength < offset + length)
+			if (me.LongLength < offset + length)
 			{
 				throw new ArgumentException("The length is greater than the number of elements from offset to the end of the current array.");
 			}
@@ -222,7 +222,7 @@ namespace PLib.Extensions.System
 				throw new ArgumentException("The length is greater than the number of elements from destination offset to the end of the destination array.");
 			}
 
-			Array.Copy(@this, offset, dstArray, dstOffset, length);
+			Array.Copy(me, offset, dstArray, dstOffset, length);
 		}
 
 
@@ -231,7 +231,7 @@ namespace PLib.Extensions.System
 		/// TODO Edit XML Comment
 		/// </summary>
 		/// <typeparam name="T">The type of the elements in the array.</typeparam>
-		/// <param name="this">The current array.</param>
+		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
 		/// <remarks>
 		///     <para>
@@ -246,14 +246,14 @@ namespace PLib.Extensions.System
 		///         <see cref="UIntPtr"/>, <see cref="Single"/>, and <see cref="Double"/>.
 		///     </para>
 		/// </remarks>
-		public static void BlockCopyTo<T>([NotNull] this Array @this, [NotNull] Array dstArray)
+		public static void BlockCopyTo<T>([NotNull] this Array me, [NotNull] Array dstArray)
 		{
-			if (@this == null)
+			if (me == null)
 			{
-				throw new ArgumentNullException(nameof(@this));
+				throw new ArgumentNullException(nameof(me));
 			}
 
-			Buffer.BlockCopy(@this, 0, dstArray, 0, @this.Length);
+			Buffer.BlockCopy(me, 0, dstArray, 0, me.Length);
 		}
 
 	}

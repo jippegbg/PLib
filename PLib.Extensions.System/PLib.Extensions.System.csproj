@@ -21,8 +21,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <DocumentationFile>bin\Debug\PLib.Extensions.System.XML</DocumentationFile>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>
+    </DocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -50,6 +51,9 @@
     <Compile Include="Array\GetCopy.cs" />
     <Compile Include="Array\CopyTo.cs" />
     <Compile Include="Array\Sorting.cs" />
+    <Compile Include="ByteArray\Common.cs" />
+    <Compile Include="ByteArray\Convertions.cs" />
+    <Compile Include="CharArray\Convertions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Array\Common.cs" />
     <Compile Include="String\Common.cs" />
