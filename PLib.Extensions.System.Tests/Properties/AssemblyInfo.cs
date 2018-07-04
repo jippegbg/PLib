@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PLib.Extensions.Core")]
+[assembly: AssemblyTitle("PLib.Extensions.System.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PLib.Extensions.Core")]
-[assembly: AssemblyCopyright("Copyright © Patrik Eriksson 2018")]
+[assembly: AssemblyProduct("PLib.Extensions.System.Tests")]
+[assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,12 +20,12 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9e9c73cb-94b5-4108-97eb-9135bb911766")]
+[assembly: Guid("250a3f75-9332-4d6b-a7e6-9eccb769f4ca")]
 
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version
+//      Minor Version 
 //      Build Number
 //      Revision
 //

@@ -5,6 +5,10 @@ using System.IO;
 namespace PLib.Extensions.System
 {
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// TODO Edit XML Comment Template for ByteArrayExtensions
 	public static partial class ByteArrayExtensions
 	{
 
