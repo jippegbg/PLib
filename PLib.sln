@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Extensions.System", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Extensions.System.Tests", "PLib.Extensions.System.Tests\PLib.Extensions.System.Tests.csproj", "{250A3F75-9332-4D6B-A7E6-9ECCB769F4CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Extensions.Data", "PLib.Extensions.Data\PLib.Extensions.Data.csproj", "{84EA59F9-3A45-4DE4-A843-BBA37C51209B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +25,16 @@ Global
 		{250A3F75-9332-4D6B-A7E6-9ECCB769F4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{250A3F75-9332-4D6B-A7E6-9ECCB769F4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{250A3F75-9332-4D6B-A7E6-9ECCB769F4CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84EA59F9-3A45-4DE4-A843-BBA37C51209B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84EA59F9-3A45-4DE4-A843-BBA37C51209B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84EA59F9-3A45-4DE4-A843-BBA37C51209B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84EA59F9-3A45-4DE4-A843-BBA37C51209B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9E9C73CB-94B5-4108-97EB-9135BB911766} = {8694D264-5D08-49EB-84F1-9FFEC70CF8DC}
+		{84EA59F9-3A45-4DE4-A843-BBA37C51209B} = {8694D264-5D08-49EB-84F1-9FFEC70CF8DC}
 	EndGlobalSection
 EndGlobal
