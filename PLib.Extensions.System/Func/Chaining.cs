@@ -63,11 +63,11 @@ namespace PLib.Extensions.System
 		/// </typeparam>
 		/// <typeparam name="Z">The output type of function <paramref name="g"/>.</typeparam>
 		/// <param name="f">
-		///     The first function in the chaining, i.e. the function to be applied to the argument.
+		///     The first function in the chaining, i.e. the function to be applied an argument.
 		/// </param>
 		/// <param name="g">
 		///     The second function in the chaining, i.e the function to be applied to the
-		///     result of the first.
+		///     return value of <paramref name="f"/>.
 		/// </param>
 		/// <returns>
 		///     A function that it composed of two other functions in the reverse

@@ -55,11 +55,11 @@ namespace PLib.Extensions.System
 		/// <typeparam name="Z">The output type of function <paramref name="f"/>.</typeparam>
 		/// <param name="f">
 		///     The first function in the composition, i.e. the function to be applied to
-		///     the result of the second function.
+		///     the return value of <paramref name="g"/>.
 		/// </param>
 		/// <param name="g">
 		///     The second function in the composition, i.e. the function to be applied to
-		///     the argument.
+		///     an argument.
 		/// </param>
 		/// <returns>A function that is composed of two other functions.</returns>
 		/// <remarks>
