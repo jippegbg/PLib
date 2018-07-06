@@ -1,5 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Threading;
+using System.Threading.Tasks;
 
 
 namespace PLib.Extensions.Data.SqlClient
@@ -16,17 +18,21 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandText">The command text.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, string commandText)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, string commandText, CancellationToken cancellationToken)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync(cancellationToken);
 			}
 		}
 
@@ -39,18 +45,22 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandText">The command text.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlTransaction transaction, string commandText)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlTransaction transaction, string commandText, CancellationToken cancellationToken)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.Transaction = transaction;
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync(cancellationToken);
 			}
 		}
 
@@ -61,20 +71,26 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
 		/// <param name="commandText">The command text.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, CommandType commandType, string commandText)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, CommandType commandType, string commandText, CancellationToken cancellationToken)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.CommandType = commandType;
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync(cancellationToken);
 			}
 		}
 
@@ -86,13 +102,19 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
 		/// <param name="commandText">The command text.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, CancellationToken cancellationToken)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -100,7 +122,7 @@ namespace PLib.Extensions.Data.SqlClient
 				cmd.CommandType = commandType;
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync(cancellationToken);
 			}
 		}
 
@@ -114,11 +136,15 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters"></param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlTransaction transaction, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlTransaction transaction, string commandText, SqlParameter[] sqlParameters, CancellationToken cancellationToken)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -130,7 +156,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync(cancellationToken);
 			}
 		}
 
@@ -141,14 +167,20 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters"></param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, CommandType commandType, string commandText, SqlParameter[] sqlParameters, CancellationToken cancellationToken)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -160,7 +192,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync(cancellationToken);
 			}
 		}
 
@@ -172,14 +204,20 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters"></param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, SqlParameter[] sqlParameters, CancellationToken cancellationToken)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -192,7 +230,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync(cancellationToken);
 			}
 		}
 
@@ -209,13 +247,17 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <typeparam name="T">The type of the return value.</typeparam>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandText">The command text.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, string commandText)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, string commandText, CancellationToken cancellationToken)
 		{
-			return (T)me.ExecuteScalar(commandText);
+			return (T)await me.ExecuteScalarAsync(commandText, cancellationToken);
 		}
 
 
@@ -228,13 +270,17 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandText">The command text.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlTransaction transaction, string commandText)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlTransaction transaction, string commandText, CancellationToken cancellationToken)
 		{
-			return (T)me.ExecuteScalar(transaction, commandText);
+			return (T)await me.ExecuteScalarAsync(transaction, commandText, cancellationToken);
 		}
 
 
@@ -245,15 +291,21 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <typeparam name="T">The type of the return value.</typeparam>
 		/// <param name="me">The current connection.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
 		/// <param name="commandText">The command text.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, CommandType commandType, string commandText)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, CommandType commandType, string commandText, CancellationToken cancellationToken)
 		{
-			return (T)me.ExecuteScalar(commandType, commandText);
+			return (T)await me.ExecuteScalarAsync(commandType, commandText, cancellationToken);
 		}
 
 
@@ -265,15 +317,21 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <typeparam name="T">The type of the return value.</typeparam>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
 		/// <param name="commandText">The command text.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, CancellationToken cancellationToken)
 		{
-			return (T)me.ExecuteScalar(transaction, commandType, commandText);
+			return (T)await me.ExecuteScalarAsync(transaction, commandType, commandText, cancellationToken);
 		}
 
 
@@ -287,13 +345,17 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters"></param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlTransaction transaction, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlTransaction transaction, string commandText, SqlParameter[] sqlParameters, CancellationToken cancellationToken)
 		{
-			return (T)me.ExecuteScalar(transaction, commandText, sqlParameters);
+			return (T)await me.ExecuteScalarAsync(transaction, commandText, sqlParameters, cancellationToken);
 		}
 
 
@@ -304,16 +366,22 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <typeparam name="T">The type of the return value.</typeparam>
 		/// <param name="me">The current connection.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters"></param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, CommandType commandType, string commandText, SqlParameter[] sqlParameters, CancellationToken cancellationToken)
 		{
-			return (T)me.ExecuteScalar(commandType, commandText, sqlParameters);
+			return (T)await me.ExecuteScalarAsync(commandType, commandText, sqlParameters, cancellationToken);
 		}
 
 
@@ -325,16 +393,22 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <typeparam name="T">The type of the return value.</typeparam>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters"></param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, SqlParameter[] sqlParameters, CancellationToken cancellationToken)
 		{
-			return (T)me.ExecuteScalar(transaction, commandType, commandText, sqlParameters);
+			return (T)await me.ExecuteScalarAsync(transaction, commandType, commandText, sqlParameters, cancellationToken);
 		}
 
 		#endregion [ Using Command Text, Returning T ]
@@ -349,14 +423,18 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="command">The command to execute.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlCommand command)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlCommand command, CancellationToken cancellationToken)
 		{
 			command.Connection = me;
-			return command.ExecuteScalar();
+			return await command.ExecuteScalarAsync(cancellationToken);
 		}
 
 
@@ -368,13 +446,17 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <typeparam name="T">The type of the return value.</typeparam>
 		/// <param name="me">The current connection.</param>
 		/// <param name="command">The command to execute.</param>
+		/// <param name="cancellationToken">
+		///     A cancellation token can be used to request that the operation should be
+		///     abandoned before the command timeout elapses.
+		/// </param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlCommand command)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlCommand command, CancellationToken cancellationToken)
 		{
-			return (T)me.ExecuteScalar(command);
+			return (T)await me.ExecuteScalarAsync(command, cancellationToken);
 		}
 
 		#endregion [ Using SqlCommand ]

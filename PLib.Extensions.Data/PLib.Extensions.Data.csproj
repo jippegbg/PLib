@@ -46,6 +46,8 @@
     <Compile Include="SqlClient\SqlConnection\ExecuteDataTable.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteNonQuery.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteReader.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteScalarAsyncCancellable.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteScalarAsync.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteScalar.cs" />
     <Compile Include="SqlClient\SqlConnection\SqlConnectionExtensions.cs" />
   </ItemGroup>

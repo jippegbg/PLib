@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
@@ -73,6 +74,42 @@ namespace PLib.Extensions.System
 			{
 				return defaultValueFactory(me);
 			}
+		}
+
+
+
+		public static T ConvertTo<T>(this object me)
+		{
+			return (T)me.ConvertTo(typeof(T));
+		}
+
+
+
+		public static object ConvertTo(this object me, Type targetType)
+		{
+			if (me == null || me.GetType() == targetType)
+			{
+				return me;
+			}
+
+			TypeConverter toConverter = TypeDescriptor.GetConverter(me);
+			if (toConverter.CanConvertTo(targetType))
+			{
+				return toConverter.ConvertTo(me, targetType);
+			}
+
+			TypeConverter fromConverter = TypeDescriptor.GetConverter(targetType);
+			if (fromConverter.CanConvertFrom(me.GetType()))
+			{
+				return fromConverter.ConvertFrom(me);
+			}
+
+			if (me == DBNull.Value)
+			{
+				return null;
+			}
+
+			return me;
 		}
 
 

@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 
 namespace PLib.Extensions.Data.SqlClient
@@ -20,13 +21,13 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, string commandText)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync();
 			}
 		}
 
@@ -43,14 +44,14 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlTransaction transaction, string commandText)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlTransaction transaction, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.Transaction = transaction;
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync();
 			}
 		}
 
@@ -67,14 +68,14 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, CommandType commandType, string commandText)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, CommandType commandType, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.CommandType = commandType;
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync();
 			}
 		}
 
@@ -92,7 +93,7 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -100,7 +101,7 @@ namespace PLib.Extensions.Data.SqlClient
 				cmd.CommandType = commandType;
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync();
 			}
 		}
 
@@ -118,7 +119,7 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlTransaction transaction, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlTransaction transaction, string commandText, SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -130,7 +131,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync();
 			}
 		}
 
@@ -148,7 +149,7 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -160,7 +161,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync();
 			}
 		}
 
@@ -179,7 +180,7 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -192,7 +193,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteScalar();
+				return await cmd.ExecuteScalarAsync();
 			}
 		}
 
@@ -213,9 +214,9 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, string commandText)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, string commandText)
 		{
-			return (T)me.ExecuteScalar(commandText);
+			return (T)await me.ExecuteScalarAsync(commandText);
 		}
 
 
@@ -232,9 +233,9 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlTransaction transaction, string commandText)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlTransaction transaction, string commandText)
 		{
-			return (T)me.ExecuteScalar(transaction, commandText);
+			return (T)await me.ExecuteScalarAsync(transaction, commandText);
 		}
 
 
@@ -251,9 +252,9 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, CommandType commandType, string commandText)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, CommandType commandType, string commandText)
 		{
-			return (T)me.ExecuteScalar(commandType, commandText);
+			return (T)await me.ExecuteScalarAsync(commandType, commandText);
 		}
 
 
@@ -271,9 +272,9 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText)
 		{
-			return (T)me.ExecuteScalar(transaction, commandType, commandText);
+			return (T)await me.ExecuteScalarAsync(transaction, commandType, commandText);
 		}
 
 
@@ -291,9 +292,9 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlTransaction transaction, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlTransaction transaction, string commandText, SqlParameter[] sqlParameters)
 		{
-			return (T)me.ExecuteScalar(transaction, commandText, sqlParameters);
+			return (T)await me.ExecuteScalarAsync(transaction, commandText, sqlParameters);
 		}
 
 
@@ -311,9 +312,9 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
 		{
-			return (T)me.ExecuteScalar(commandType, commandText, sqlParameters);
+			return (T)await me.ExecuteScalarAsync(commandType, commandText, sqlParameters);
 		}
 
 
@@ -332,9 +333,9 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, SqlParameter[] sqlParameters)
 		{
-			return (T)me.ExecuteScalar(transaction, commandType, commandText, sqlParameters);
+			return (T)await me.ExecuteScalarAsync(transaction, commandType, commandText, sqlParameters);
 		}
 
 		#endregion [ Using Command Text, Returning T ]
@@ -353,10 +354,10 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static object ExecuteScalar(this SqlConnection me, SqlCommand command)
+		public static async Task<object> ExecuteScalarAsync(this SqlConnection me, SqlCommand command)
 		{
 			command.Connection = me;
-			return command.ExecuteScalar();
+			return await command.ExecuteScalarAsync();
 		}
 
 
@@ -372,9 +373,9 @@ namespace PLib.Extensions.Data.SqlClient
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static T ExecuteScalarAs<T>(this SqlConnection me, SqlCommand command)
+		public static async Task<T> ExecuteScalarAsyncAs<T>(this SqlConnection me, SqlCommand command)
 		{
-			return (T)me.ExecuteScalar(command);
+			return (T)await me.ExecuteScalarAsync(command);
 		}
 
 		#endregion [ Using SqlCommand ]
