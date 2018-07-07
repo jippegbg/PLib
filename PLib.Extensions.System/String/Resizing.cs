@@ -116,7 +116,7 @@ namespace PLib.Extensions.System
 		#region [ Multi-Line ]
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me"></param>
 		/// <param name="minLineLength"></param>
@@ -133,7 +133,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me"></param>
 		/// <param name="minLineLength"></param>

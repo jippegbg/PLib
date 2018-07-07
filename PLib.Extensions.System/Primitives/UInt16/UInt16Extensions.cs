@@ -4,7 +4,7 @@
 	/// <summary>
 	/// 
 	/// </summary>
-	/// TODO Edit XML Comment Template for UInt16Extensions
+	/// TODO: Edit XML Comment
 	public static partial class UInt16Extensions
 	{
 

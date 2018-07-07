@@ -1,11 +1,9 @@
 ﻿namespace PLib.Extensions.System
 {
 
-	public static partial class IntPtrExtension
-	{
-
-
-
-	}
+	/// <summary>
+	///     TODO: Edit XML Comment
+	/// </summary>
+	public static partial class IntPtrExtension { }
 
 }

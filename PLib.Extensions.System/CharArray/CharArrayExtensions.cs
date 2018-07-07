@@ -1,13 +1,10 @@
-﻿using System;
-
-
-namespace PLib.Extensions.System
+﻿namespace PLib.Extensions.System
 {
 
 	/// <summary>
 	/// 
 	/// </summary>
-	/// TODO Edit XML Comment Template for CharArrayExtensions
+	/// TODO: Edit XML Comment
 	public static class CharArrayExtensions
 	{
 
@@ -16,7 +13,7 @@ namespace PLib.Extensions.System
 		/// </summary>
 		/// <param name="me">Me.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for GetString
+		/// TODO: Edit XML Comment
 		public static string GetString(this char[] me)
 		{
 			return new string(me);

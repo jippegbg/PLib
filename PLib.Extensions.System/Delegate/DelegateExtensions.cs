@@ -1,10 +1,9 @@
 ﻿namespace PLib.Extensions.System
 {
+
 	/// <summary>
-	/// 
+	///     TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for DelegateExtensions
-	public static partial class DelegateExtensions
-	{
-	}
+	public static partial class DelegateExtensions { }
+
 }

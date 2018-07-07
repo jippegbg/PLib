@@ -3,7 +3,7 @@
 	/// <summary>
 	/// 
 	/// </summary>
-	/// TODO Edit XML Comment Template for DoubleExtensions
+	/// TODO: Edit XML Comment
 	public static partial class DoubleExtensions
 	{
 	}

@@ -9,7 +9,7 @@ namespace PLib.Extensions.System
 	/// <summary>
 	/// 
 	/// </summary>
-	/// TODO Edit XML Comment Template for Extensions
+	/// TODO: Edit XML Comment
 	public static partial class ArrayExtensions
 	{
 
@@ -21,7 +21,7 @@ namespace PLib.Extensions.System
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException">this</exception>
-		/// TODO Edit XML Comment Template for IndexOf`1
+		/// TODO: Edit XML Comment
 		public static int IndexOf<T>([NotNull] this T[] me, T value)
 		{
 			if (me == null)
@@ -42,7 +42,7 @@ namespace PLib.Extensions.System
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException">this</exception>
-		/// TODO Edit XML Comment Template for LastIndexOf`1
+		/// TODO: Edit XML Comment
 		public static int LastIndexOf<T>([NotNull] this T[] me, T value)
 		{
 			if (me == null)
@@ -61,7 +61,7 @@ namespace PLib.Extensions.System
 		/// <typeparam name="T"></typeparam>
 		/// <param name="me">The current array.</param>
 		/// <exception cref="ArgumentNullException">this</exception>
-		/// TODO Edit XML Comment Template for Clear`1
+		/// TODO: Edit XML Comment
 		public static T[] Clear<T>([NotNull] this T[] me)
 		{
 			if (me == null)
@@ -86,7 +86,7 @@ namespace PLib.Extensions.System
 		/// <exception cref="ArgumentNullException">this</exception>
 		/// <exception cref="ArgumentOutOfRangeException">offset</exception>
 		/// <exception cref="ArgumentException">The length is greater than the number of elements from offset to the end of the current array.</exception>
-		/// TODO Edit XML Comment Template for Clear`1
+		/// TODO: Edit XML Comment
 		public static T[] Clear<T>([NotNull] this T[] me, int offset, int length)
 		{
 			if (me == null)
@@ -121,7 +121,7 @@ namespace PLib.Extensions.System
 		///   <c>true</c> if [is within bounds] [the specified index]; otherwise, <c>false</c>.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">this</exception>
-		/// TODO Edit XML Comment Template for IsWithinBounds`1
+		/// TODO: Edit XML Comment
 		public static bool IsWithinBounds<T>([NotNull] this T[] me, int index)
 		{
 			if (me == null)
@@ -144,7 +144,7 @@ namespace PLib.Extensions.System
 		///   <c>true</c> if [is within bounds] [the specified index]; otherwise, <c>false</c>.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">this</exception>
-		/// TODO Edit XML Comment Template for IsWithinBounds`1
+		/// TODO: Edit XML Comment
 		public static bool IsWithinBounds<T>([NotNull] this T[] me, long index)
 		{
 			if (me == null)
@@ -193,7 +193,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">Me.</param>
 		/// <param name="newSize">The new size.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for Resize`1
+		/// TODO: Edit XML Comment
 		public static T[] Resize<T>(this T[] me, int newSize)
 		{
 			Array.Resize(ref me, newSize);

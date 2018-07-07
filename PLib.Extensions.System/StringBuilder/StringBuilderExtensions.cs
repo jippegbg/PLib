@@ -2,14 +2,8 @@
 {
 
 	/// <summary>
-	/// 
+	///     TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for StringBuilderExtensions
-	public static partial class StringBuilderExtensions
-	{
-
-		
-
-	}
+	public static partial class StringBuilderExtensions { }
 
 }

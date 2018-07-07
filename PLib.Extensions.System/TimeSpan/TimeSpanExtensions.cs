@@ -2,14 +2,8 @@
 {
 
 	/// <summary>
-	/// 
+	///     TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for TimeSpanExtensions
-	public static partial class TimeSpanExtensions
-	{
-
-		
-
-	}
+	public static partial class TimeSpanExtensions { }
 
 }

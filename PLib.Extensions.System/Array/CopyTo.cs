@@ -10,7 +10,7 @@ namespace PLib.Extensions.System
 	{
 
 		/// <summary>
-		///     TODO Edit XML Comment
+		///     TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
@@ -45,7 +45,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		///     TODO Edit XML Comment
+		///     TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
@@ -82,7 +82,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		///     TODO Edit XML Comment
+		///     TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current array.</param>
 		/// <param name="offset">The offset.</param>
@@ -145,7 +145,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		///     TODO Edit XML Comment
+		///     TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
@@ -182,15 +182,14 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
-		/// <typeparam name="T">The type of the elements in the array.</typeparam>
 		/// <param name="me">The current array.</param>
 		/// <param name="offset">The offset.</param>
 		/// <param name="dstArray">The destination array.</param>
 		/// <param name="dstOffset">The destination offset.</param>
 		/// <param name="length">The length.</param>
-		public static void CopyTo<T>([NotNull] this Array me, long offset, [NotNull] Array dstArray, long dstOffset, long length)
+		public static void CopyTo([NotNull] this Array me, long offset, [NotNull] Array dstArray, long dstOffset, long length)
 		{
 			if (me == null)
 			{
@@ -228,9 +227,8 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
-		/// <typeparam name="T">The type of the elements in the array.</typeparam>
 		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
 		/// <remarks>
@@ -246,7 +244,7 @@ namespace PLib.Extensions.System
 		///         <see cref="UIntPtr"/>, <see cref="Single"/>, and <see cref="Double"/>.
 		///     </para>
 		/// </remarks>
-		public static void BlockCopyTo<T>([NotNull] this Array me, [NotNull] Array dstArray)
+		public static void BlockCopyTo([NotNull] this Array me, [NotNull] Array dstArray)
 		{
 			if (me == null)
 			{

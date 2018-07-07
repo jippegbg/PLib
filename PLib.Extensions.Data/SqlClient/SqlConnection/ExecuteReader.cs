@@ -34,8 +34,8 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <summary>
 		/// TODO: Edit XML Cooment
 		/// </summary>
-		/// <param name="this"></param>
-		/// <param name="commandFactory"></param>
+		/// <param name="me">Me.</param>
+		/// <param name="commandFactory">The command factory.</param>
 		/// <returns></returns>
 		public static SqlDataReader ExecuteReader(this SqlConnection me, Action<SqlCommand> commandFactory)
 		{

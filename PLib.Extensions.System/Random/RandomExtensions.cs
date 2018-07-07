@@ -2,14 +2,8 @@
 {
 
 	/// <summary>
-	/// 
+	///     TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for RandomExtensions
-	public static partial class RandomExtensions
-	{
-
-		
-
-	}
+	public static partial class RandomExtensions { }
 
 }

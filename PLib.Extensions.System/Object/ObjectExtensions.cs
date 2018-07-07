@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 
@@ -9,12 +8,17 @@ namespace PLib.Extensions.System
 {
 
 	/// <summary>
-	/// 
+	///     TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for ObjectExtensions
 	public static partial class ObjectExtensions
 	{
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me"></param>
+		/// <returns></returns>
 		public static T As<T>(this object me)
 		{
 			return (T)me;
@@ -22,6 +26,12 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me"></param>
+		/// <returns></returns>
 		public static T AsOrDefault<T>(this object me)
 		{
 			try
@@ -36,6 +46,13 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me"></param>
+		/// <param name="defaultValue"></param>
+		/// <returns></returns>
 		public static T AsOrDefault<T>(this object me, T defaultValue)
 		{
 			try
@@ -50,6 +67,13 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me"></param>
+		/// <param name="defaultValueFactory"></param>
+		/// <returns></returns>
 		public static T AsOrDefault<T>(this object me, Func<T> defaultValueFactory)
 		{
 			try
@@ -64,6 +88,13 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me"></param>
+		/// <param name="defaultValueFactory"></param>
+		/// <returns></returns>
 		public static T AsOrDefault<T>(this object me, Func<object, T> defaultValueFactory)
 		{
 			try
@@ -78,6 +109,12 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me"></param>
+		/// <returns></returns>
 		public static T ConvertTo<T>(this object me)
 		{
 			return (T)me.ConvertTo(typeof(T));
@@ -85,6 +122,12 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <param name="me"></param>
+		/// <param name="targetType"></param>
+		/// <returns></returns>
 		public static object ConvertTo(this object me, Type targetType)
 		{
 			if (me == null || me.GetType() == targetType)
@@ -114,6 +157,12 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me"></param>
+		/// <returns></returns>
 		public static bool IsAssignableTo<T>(this object me)
 		{
 			return me.GetType().IsAssignableTo<T>();
@@ -121,6 +170,12 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <param name="me"></param>
+		/// <param name="targetType"></param>
+		/// <returns></returns>
 		public static bool IsAssignableTo(this object me, Type targetType)
 		{
 			return me.GetType().IsAssignableTo(targetType);
@@ -128,6 +183,12 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <param name="me"></param>
+		/// <param name="targetTypes"></param>
+		/// <returns></returns>
 		public static bool IsAssignableToAny(this object me, IEnumerable<Type> targetTypes)
 		{
 			Type currentType = me.GetType();
@@ -136,6 +197,12 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <param name="me"></param>
+		/// <param name="targetTypes"></param>
+		/// <returns></returns>
 		public static bool IsAssignableToAll(this object me, IEnumerable<Type> targetTypes)
 		{
 			Type currentType = me.GetType();

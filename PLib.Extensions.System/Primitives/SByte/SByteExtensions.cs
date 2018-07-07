@@ -1,19 +1,9 @@
-﻿using System;
-using System.Numerics;
-
-
-namespace PLib.Extensions.System
+﻿namespace PLib.Extensions.System
 {
 
 	/// <summary>
-	/// 
+	/// TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for SByteExtensions
-	public static partial class SByteExtensions
-	{
-
-		
-
-	}
+	public static partial class SByteExtensions { }
 
 }

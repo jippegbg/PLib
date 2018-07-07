@@ -1,10 +1,9 @@
 ﻿namespace PLib.Extensions.System
 {
+
 	/// <summary>
-	/// 
+	///     TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for DateTimeOffsetExtensions
-	public static partial class DateTimeOffsetExtensions
-	{
-	}
+	public static partial class DateTimeOffsetExtensions { }
+
 }

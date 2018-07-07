@@ -3,7 +3,7 @@
 	/// <summary>
 	/// 
 	/// </summary>
-	/// TODO Edit XML Comment Template for DecimalExtensions
+	/// TODO: Edit XML Comment
 	public static partial class DecimalExtensions
 	{
 	}

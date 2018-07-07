@@ -1,10 +1,9 @@
 ﻿namespace PLib.Extensions.System
 {
+
 	/// <summary>
-	/// 
+	///     TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for EnumExtensions
-	public static partial class EnumExtensions
-	{
-	}
+	public static partial class EnumExtensions { }
+
 }

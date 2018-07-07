@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using System.Threading;
 
@@ -7,9 +8,9 @@ namespace PLib.Extensions.System
 {
 
 	/// <summary>
-	/// bla bla bla
+	/// TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for Extensions
+	[SuppressMessage("ReSharper", "UnusedMember.Local")]
 	public static partial class StringExtensions
 	{
 

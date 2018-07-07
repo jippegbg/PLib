@@ -13,7 +13,7 @@ namespace PLib.Extensions.System
 	{
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -22,7 +22,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="pattern">The pattern.</param>
@@ -36,7 +36,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="pattern">The pattern.</param>
@@ -50,7 +50,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="pattern">The pattern.</param>
@@ -67,7 +67,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -76,7 +76,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -85,7 +85,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -94,7 +94,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -103,7 +103,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -136,7 +136,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="replacement">The replacement.</param>
@@ -149,7 +149,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="replacement">The replacement.</param>
@@ -162,7 +162,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="replacement">The replacement.</param>
@@ -175,7 +175,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="other">The other.</param>
@@ -202,7 +202,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="other">The other.</param>
@@ -218,7 +218,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="pattern">The pattern.</param>
@@ -249,7 +249,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="paths">The paths.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for CombinePathWith
+		/// TODO: Edit XML Comment
 		public static string CombinePathWith(this string me, params string[] paths)
 		{
 			string[] args = new string[paths.Length + 1];
@@ -265,7 +265,7 @@ namespace PLib.Extensions.System
 		/// </summary>
 		/// <param name="me">The this.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for RemoveLetters
+		/// TODO: Edit XML Comment
 		public static string RemoveLetters(this string me)
 		{
 			return new string(me.Where(c => !Char.IsLetter(c)).ToArray());
@@ -278,7 +278,7 @@ namespace PLib.Extensions.System
 		/// </summary>
 		/// <param name="me">The this.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for RemoveNumbers
+		/// TODO: Edit XML Comment
 		public static string RemoveNumbers(this string me)
 		{
 			return new string(me.Where(c => !Char.IsNumber(c)).ToArray());
@@ -291,7 +291,7 @@ namespace PLib.Extensions.System
 		/// </summary>
 		/// <param name="me">The this.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for RemoveDecimalDigits
+		/// TODO: Edit XML Comment
 		public static string RemoveDecimalDigits(this string me)
 		{
 			return new string(me.Where(c => !Char.IsDigit(c)).ToArray());
@@ -305,7 +305,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="predicate">The predicate.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for RemoveCharacterWhere
+		/// TODO: Edit XML Comment
 		public static string RemoveCharacterWhere(this string me, Func<char, bool> predicate)
 		{
 			return new string(me.Where(c => !predicate(c)).ToArray());
@@ -321,7 +321,7 @@ namespace PLib.Extensions.System
 		/// <param name="endIndex">The end index.</param>
 		/// <param name="replacement">The replacement.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ReplaceSegment
+		/// TODO: Edit XML Comment
 		public static string ReplaceSegment(this string me, int startIndex, int endIndex, string replacement)
 		{
 			return $"{me.Substring(0, startIndex)}{replacement}{me.Substring(endIndex)}";
@@ -337,7 +337,7 @@ namespace PLib.Extensions.System
 		/// <param name="length">The length.</param>
 		/// <param name="replacement">The replacement.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ReplaceSegmentLength
+		/// TODO: Edit XML Comment
 		public static string ReplaceSegmentLength(this string me, int startIndex, int length, string replacement)
 		{
 			return $"{me.Substring(0, startIndex)}{replacement}{me.Substring(startIndex + length)}";
@@ -352,7 +352,7 @@ namespace PLib.Extensions.System
 		/// <param name="substring">The substring.</param>
 		/// <param name="replacement">The replacement.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ReplaceFirst
+		/// TODO: Edit XML Comment
 		public static string ReplaceFirst(this string me, string substring, string replacement)
 		{
 			int ix = me.IndexOf(substring, StringComparison.Ordinal);
@@ -394,7 +394,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="substrings">The substrings.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for Erase
+		/// TODO: Edit XML Comment
 		public static string Erase(this string me, params string[] substrings)
 		{
 			foreach (string ss in substrings)
@@ -414,7 +414,7 @@ namespace PLib.Extensions.System
 		/// <param name="startIndex">The start index.</param>
 		/// <param name="endIndex">The end index.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for EraseSegment
+		/// TODO: Edit XML Comment
 		public static string EraseSegment(this string me, int startIndex, int endIndex)
 		{
 			char[] chars = me.ToCharArray();
@@ -437,7 +437,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="substring">The substring.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for EraseFirst
+		/// TODO: Edit XML Comment
 		public static string EraseFirst(this string me, string substring)
 		{
 			int ix = me.IndexOf(substring, StringComparison.Ordinal);
@@ -464,7 +464,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="substring">The substring.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for EraseLast
+		/// TODO: Edit XML Comment
 		public static string EraseLast(this string me, string substring)
 		{
 			int ix = me.LastIndexOf(substring, StringComparison.Ordinal);
@@ -491,7 +491,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="substrings">The substrings.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for Remove
+		/// TODO: Edit XML Comment
 		public static string Remove(this string me, params string[] substrings)
 		{
 			foreach (string ss in substrings)
@@ -511,7 +511,7 @@ namespace PLib.Extensions.System
 		/// <param name="startIndex">The start index.</param>
 		/// <param name="endIndex">The end index.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for RemoveSegment
+		/// TODO: Edit XML Comment
 		public static string RemoveSegment(this string me, int startIndex, int endIndex)
 		{
 			return $"{me.Substring(0, startIndex)}{me.Substring(endIndex)}";
@@ -525,7 +525,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="substring">The substring.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for RemoveFirst
+		/// TODO: Edit XML Comment
 		public static string RemoveFirst(this string me, string substring)
 		{
 			int ix = me.IndexOf(substring, StringComparison.Ordinal);
@@ -546,7 +546,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="substring">The substring.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for RemoveLast
+		/// TODO: Edit XML Comment
 		public static string RemoveLast(this string me, string substring)
 		{
 			int ix = me.LastIndexOf(substring, StringComparison.Ordinal);
@@ -567,7 +567,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="fileName">Name of the file.</param>
 		/// <param name="append">if set to <c>true</c> [append].</param>
-		/// TODO Edit XML Comment Template for SaveAs
+		/// TODO: Edit XML Comment
 		public static void SaveAs(this string me, string fileName, bool append = false)
 		{
 			using (TextWriter tw = new StreamWriter(fileName, append))
@@ -585,7 +585,7 @@ namespace PLib.Extensions.System
 		/// <param name="fileName">Name of the file.</param>
 		/// <param name="encoding">The encoding.</param>
 		/// <param name="append">if set to <c>true</c> [append].</param>
-		/// TODO Edit XML Comment Template for SaveAs
+		/// TODO: Edit XML Comment
 		public static void SaveAs(this string me, string fileName, Encoding encoding, bool append = false)
 		{
 			using (TextWriter tw = new StreamWriter(fileName, append, encoding))
@@ -602,7 +602,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The this.</param>
 		/// <param name="file">The file.</param>
 		/// <param name="append">if set to <c>true</c> [append].</param>
-		/// TODO Edit XML Comment Template for SaveAs
+		/// TODO: Edit XML Comment
 		public static void SaveAs(this string me, FileInfo file, bool append)
 		{
 			using (TextWriter tw = new StreamWriter(file.FullName, append))
@@ -620,7 +620,7 @@ namespace PLib.Extensions.System
 		/// <param name="file">The file.</param>
 		/// <param name="encoding">The encoding.</param>
 		/// <param name="append">if set to <c>true</c> [append].</param>
-		/// TODO Edit XML Comment Template for SaveAs
+		/// TODO: Edit XML Comment
 		public static void SaveAs(this string me, FileInfo file, Encoding encoding, bool append = false)
 		{
 			using (TextWriter tw = new StreamWriter(file.FullName, append, encoding))

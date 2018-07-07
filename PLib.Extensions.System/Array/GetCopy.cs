@@ -99,7 +99,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		///     TODO Edit XML Comment
+		///     TODO: Edit XML Comment
 		/// </summary>
 		/// <typeparam name="T">The type of the elements in the array.</typeparam>
 		/// <param name="me">The current array.</param>
@@ -141,7 +141,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		///     TODO Edit XML Comment
+		///     TODO: Edit XML Comment
 		/// </summary>
 		/// <typeparam name="T">The type of the elements in the array.</typeparam>
 		/// <param name="me">The current array.</param>
@@ -180,7 +180,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The current array.</param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException">this</exception>
-		/// TODO Edit XML Comment Template for GetBlockCopy`1
+		/// TODO: Edit XML Comment
 		public static T[,] GetBlockCopy<T>([NotNull] this T[,] me)
 		{
 			if (me == null)

@@ -220,6 +220,11 @@ namespace PLib.Extensions.System
 			return string.Join(Environment.NewLine, resultLines);
 		}
 
+		/* TODO: Also create another method that wraps a string into multiple lies byt that doesn't hyphenate the words.
+		         If a word doesn't fit at the end of one line, just move it to the next line.
+		         This will of course make the line length to differ more from eachother than by hyphenating the words.
+				 One limitation is though, if a single word is longer that the maximum line length, it still have to be hyphenated.
+		*/
 	}
 
 }

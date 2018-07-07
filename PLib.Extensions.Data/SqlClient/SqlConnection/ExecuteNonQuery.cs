@@ -34,9 +34,8 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <summary>
 		/// TODO: Edit XML Cooment
 		/// </summary>
-		/// <param name="this"></param>
-		/// <param name="commandFactory"></param>
-		/// <returns></returns>
+		/// <param name="me">Me.</param>
+		/// <param name="commandFactory">The command factory.</param>
 		public static void ExecuteNonQuery(this SqlConnection me, Action<SqlCommand> commandFactory)
 		{
 			using (SqlCommand command = me.CreateCommand())
@@ -64,6 +63,30 @@ namespace PLib.Extensions.Data.SqlClient
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.CommandText = commandText;
+
+				cmd.ExecuteNonQuery();
+			}
+		}
+
+
+
+		/// <summary>
+		///     Executes a query, and returns the first column of the first row in the
+		///     result set returned by the query. Additional columns or rows are ignored.
+		/// </summary>
+		/// <param name="me">The current connection.</param>
+		/// <param name="commandText">The command text.</param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
+		public static void ExecuteNonQuery(this SqlConnection me, string commandText, params SqlParameter[] sqlParameters)
+		{
+			using (SqlCommand cmd = me.CreateCommand())
+			{
+				cmd.CommandText = commandText;
+
+				if (sqlParameters != null)
+				{
+					cmd.Parameters.AddRange(sqlParameters);
+				}
 
 				cmd.ExecuteNonQuery();
 			}

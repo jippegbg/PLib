@@ -1,10 +1,9 @@
 ﻿namespace PLib.Extensions.System
 {
+
 	/// <summary>
-	/// 
+	///     TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for CharExtensions
-	public static partial class CharExtensions
-	{
-	}
+	public static partial class CharExtensions { }
+
 }

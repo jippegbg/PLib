@@ -36,8 +36,8 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <summary>
 		/// TODO: Edit XML Cooment
 		/// </summary>
-		/// <param name="this"></param>
-		/// <param name="commandFactory"></param>
+		/// <param name="me">Me.</param>
+		/// <param name="commandFactory">The command factory.</param>
 		/// <returns></returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, Action<SqlCommand> commandFactory)
 		{
@@ -66,6 +66,34 @@ namespace PLib.Extensions.Data.SqlClient
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.CommandText = commandText;
+
+				return await cmd.ExecuteXmlReaderAsync();
+			}
+		}
+
+
+
+		/// <summary>
+		///     Executes a query, and returns the first column of the first row in the
+		///     result set returned by the query. Additional columns or rows are ignored.
+		/// </summary>
+		/// <param name="me">The current connection.</param>
+		/// <param name="commandText">The command text.</param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
+		/// <returns>
+		///     The first column of the first row in the result set, or a null reference if
+		///     the result set is empty.
+		/// </returns>
+		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, string commandText, params SqlParameter[] sqlParameters)
+		{
+			using (SqlCommand cmd = me.CreateCommand())
+			{
+				cmd.CommandText = commandText;
+
+				if (sqlParameters != null)
+				{
+					cmd.Parameters.AddRange(sqlParameters);
+				}
 
 				return await cmd.ExecuteXmlReaderAsync();
 			}

@@ -16,7 +16,7 @@ namespace PLib.Extensions.System
 		/// <typeparam name="T"></typeparam>
 		/// <param name="me">The this.</param>
 		/// <exception cref="ArgumentNullException">this</exception>
-		/// TODO Edit XML Comment Template for Sort`1
+		/// TODO: Edit XML Comment
 		public static void Sort<T>([NotNull] this T[] me)
 		{
 			if (me == null)
@@ -40,7 +40,7 @@ namespace PLib.Extensions.System
 		/// -or-
 		/// comparer
 		/// </exception>
-		/// TODO Edit XML Comment Template for Sort`1
+		/// TODO: Edit XML Comment
 		public static void Sort<T>([NotNull] this T[] me, [NotNull] IComparer<T> comparer)
 		{
 			if (me == null)
@@ -69,7 +69,7 @@ namespace PLib.Extensions.System
 		/// -or-
 		/// comparison
 		/// </exception>
-		/// TODO Edit XML Comment Template for Sort`1
+		/// TODO: Edit XML Comment
 		public static void Sort<T>([NotNull] this T[] me, [NotNull] Comparison<T> comparison)
 		{
 			if (me == null)

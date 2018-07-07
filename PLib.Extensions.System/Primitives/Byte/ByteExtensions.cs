@@ -4,7 +4,7 @@
 	/// <summary>
 	/// 
 	/// </summary>
-	/// TODO Edit XML Comment Template for ByteExtensions
+	/// TODO: Edit XML Comment
 	public static partial class ByteExtensions
 	{
 

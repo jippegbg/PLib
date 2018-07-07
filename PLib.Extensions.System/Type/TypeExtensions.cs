@@ -7,12 +7,19 @@ namespace PLib.Extensions.System
 {
 
 	/// <summary>
-	/// 
+	///     TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for TypeExtensions
 	public static partial class TypeExtensions
 	{
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">Me.</param>
+		/// <returns>
+		///     <c>true</c> if [is assignable to] [the specified me]; otherwise, <c>false</c>.
+		/// </returns>
 		public static bool IsAssignableTo<T>(this Type me)
 		{
 			return typeof(T).IsAssignableFrom(me);
@@ -20,6 +27,14 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <param name="me">Me.</param>
+		/// <param name="target">The target.</param>
+		/// <returns>
+		///     <c>true</c> if [is assignable to] [the specified target]; otherwise, <c>false</c>.
+		/// </returns>
 		public static bool IsAssignableTo(this Type me, Type target)
 		{
 			return target.IsAssignableFrom(me);
@@ -27,6 +42,14 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <param name="me">Me.</param>
+		/// <param name="targets">The targets.</param>
+		/// <returns>
+		///     <c>true</c> if [is assignable to any] [the specified targets]; otherwise, <c>false</c>.
+		/// </returns>
 		public static bool IsAssignableToAny(this Type me, IEnumerable<Type> targets)
 		{
 			return targets.Any(t => t.IsAssignableFrom(me));
@@ -34,6 +57,14 @@ namespace PLib.Extensions.System
 
 
 
+		/// <summary>
+		///     TODO: Edit XML Comment
+		/// </summary>
+		/// <param name="me">Me.</param>
+		/// <param name="targets">The targets.</param>
+		/// <returns>
+		///     <c>true</c> if [is assignable to all] [the specified targets]; otherwise, <c>false</c>.
+		/// </returns>
 		public static bool IsAssignableToAll(this Type me, IEnumerable<Type> targets)
 		{
 			return targets.All(t => t.IsAssignableFrom(me));

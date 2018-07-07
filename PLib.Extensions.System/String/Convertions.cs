@@ -13,7 +13,7 @@ namespace PLib.Extensions.System
 	{
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -30,7 +30,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">The current string.</param>
 		/// <param name="provider">The provider.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		public static DateTime ToDateTime(this string me, IFormatProvider provider)
 		{
 			return DateTime.Parse(me, provider);
@@ -39,7 +39,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="provider">The provider.</param>
@@ -53,7 +53,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -66,7 +66,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="provider">The provider.</param>
@@ -81,7 +81,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="format">The format.</param>
@@ -95,7 +95,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="format">The format.</param>
@@ -110,7 +110,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="formats">The formats.</param>
@@ -125,7 +125,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="format">The format.</param>
@@ -141,7 +141,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="formats">The formats.</param>
@@ -254,7 +254,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -266,7 +266,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -279,7 +279,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -291,7 +291,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -304,7 +304,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -316,7 +316,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -329,7 +329,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -341,7 +341,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -354,7 +354,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -366,7 +366,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -379,7 +379,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -391,7 +391,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -404,7 +404,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -416,7 +416,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -429,7 +429,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -441,7 +441,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -454,7 +454,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -466,7 +466,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -479,7 +479,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -491,7 +491,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -504,7 +504,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -516,7 +516,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="value">The value.</param>
@@ -529,7 +529,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -556,7 +556,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -565,7 +565,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -574,7 +574,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>
@@ -583,7 +583,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO Edit XML Comment
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <returns></returns>

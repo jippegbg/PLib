@@ -4,7 +4,7 @@
 	/// <summary>
 	/// 
 	/// </summary>
-	/// TODO Edit XML Comment Template for Int64Extensions
+	/// TODO: Edit XML Comment
 	public static partial class Int64Extensions
 	{
 

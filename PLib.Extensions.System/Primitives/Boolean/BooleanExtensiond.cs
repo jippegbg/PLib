@@ -1,11 +1,9 @@
-﻿namespace PLib.Extensions.System.Primitives.Boolean
+﻿namespace PLib.Extensions.System
 {
 
-	public static partial class BooleanExtensiond
-	{
-
-
-
-	}
+	/// <summary>
+	///     TODO: Edit XML Comment
+	/// </summary>
+	public static partial class BooleanExtensiond { }
 
 }

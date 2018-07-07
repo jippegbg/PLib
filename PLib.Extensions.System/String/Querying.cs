@@ -29,7 +29,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The this.</param>
 		/// <param name="comparisonType">Type of the comparison.</param>
@@ -53,7 +53,7 @@ namespace PLib.Extensions.System
 
 
 		/// <summary>
-		/// TODO
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The this.</param>
 		/// <param name="comparisonType">Type of the comparison.</param>

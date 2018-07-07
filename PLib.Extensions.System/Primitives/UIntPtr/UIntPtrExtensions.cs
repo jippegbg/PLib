@@ -1,11 +1,9 @@
 ﻿namespace PLib.Extensions.System.UIntPtr
 {
 
-	public static partial class UIntPtrExtensions
-	{
-
-
-
-	}
+	/// <summary>
+	///     TODO: Edit XML Comment
+	/// </summary>
+	public static partial class UIntPtrExtensions { }
 
 }

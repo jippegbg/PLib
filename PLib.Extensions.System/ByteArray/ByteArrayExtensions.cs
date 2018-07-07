@@ -1,23 +1,20 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 
 namespace PLib.Extensions.System
 {
 
 	/// <summary>
-	/// 
+	/// TODO: Edit XML Comment
 	/// </summary>
-	/// TODO Edit XML Comment Template for ByteArrayExtensions
 	public static partial class ByteArrayExtensions
 	{
 
 		/// <summary>
-		/// To the memory stream.
+		/// TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="this">The this.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToMemoryStream
 		public static MemoryStream ToMemoryStream(this byte[] @this)
 		{
 			return new MemoryStream(@this);

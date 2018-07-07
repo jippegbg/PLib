@@ -8,7 +8,7 @@ namespace PLib.Extensions.System
 	/// <summary>
 	/// 
 	/// </summary>
-	/// TODO Edit XML Comment Template for ByteArrayExtensions
+	/// TODO: Edit XML Comment
 	public static partial class ByteArrayExtensions
 	{
 
@@ -52,7 +52,7 @@ namespace PLib.Extensions.System
 		/// </summary>
 		/// <param name="me">Me.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToBase64String
+		/// TODO: Edit XML Comment
 		public static string ToBase64String(this byte[] me)
 		{
 			return Convert.ToBase64String(me);
@@ -66,7 +66,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">Me.</param>
 		/// <param name="options">The options.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToBase64String
+		/// TODO: Edit XML Comment
 		public static string ToBase64String(this byte[] me, Base64FormattingOptions options)
 		{
 			return Convert.ToBase64String(me, options);
@@ -81,7 +81,7 @@ namespace PLib.Extensions.System
 		/// <param name="offset">The offset.</param>
 		/// <param name="length">The length.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToBase64String
+		/// TODO: Edit XML Comment
 		public static string ToBase64String(this byte[] me, int offset, int length)
 		{
 			return Convert.ToBase64String(me, offset, length);
@@ -97,7 +97,7 @@ namespace PLib.Extensions.System
 		/// <param name="length">The length.</param>
 		/// <param name="options">The options.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToBase64String
+		/// TODO: Edit XML Comment
 		public static string ToBase64String(this byte[] me, int offset, int length, Base64FormattingOptions options)
 		{
 			return Convert.ToBase64String(me, offset, length, options);
@@ -149,7 +149,7 @@ namespace PLib.Extensions.System
 		/// <param name="me">Me.</param>
 		/// <param name="options">The options.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToBase64CharArray
+		/// TODO: Edit XML Comment
 		public static char[] ToBase64CharArray(this byte[] me, Base64FormattingOptions options)
 		{
 			int length = me.Length;
@@ -170,7 +170,7 @@ namespace PLib.Extensions.System
 		/// <param name="offset">The offset.</param>
 		/// <param name="length">The length.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToBase64CharArray
+		/// TODO: Edit XML Comment
 		public static char[] ToBase64CharArray(this byte[] me, int offset, int length)
 		{
 			char[] chars = new char[CalculateBase64Count(length)];
@@ -190,7 +190,7 @@ namespace PLib.Extensions.System
 		/// <param name="length">The length.</param>
 		/// <param name="options">The options.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToBase64CharArray
+		/// TODO: Edit XML Comment
 		public static char[] ToBase64CharArray(this byte[] me, int offset, int length, Base64FormattingOptions options)
 		{
 			char[] chars = new char[CalculateBase64Count(length)];

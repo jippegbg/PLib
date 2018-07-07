@@ -2,13 +2,8 @@
 {
 
 	/// <summary>
-	/// TODO: Edit XML Comments
+	///     TODO: Edit XML Comments
 	/// </summary>
-	public static partial class SqlAdapterExtensions
-	{
-
-
-
-	}
+	public static partial class SqlAdapterExtensions { }
 
 }
