@@ -76,6 +76,30 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
+		/// <param name="commandText">The command text.</param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
+		public static void ExecuteNonQuery(this SqlConnection me, string commandText, params SqlParameter[] sqlParameters)
+		{
+			using (SqlCommand cmd = me.CreateCommand())
+			{
+				cmd.CommandText = commandText;
+
+				if (sqlParameters != null)
+				{
+					cmd.Parameters.AddRange(sqlParameters);
+				}
+
+				cmd.ExecuteNonQuery();
+			}
+		}
+
+
+
+		/// <summary>
+		///     Executes a query, and returns the first column of the first row in the
+		///     result set returned by the query. Additional columns or rows are ignored.
+		/// </summary>
+		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <returns>

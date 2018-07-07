@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Xml;
+using System.Threading;
+using System.Threading.Tasks;
 
 
-namespace PLib.Extensions.Data.SqlClient
-{
+namespace PLib.Extensions.Data.SqlClient {
 
 	public static partial class SqlConnectionExtensions
 	{
 
-		// TODO: Adjust all XML comments for XmlReader
+		// TODO: Adjust all XML comments for SqlDataReader
 
 
 
@@ -19,32 +19,34 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="command">The command to execute.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, SqlCommand command)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, CancellationToken cancellationToken, SqlCommand command) where T : new()
 		{
 			command.Connection = me;
-			return command.ExecuteXmlReader();
+			return await command.ExecuteEntityReaderAsync<T>(cancellationToken);
 		}
 
 
 
 		/// <summary>
-		/// TODO: Edit XML Cooment
+		///     TODO: Edit XML Cooment
 		/// </summary>
-		/// <param name="this"></param>
-		/// <param name="commandFactory"></param>
+		/// <param name="this">The this.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <param name="commandFactory">The command factory.</param>
 		/// <returns></returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, Action<SqlCommand> commandFactory)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, CancellationToken cancellationToken, Action<SqlCommand> commandFactory) where T : new()
 		{
-			using (SqlCommand command = me.CreateCommand())
+			using (SqlCommand cmd = me.CreateCommand())
 			{
-				commandFactory(command);
+				commandFactory(cmd);
 
-				return command.ExecuteXmlReader();
+				return await cmd.ExecuteEntityReaderAsync<T>(cancellationToken);
 			}
 		}
 
@@ -55,18 +57,19 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, string commandText)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, CancellationToken cancellationToken, string commandText) where T : new()
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteXmlReader();
+				return await cmd.ExecuteEntityReaderAsync<T>(cancellationToken);
 			}
 		}
 
@@ -77,13 +80,14 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, string commandText, params SqlParameter[] sqlParameters)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters) where T : new()
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -94,7 +98,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteXmlReader();
+				return await cmd.ExecuteEntityReaderAsync<T>(cancellationToken);
 			}
 		}
 
@@ -106,19 +110,20 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, SqlTransaction transaction, string commandText)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, SqlTransaction transaction, CancellationToken cancellationToken, string commandText) where T : new()
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.Transaction = transaction;
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteXmlReader();
+				return await cmd.ExecuteEntityReaderAsync<T>(cancellationToken);
 			}
 		}
 
@@ -129,20 +134,23 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, CommandType commandType, string commandText)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, CommandType commandType, CancellationToken cancellationToken, string commandText) where T : new()
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
 				cmd.CommandType = commandType;
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteXmlReader();
+				return await cmd.ExecuteEntityReaderAsync<T>(cancellationToken);
 			}
 		}
 
@@ -154,13 +162,16 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, CancellationToken cancellationToken, string commandText) where T : new()
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -168,7 +179,7 @@ namespace PLib.Extensions.Data.SqlClient
 				cmd.CommandType = commandType;
 				cmd.CommandText = commandText;
 
-				return cmd.ExecuteXmlReader();
+				return await cmd.ExecuteEntityReaderAsync<T>(cancellationToken);
 			}
 		}
 
@@ -180,13 +191,14 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <param name="sqlParameters"></param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, SqlTransaction transaction, string commandText, params SqlParameter[] sqlParameters)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, SqlTransaction transaction, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters) where T : new()
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -198,7 +210,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteXmlReader();
+				return await cmd.ExecuteEntityReaderAsync<T>(cancellationToken);
 			}
 		}
 
@@ -209,14 +221,17 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <param name="sqlParameters"></param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, CommandType commandType, string commandText, params SqlParameter[] sqlParameters)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, CommandType commandType, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters) where T : new()
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -228,7 +243,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteXmlReader();
+				return await cmd.ExecuteEntityReaderAsync<T>(cancellationToken);
 			}
 		}
 
@@ -240,14 +255,17 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
-		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
+		/// <param name="commandType">
+		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
+		/// </param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <param name="sqlParameters"></param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static XmlReader ExecuteXmlReader(this SqlConnection me, SqlTransaction transaction, CommandType commandType, string commandText, params SqlParameter[] sqlParameters)
+		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlConnection me, SqlTransaction transaction, CommandType commandType, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters) where T : new()
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -260,7 +278,7 @@ namespace PLib.Extensions.Data.SqlClient
 					cmd.Parameters.AddRange(sqlParameters);
 				}
 
-				return cmd.ExecuteXmlReader();
+				return await cmd.ExecuteEntityReaderAsync<T>(cancellationToken);
 			}
 		}
 

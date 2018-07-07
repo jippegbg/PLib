@@ -8,9 +8,6 @@ using System.Threading.Tasks;
 namespace PLib.Extensions.Data.SqlClient
 {
 
-	/// <summary>
-	/// </summary>
-	/// TODO Edit XML Comment Template for SqlConnectionExtensions
 	public static partial class SqlConnectionExtensions
 	{
 
@@ -84,14 +81,43 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
-		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <param name="commandText">The command text.</param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
+		/// <returns>
+		///     The first column of the first row in the result set, or a null reference if
+		///     the result set is empty.
+		/// </returns>
+		public static async Task ExecuteNonQueryAsync(this SqlConnection me, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters)
+		{
+			using (SqlCommand cmd = me.CreateCommand())
+			{
+				cmd.CommandText = commandText;
+
+				if (sqlParameters != null)
+				{
+					cmd.Parameters.AddRange(sqlParameters);
+				}
+
+				await cmd.ExecuteNonQueryAsync(cancellationToken);
+			}
+		}
+
+
+
+		/// <summary>
+		///     Executes a query, and returns the first column of the first row in the
+		///     result set returned by the query. Additional columns or rows are ignored.
+		/// </summary>
+		/// <param name="me">The current connection.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static async Task ExecuteNonQueryAsync(this SqlConnection me, SqlTransaction transaction, CancellationToken cancellationToken, string commandText)
+		public static async Task ExecuteNonQueryAsync(this SqlConnection me, CancellationToken cancellationToken, SqlTransaction transaction, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -109,16 +135,16 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandType">
 		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
 		/// </param>
-		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static async Task ExecuteNonQueryAsync(this SqlConnection me, CommandType commandType, CancellationToken cancellationToken, string commandText)
+		public static async Task ExecuteNonQueryAsync(this SqlConnection me, CancellationToken cancellationToken, CommandType commandType, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -136,17 +162,17 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandType">
 		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
 		/// </param>
-		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static async Task ExecuteNonQueryAsync(this SqlConnection me, SqlTransaction transaction, CommandType commandType, CancellationToken cancellationToken, string commandText)
+		public static async Task ExecuteNonQueryAsync(this SqlConnection me, CancellationToken cancellationToken, SqlTransaction transaction, CommandType commandType, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -165,15 +191,15 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
-		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static async Task ExecuteNonQueryAsync(this SqlConnection me, SqlTransaction transaction, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters)
+		public static async Task ExecuteNonQueryAsync(this SqlConnection me, CancellationToken cancellationToken, SqlTransaction transaction, string commandText, params SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -196,17 +222,17 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandType">
 		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
 		/// </param>
-		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static async Task ExecuteNonQueryAsync(this SqlConnection me, CommandType commandType, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters)
+		public static async Task ExecuteNonQueryAsync(this SqlConnection me, CancellationToken cancellationToken, CommandType commandType, string commandText, params SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
@@ -229,18 +255,18 @@ namespace PLib.Extensions.Data.SqlClient
 		///     result set returned by the query. Additional columns or rows are ignored.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandType">
 		///     A value that indicates how the <paramref name="commandText"/> is to be interpretaded.
 		/// </param>
-		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
 		/// </returns>
-		public static async Task ExecuteNonQueryAsync(this SqlConnection me, SqlTransaction transaction, CommandType commandType, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters)
+		public static async Task ExecuteNonQueryAsync(this SqlConnection me, CancellationToken cancellationToken, SqlTransaction transaction, CommandType commandType, string commandText, params SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
 			{
