@@ -4,6 +4,11 @@
 	/// <summary>
 	/// TODO: Edit XML Comments
 	/// </summary>
-	public static partial class SqlConnectionExtensions { }
+	public static partial class SqlAdapterExtensions
+	{
+
+
+
+	}
 
 }

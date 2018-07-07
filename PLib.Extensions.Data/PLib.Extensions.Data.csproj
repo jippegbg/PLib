@@ -41,15 +41,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDataReader\IDataReaderExtensions.cs" />
+    <Compile Include="IDbConnection\IDbConnectionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlClient\SqlAdapter\SqlAdapterExtensions.cs" />
+    <Compile Include="SqlClient\SqlCommand\SqlCommandExtensions.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteNonQueryAsync.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteNonQueryAsyncCancellable.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteReaderAsync.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteDataSet.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteDataTable.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteEntities.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteEntity.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteExpandoObject.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteExpandoObjects.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteNonQuery.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteReader.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteReaderAsyncCancellable.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteScalarAsyncCancellable.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteScalarAsync.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteScalar.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteXmlReader.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteXmlReaderAsync.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteXmlReaderAsyncCancellable.cs" />
     <Compile Include="SqlClient\SqlConnection\SqlConnectionExtensions.cs" />
+    <Compile Include="SqlClient\SqlParameterCollection\SqlParameterCollectionExtensions.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

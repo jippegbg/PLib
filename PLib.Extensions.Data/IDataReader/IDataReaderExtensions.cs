@@ -9,10 +9,20 @@ using System.Reflection;
 namespace PLib.Extensions.Data
 {
 
+	/// <summary>
+	/// TODO: Edit XML Comments
+	/// </summary>
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	public static partial class IDataReaderExtensions
 	{
 
+		/// <summary>
+		/// TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">The current data reader.</param>
+		/// <param name="columnIndex"></param>
+		/// <returns></returns>
 		public static IEnumerable<T> AsEnumerable<T>(this IDataReader me, int columnIndex)
 		{
 			while (me.Read())
@@ -23,6 +33,13 @@ namespace PLib.Extensions.Data
 
 
 
+		/// <summary>
+		/// TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">The current data reader.</param>
+		/// <param name="columnName"></param>
+		/// <returns></returns>
 		public static IEnumerable<T> AsEnumerable<T>(this IDataReader me, string columnName)
 		{
 			while (me.Read())
@@ -33,10 +50,16 @@ namespace PLib.Extensions.Data
 
 
 
+		/// <summary>
+		/// TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">The current data reader.</param>
+		/// <returns></returns>
 		public static IEnumerable<T> AsEnumerable<T>(this IDataReader me) where T : new()
 		{
 			PropertyInfo[] properties;
-			FieldInfo[] fields;
+			FieldInfo[]    fields;
 
 			GetTypeInfo(typeof(T), Enumerable.Range(0, me.FieldCount).Select(me.GetName), out properties, out fields);
 
@@ -52,6 +75,12 @@ namespace PLib.Extensions.Data
 
 
 
+		/// <summary>
+		/// TODO: Edit XML Comment
+		/// </summary>
+		/// <param name="me">The current data reader.</param>
+		/// <param name="action"></param>
+		/// <returns></returns>
 		public static IDataReader ForEach(this IDataReader me, Action<IDataReader> action)
 		{
 			while (me.Read())
@@ -64,10 +93,16 @@ namespace PLib.Extensions.Data
 
 
 
+		/// <summary>
+		/// TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">The current data reader.</param>
+		/// <returns></returns>
 		public static T GetEntity<T>(this IDataReader me) where T : new()
 		{
 			PropertyInfo[] properties;
-			FieldInfo[] fields;
+			FieldInfo[]    fields;
 
 			GetTypeInfo(typeof(T), Enumerable.Range(0, me.FieldCount).Select(me.GetName), out properties, out fields);
 
@@ -79,6 +114,13 @@ namespace PLib.Extensions.Data
 
 
 
+		/// <summary>
+		/// TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">The current data reader.</param>
+		/// <param name="columnIndex"></param>
+		/// <returns></returns>
 		public static T GetValue<T>(this IDataReader me, int columnIndex)
 		{
 			return (T)me.GetValue(columnIndex);
@@ -86,6 +128,13 @@ namespace PLib.Extensions.Data
 
 
 
+		/// <summary>
+		/// TODO: Edit XML Comment
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">The current data reader.</param>
+		/// <param name="columnName"></param>
+		/// <returns></returns>
 		public static T GetValue<T>(this IDataReader me, string columnName)
 		{
 			return (T)me.GetValue(me.GetOrdinal(columnName));
@@ -93,6 +142,11 @@ namespace PLib.Extensions.Data
 
 
 
+		/// <summary>
+		/// TODO: Edit XML Comment
+		/// </summary>
+		/// <param name="me">The current data reader.</param>
+		/// <returns></returns>
 		public static DataTable ToDataTable(this IDataReader me)
 		{
 			DataTable dt = new DataTable();
