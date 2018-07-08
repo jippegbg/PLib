@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Extensions.System.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Extensions.Data", "PLib.Extensions.Data\PLib.Extensions.Data.csproj", "{84EA59F9-3A45-4DE4-A843-BBA37C51209B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Functional", "PLib.Functional\PLib.Functional.csproj", "{CF4695DE-073D-49E9-8678-C6C3DD781959}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{84EA59F9-3A45-4DE4-A843-BBA37C51209B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84EA59F9-3A45-4DE4-A843-BBA37C51209B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84EA59F9-3A45-4DE4-A843-BBA37C51209B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF4695DE-073D-49E9-8678-C6C3DD781959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF4695DE-073D-49E9-8678-C6C3DD781959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF4695DE-073D-49E9-8678-C6C3DD781959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF4695DE-073D-49E9-8678-C6C3DD781959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

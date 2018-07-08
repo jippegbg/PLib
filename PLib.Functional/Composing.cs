@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace PLib.Extensions.System
+namespace PLib.Functional
 {
 	/// <summary>
 	///     <para>

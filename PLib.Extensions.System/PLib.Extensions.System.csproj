@@ -64,8 +64,6 @@
     <Compile Include="Decimal\DecimalExtensions.cs" />
     <Compile Include="Decimal\Math.cs" />
     <Compile Include="Primitives\Double\Math.cs" />
-    <Compile Include="Func\Chaining.cs" />
-    <Compile Include="Func\Composing.cs" />
     <Compile Include="Delegate\DelegateExtensions.cs" />
     <Compile Include="Primitives\Double\DoubleExtensions.cs" />
     <Compile Include="Enum\EnumExtensions.cs" />
