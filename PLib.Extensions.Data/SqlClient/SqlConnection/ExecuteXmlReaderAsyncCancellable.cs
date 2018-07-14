@@ -18,7 +18,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
@@ -38,7 +38,7 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <summary>
 		/// TODO: Edit XML Cooment
 		/// </summary>
-		/// <param name="me">Me.</param>
+		/// <param name="me">The current connection.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandFactory">The command factory.</param>
 		/// <returns></returns>
@@ -56,7 +56,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
@@ -79,7 +79,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
@@ -108,7 +108,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
@@ -133,7 +133,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandType">
@@ -160,7 +160,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
@@ -188,8 +188,8 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     TExecutes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     Executes a query, and returns the first column of the first row in the
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
@@ -220,7 +220,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandType">
@@ -253,7 +253,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics.CodeAnalysis;
+using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 
@@ -10,14 +11,16 @@ namespace PLib.Extensions.Data
 {
 
 	/// <summary>
-	///     TODO: Edit XML Comments
+	///     Extensions of the <see cref="IDataReader"/> interface.
 	/// </summary>
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	public static partial class IDataReaderExtensions
 	{
 
-		/// <summary>
-		///     TODO: Edit XML Comment
+		// TODO: DON'T !!!!! return an IEnumerable over a data reader as it only allows one round-trip.
+
+		/*/// <summary>
+		///     
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="me">The current data reader.</param>
@@ -34,7 +37,7 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="me">The current data reader.</param>
@@ -51,21 +54,20 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		///     Gets an iterator iterator of entity objects.
+		///     Gets an iterator of entity objects.
 		/// </summary>
 		/// <typeparam name="T">The type of the entity objects.</typeparam>
 		/// <param name="me">The current data reader.</param>
 		/// <returns>
-		///     A sequence of entity object of type <typeparamref name="T"/> that are
-		///     populated with data from the current data reader, one entity object for
-		///     each record.
+		///     A sequence of entity object of type <typeparamref name="T"/> that are populated with
+		///     data from the current data reader, one entity object for each record.
 		/// </returns>
 		/// <remarks>
 		///     <para>The reader must stay opened while the iterator is used.</para>
 		///     <para>
-		///         By materializing this enumeration (e.g. ToList() etc.) one can then
-		///         close the data reader and the underlying database connection, and keep
-		///         working with the data disconnected from the database.
+		///         By materializing the returned enumeration (e.g. ToList() etc.) one can then close
+		///         the data reader and the underlying database connection, and keep working with the
+		///         data disconnected from the database.
 		///     </para>
 		/// </remarks>
 		public static IEnumerable<T> AsEnumerable<T>(this IDataReader me) where T : new()
@@ -82,6 +84,108 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
+		///     
+		/// </summary>
+		/// <param name="me"></param>
+		/// <returns></returns>
+		public static IEnumerable<dynamic> AsEnumerable(this IDataReader me)
+		{
+			while (me.Read())
+			{
+				yield return me.GetDynamicObject();
+			}
+		}*/
+
+
+
+		/// <summary>
+		/// To the list.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">Me.</param>
+		/// <param name="columnIndex">Index of the column.</param>
+		/// <returns></returns>
+		/// TODO Edit XML Comment Template for ToList`1
+		public static IList<T> ToList<T>(this IDataReader me, int columnIndex)
+		{
+			List<T> list = new List<T>();
+
+			while (me.Read())
+			{
+				list.Add(me.GetValue<T>(columnIndex));
+			}
+
+			return list;
+		}
+
+
+
+		/// <summary>
+		/// To the list.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">Me.</param>
+		/// <param name="columnName">Name of the column.</param>
+		/// <returns></returns>
+		/// TODO Edit XML Comment Template for ToList`1
+		public static IList<T> ToList<T>(this IDataReader me, string columnName)
+		{
+			List<T> list = new List<T>();
+
+			while (me.Read())
+			{
+				list.Add(me.GetValue<T>(columnName));
+			}
+
+			return list;
+		}
+
+
+
+		/// <summary>
+		/// To the list.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="me">Me.</param>
+		/// <returns></returns>
+		/// TODO Edit XML Comment Template for ToList`1
+		public static IList<T> ToList<T>(this IDataReader me) where T : new()
+		{
+			List<T> list = new List<T>();
+
+			while (me.Read())
+			{
+				list.Add(me.GetEntity<T>());
+			}
+
+			return list;
+		}
+
+
+
+		/// <summary>
+		/// To the list.
+		/// </summary>
+		/// <param name="me">Me.</param>
+		/// <returns></returns>
+		/// TODO Edit XML Comment Template for ToList
+		public static IList<dynamic> ToList(this IDataReader me)
+		{
+			List<dynamic> list = new List<dynamic>();
+
+			while (me.Read())
+			{
+				list.Add(me.GetDynamicObject());
+			}
+
+			return list;
+		}
+
+
+
+
+
+		/// <summary>
 		///     TODO: Edit XML Comment
 		/// </summary>
 		/// <param name="me">The current data reader.</param>
@@ -94,14 +198,14 @@ namespace PLib.Extensions.Data
 				action(me);
 			}
 
-			return me;
+			return me; // TODO: not good, the reader is now depleted and useless
 		}
 
 
 
 		/// <summary>
-		///     Gets the column value at the current data record of the current data
-		///     reader, converted to a specified type.
+		///     Gets the column value at the current data record of the current data reader,
+		///     converted to a specified type.
 		/// </summary>
 		/// <typeparam name="T">The type of the return value.</typeparam>
 		/// <param name="me">The current data reader.</param>
@@ -115,8 +219,8 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		///     Gets the column value at the current data record of the current data
-		///     reader, converted to a specified type.
+		///     Gets the column value at the current data record of the current data reader,
+		///     converted to a specified type.
 		/// </summary>
 		/// <typeparam name="T">The type of the return value.</typeparam>
 		/// <param name="me">The current data reader.</param>
@@ -130,37 +234,26 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		///     Gets multiple data from the current data record of the current data reader,
-		///     converted to a specified entity type.
+		///     Transforms the current record of the data reader into a dynamic object, where every
+		///     column in the data reader corresponds to a property of the dyanmic object.
 		/// </summary>
-		/// <typeparam name="T">The type of the returned entity object.</typeparam>
 		/// <param name="me">The current data reader.</param>
 		/// <returns>
-		///     A new entity object of type <typeparamref name="T"/> that is populated with
-		///     data from the current record position of the current data reader.
+		///     A new dynamic object with properties and values from the current data reader record.
 		/// </returns>
-		public static T GetEntity<T>(this IDataReader me) where T : new()
+		public static dynamic GetDynamicObject(this IDataReader me)
 		{
-			PropertyInfo[] properties = me.GetMappingProperties<T>();
-			FieldInfo[]    fields     = me.GetMappingFields<T>();
+			dynamic obj = new ExpandoObject();
 
-			return me.GetEntity<T>(properties, fields);
-		}
+			IDictionary<string, object> dic = (IDictionary<string, object>)obj;
 
+			Enumerable
+				.Range(0, me.FieldCount)
+				.Select(me.GetName)
+				.ToList()
+				.ForEach(c => dic.Add(c, me[c]));
 
-		/// <summary>
-		///     TODO: Edit XML Comment
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me"></param>
-		/// <param name="properties"></param>
-		/// <param name="fields"></param>
-		/// <returns></returns>
-		public static T GetEntity<T>(this IDataReader me, PropertyInfo[] properties, FieldInfo[] fields) where T : new()
-		{
-			T entity = new T();
-			me.SetValuesTo(entity, properties, fields);
-			return entity;
+			return obj;
 		}
 
 
@@ -176,126 +269,6 @@ namespace PLib.Extensions.Data
 			dt.Load(me);
 			return dt;
 		}
-
-
-		/// <summary>
-		///     TODO: Edit XML Comment
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me"></param>
-		/// <returns></returns>
-		internal static PropertyInfo[] GetMappingProperties<T>(this IDataReader me)
-		{
-			return me.GetMappingProperties(typeof(T));
-		}
-
-
-		/// <summary>
-		///     TODO: Edit XML Comment
-		/// </summary>
-		/// <param name="me"></param>
-		/// <param name="mappingType"></param>
-		/// <returns></returns>
-		internal static PropertyInfo[] GetMappingProperties(this IDataReader me, Type mappingType)
-		{
-			return mappingType
-				.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-				.Where(p => Enumerable.Range(0, me.FieldCount).Select(me.GetName).Contains(p.Name))
-				.ToArray();
-		}
-
-
-		/// <summary>
-		///     TODO: Edit XML Comment
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me"></param>
-		/// <returns></returns>
-		internal static FieldInfo[] GetMappingFields<T>(this IDataReader me)
-		{
-			return me.GetMappingFields(typeof(T));
-		}
-
-
-		/// <summary>
-		///     TODO: Edit XML Comment
-		/// </summary>
-		/// <param name="me"></param>
-		/// <param name="mappingType"></param>
-		/// <returns></returns>
-		internal static FieldInfo[] GetMappingFields(this IDataReader me, Type mappingType)
-		{
-			return mappingType
-				.GetFields(BindingFlags.Public | BindingFlags.Instance)
-				.Where(p => Enumerable.Range(0, me.FieldCount).Select(me.GetName).Contains(p.Name))
-				.ToArray();
-		}
-
-
-		/// <summary>
-		///     TODO: Edit XML Comment
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me"></param>
-		/// <param name="targetObject"></param>
-		/// <param name="properties"></param>
-		/// <param name="fields"></param>
-		internal static void SetValuesTo<T>(this IDataReader me, T targetObject, PropertyInfo[] properties, FieldInfo[] fields)
-		{
-			for (int i = 0; i < properties.Length; i++)
-			{
-				properties[i].SetValue(targetObject, me[properties[i].Name]);
-			}
-
-			for (int i = 0; i < fields.Length; i++)
-			{
-				fields[i].SetValue(targetObject, me[fields[i].Name]);
-			}
-		}
-
-
-		/// <summary>
-		///     TODO: Edit XML Comment
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me"></param>
-		/// <param name="reader"></param>
-		/// <param name="properties"></param>
-		/// <param name="fields"></param>
-		internal static void GetValuesFrom<T>(this T me, IDataReader reader, PropertyInfo[] properties, FieldInfo[] fields)
-		{
-			reader.SetValuesTo(me, properties, fields);
-		}
-
-
-
-		/*internal static void GetTypeInfo(Type type, IEnumerable<string> readerColumns, out PropertyInfo[] properties, out FieldInfo[] fields)
-		{
-			properties = type
-				.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-				.Where(p => readerColumns.Contains(p.Name))
-				.ToArray();
-
-			fields = type
-				.GetFields(BindingFlags.Public | BindingFlags.Instance)
-				.Where(f => readerColumns.Contains(f.Name))
-				.ToArray();
-		}
-
-
-
-		internal static void SetEntityValues<T>(T entity, PropertyInfo[] properties, FieldInfo[] fields, IDataReader reader)
-		{
-			for (int i = 0; i < properties.Length; i++)
-			{
-				properties[i].SetValue(entity, reader[properties[i].Name]);
-			}
-
-			for (int i = 0; i < fields.Length; i++)
-			{
-				fields[i].SetValue(entity, reader[fields[i].Name]);
-			}
-		}*/
 
 	}
 

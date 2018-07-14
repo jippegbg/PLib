@@ -16,7 +16,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="command">The command to execute.</param>
@@ -35,7 +35,7 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <summary>
 		/// TODO: Edit XML Cooment
 		/// </summary>
-		/// <param name="me">Me.</param>
+		/// <param name="me">The current connection.</param>
 		/// <param name="commandFactory">The command factory.</param>
 		/// <returns></returns>
 		public static XmlReader ExecuteXmlReader(this SqlConnection me, Action<SqlCommand> commandFactory)
@@ -52,7 +52,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandText">The command text.</param>
@@ -74,7 +74,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandText">The command text.</param>
@@ -102,7 +102,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
@@ -126,7 +126,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
@@ -150,7 +150,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
@@ -175,13 +175,13 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     TExecutes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     Executes a query, and returns the first column of the first row in the
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <param name="sqlParameters"></param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
@@ -206,12 +206,12 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <param name="sqlParameters"></param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
@@ -236,13 +236,13 @@ namespace PLib.Extensions.Data.SqlClient
 
 		/// <summary>
 		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query. Additional columns or rows are ignored.
+		///     result set returned by the query.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="commandType">A value that indicates how the <paramref name="commandText"/> is to be interpretaded.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <param name="sqlParameters"></param>
+		/// <param name="sqlParameters">The SQL parameters.</param>
 		/// <returns>
 		///     The first column of the first row in the result set, or a null reference if
 		///     the result set is empty.
