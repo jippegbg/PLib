@@ -26,7 +26,8 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     Executes a command using the current connection, and returns the number of rows affected.
+		///     Executes a command prepared by a <paramref name="commandFactory"/> using the current
+		///     connection, and returns the number of rows affected.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandFactory">An action that prepares a command for execution.</param>

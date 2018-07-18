@@ -1,10 +1,6 @@
-﻿namespace PLib.Extensions.Data.SqlClient {
+﻿namespace PLib.Extensions.Data.SqlClient
+{
 
-	public static partial class SqlConnectionExtensions
-	{
-
-
-
-	}
+	public static partial class SqlConnectionExtensions { }
 
 }

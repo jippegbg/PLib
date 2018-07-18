@@ -25,6 +25,8 @@ namespace PLib.Extensions.Data
 		/// </returns>
 		public static T GetEntity<T>(this IDataReader me) where T : new()
 		{
+			//return new EntityFactory<T>(me).Create(me);
+
 			PropertyInfo[] properties = me.GetMappingProperties<T>();
 			FieldInfo[]    fields     = me.GetMappingFields<T>();
 
@@ -60,6 +62,32 @@ namespace PLib.Extensions.Data
 			T entity = new T();
 			me.SetValuesTo(entity, properties, fields);
 			return entity;
+		}
+
+
+
+		/// <summary>
+		///     Converts all records in the current data reader to a list of entity objects of a
+		///     specified type.
+		/// </summary>
+		/// <typeparam name="T">The type of objects in the returned list.</typeparam>
+		/// <param name="me">The current data reader.</param>
+		/// <returns></returns>
+		public static IList<T> ToEntityList<T>(this IDataReader me) where T : new()
+		{
+			List<T> list = new List<T>();
+
+			//var factory = new EntityFactory<T>(me);
+			PropertyInfo[] properties = me.GetMappingProperties<T>();
+			FieldInfo[]    fields     = me.GetMappingFields<T>();
+
+			while (me.Read())
+			{
+				//list.Add(factory.Create(me));
+				list.Add(me.GetEntity<T>(properties, fields));
+			}
+
+			return list;
 		}
 
 
@@ -176,64 +204,6 @@ namespace PLib.Extensions.Data
 				fields[i].SetValue(targetObject, me[fields[i].Name]);
 			}
 		}
-
-
-
-		/*
-
-		/// <summary>
-		///     Sets properties and fields in the current entity object with values from the current
-		///     row in a data reader.
-		/// </summary>
-		/// <typeparam name="T">The entity type.</typeparam>
-		/// <param name="me">The current entity object.</param>
-		/// <param name="reader">The data reader to get values from.</param>
-		/// <param name="properties">
-		///     The properties in the current entity object to set with values from the <paramref name="reader"/>.
-		/// </param>
-		/// <param name="fields">
-		///     The fields in the current entity object to set with values from the <paramref name="reader"/>.
-		/// </param>
-		internal static void GetValuesFrom<T>(this T me, IDataReader reader, PropertyInfo[] properties, FieldInfo[] fields)
-		{
-			reader.SetValuesTo(me, properties, fields);
-		}
-
-		*/
-
-
-
-		/*
-		
-		internal static void GetTypeInfo(Type type, IEnumerable<string> readerColumns, out PropertyInfo[] properties, out FieldInfo[] fields)
-		{
-			properties = type
-				.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-				.Where(p => readerColumns.Contains(p.Name))
-				.ToArray();
-
-			fields = type
-				.GetFields(BindingFlags.Public | BindingFlags.Instance)
-				.Where(f => readerColumns.Contains(f.Name))
-				.ToArray();
-		}
-
-
-
-		internal static void SetEntityValues<T>(T entity, PropertyInfo[] properties, FieldInfo[] fields, IDataReader reader)
-		{
-			for (int i = 0; i < properties.Length; i++)
-			{
-				properties[i].SetValue(entity, reader[properties[i].Name]);
-			}
-
-			for (int i = 0; i < fields.Length; i++)
-			{
-				fields[i].SetValue(entity, reader[fields[i].Name]);
-			}
-		}
-		
-		*/
 
 	}
 

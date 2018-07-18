@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamicBuilder.cs" />
+    <Compile Include="EntityFactory.cs" />
     <Compile Include="IDataReader\IDataReaderExtensions.Entities.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteEntityAsync.cs" />
+    <Compile Include="SqlClient\SqlConnection\ExecuteEntityAsyncCancellable.cs" />
     <Compile Include="SqlEntityReader.cs" />
     <Compile Include="IDataReader\IDataReaderExtensions.cs" />
     <Compile Include="IDbConnection\IDbConnectionExtensions.cs" />
@@ -57,8 +59,6 @@
     <Compile Include="SqlClient\SqlConnection\ExecuteDataSet.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteDataTable.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteEntity.cs" />
-    <Compile Include="SqlClient\SqlConnection\ExecuteExpandoObject.cs" />
-    <Compile Include="SqlClient\SqlConnection\ExecuteExpandoObjects.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteNonQuery.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteReader.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteReaderAsyncCancellable.cs" />

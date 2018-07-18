@@ -25,13 +25,6 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 
-		// Note: One can also call
-		//     SqlConnection.ExecuteReader(command).AsEnumerable<T>()
-		// which will iterate over all entities
-		// of type T in the data reader while it's open.
-
-
-
 		/// <summary>
 		///     Executes a command prepared by a <paramref name="commandFactory"/> using the current
 		///     connection, and builds an <see cref="SqlEntityReader{T}"/>.

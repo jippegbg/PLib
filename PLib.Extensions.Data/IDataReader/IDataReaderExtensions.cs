@@ -4,7 +4,6 @@ using System.Data;
 using System.Diagnostics.CodeAnalysis;
 using System.Dynamic;
 using System.Linq;
-using System.Reflection;
 
 
 namespace PLib.Extensions.Data
@@ -19,7 +18,7 @@ namespace PLib.Extensions.Data
 
 		/*
 
-		// Don't return an IEnumerable over a data reader as it only allows one round-trip.
+		// Don't yield-return an IEnumerable over a data reader as it only allows one round-trip.
 
 		/// <summary>
 		///     
@@ -101,103 +100,43 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		///     Converts one column of all records in the current data reader to a list of a specified type of objects.
+		///     Determines if there is a column with a specified name in the current data reader.
 		/// </summary>
-		/// <typeparam name="T">The type of objects in the returned list.</typeparam>
 		/// <param name="me">The current data reader.</param>
-		/// <param name="columnIndex">Index of the column.</param>
-		/// <returns></returns>
-		public static IList<T> ToList<T>(this IDataReader me, int columnIndex)
+		/// <param name="columnName">The name of the column to search for.</param>
+		/// <returns><c>true</c> if the specified column name exists; otherwise, <c>false</c>.</returns>
+		public static bool ContainsColumn(this IDataReader me, string columnName)
 		{
-			List<T> list = new List<T>();
-
-			while (me.Read())
+			try
 			{
-				list.Add(me.GetValue<T>(columnIndex));
+				return me.GetOrdinal(columnName) >= 0;
 			}
-
-			return list;
+			catch
+			{
+				try
+				{
+					return me[columnName] != null;
+				}
+				catch
+				{
+					return false;
+				}
+			}
 		}
 
 
 
 		/// <summary>
-		///     Converts one column of all records in the current data reader to a list of a specified type of objects.
-		/// </summary>
-		/// <typeparam name="T">The type of objects in the returned list.</typeparam>
-		/// <param name="me">The current data reader.</param>
-		/// <param name="columnName">Name of the column.</param>
-		/// <returns></returns>
-		public static IList<T> ToList<T>(this IDataReader me, string columnName)
-		{
-			List<T> list = new List<T>();
-
-			while (me.Read())
-			{
-				list.Add(me.GetValue<T>(columnName));
-			}
-
-			return list;
-		}
-
-
-
-		/// <summary>
-		///     Converts all records in the current data reader to a list of entity objects of a
-		///     specified type.
-		/// </summary>
-		/// <typeparam name="T">The type of objects in the returned list.</typeparam>
-		/// <param name="me">The current data reader.</param>
-		/// <returns></returns>
-		public static IList<T> ToList<T>(this IDataReader me) where T : new()
-		{
-			List<T> list = new List<T>();
-
-			while (me.Read())
-			{
-				list.Add(me.GetEntity<T>());
-			}
-
-			return list;
-		}
-
-
-
-		/// <summary>
-		///     Converts all records in the current data reader to a list of dynamic objects.
+		///     Gets a list of all column names in the current data reader.
 		/// </summary>
 		/// <param name="me">The current data reader.</param>
-		/// <returns>A list of dynamic objects.</returns>
-		public static IList<dynamic> ToList(this IDataReader me)
+		/// <returns>A list of all column names in the current data reader.</returns>
+		public static IList<string> GetColumnNames(this IDataReader me)
 		{
-			List<dynamic> list = new List<dynamic>();
-
-			while (me.Read())
-			{
-				list.Add(me.GetDynamicObject());
-			}
-
-			return list;
-		}
-
-
-
-
-
-		/// <summary>
-		///     TODO: Edit XML Comment
-		/// </summary>
-		/// <param name="me">The current data reader.</param>
-		/// <param name="action"></param>
-		/// <returns></returns>
-		public static IDataReader ForEach(this IDataReader me, Action<IDataReader> action)
-		{
-			while (me.Read())
-			{
-				action(me);
-			}
-
-			return me; // TODO: not good, the reader is now depleted and useless
+			return Enumerable
+				.Range(0, me.FieldCount)
+				.Select(me.GetName)
+				.ToList();
 		}
 
 
@@ -218,6 +157,27 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
+		///     Converts one column of all records in the current data reader to a list of a specified type of objects.
+		/// </summary>
+		/// <typeparam name="T">The type of objects in the returned list.</typeparam>
+		/// <param name="me">The current data reader.</param>
+		/// <param name="columnIndex">Index of the column.</param>
+		/// <returns></returns>
+		public static IList<T> ToValueList<T>(this IDataReader me, int columnIndex)
+		{
+			List<T> list = new List<T>();
+
+			while (me.Read())
+			{
+				list.Add(me.GetValue<T>(columnIndex));
+			}
+
+			return list;
+		}
+
+
+
+		/// <summary>
 		///     Gets the column value at the current data record of the current data reader,
 		///     converted to a specified type.
 		/// </summary>
@@ -228,6 +188,20 @@ namespace PLib.Extensions.Data
 		public static T GetValue<T>(this IDataReader me, string columnName)
 		{
 			return (T)me.GetValue(me.GetOrdinal(columnName));
+		}
+
+
+
+		/// <summary>
+		///     Converts one column of all records in the current data reader to a list of a specified type of objects.
+		/// </summary>
+		/// <typeparam name="T">The type of objects in the returned list.</typeparam>
+		/// <param name="me">The current data reader.</param>
+		/// <param name="columnName">Name of the column.</param>
+		/// <returns></returns>
+		public static IList<T> ToValueList<T>(this IDataReader me, string columnName)
+		{
+			return me.ToValueList<T>(me.GetOrdinal(columnName));
 		}
 
 
@@ -258,15 +232,58 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Converts all records in the current data reader to a list of dynamic objects.
 		/// </summary>
 		/// <param name="me">The current data reader.</param>
-		/// <returns></returns>
+		/// <returns>A list of dynamic objects.</returns>
+		public static IList<dynamic> ToDynamicObjectList(this IDataReader me)
+		{
+			List<dynamic> list = new List<dynamic>();
+
+			while (me.Read())
+			{
+				list.Add(me.GetDynamicObject());
+			}
+
+			return list;
+		}
+
+
+
+		/// <summary>
+		///     Converts the remining records in the current data reader into a <see cref="DataTable"/>.
+		/// </summary>
+		/// <param name="me">The current data reader.</param>
+		/// <returns>
+		///     A new data table filled with values from the remaining records of the current data reader.
+		/// </returns>
 		public static DataTable ToDataTable(this IDataReader me)
 		{
 			DataTable dt = new DataTable();
-			dt.Load(me);
+			dt.Load(me); // LoadOptions not applicable as it's a new DataTable.
 			return dt;
+		}
+
+
+
+		/// <summary>
+		///     Applies an operation to all remaining records in the current data reader.
+		/// </summary>
+		/// <param name="me">The current data reader.</param>
+		/// <param name="action">The action to apply to each record.</param>
+		/// <returns>The current data reader.</returns>
+		/// <remarks>
+		///     The current data reader is depleted after the return from this method, and cannot be
+		///     used for accessing data anymore.
+		/// </remarks>
+		public static IDataReader ForEach(this IDataReader me, Action<IDataReader> action)
+		{
+			while (me.Read())
+			{
+				action(me);
+			}
+
+			return me;
 		}
 
 	}

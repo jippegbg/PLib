@@ -20,7 +20,7 @@ namespace PLib.Extensions.Data
 
 
 
-		private Loader m_loader;
+		private readonly Loader m_loader;
 
 
 		/// <summary>

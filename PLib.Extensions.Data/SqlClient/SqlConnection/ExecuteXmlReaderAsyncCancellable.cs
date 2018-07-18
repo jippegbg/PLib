@@ -12,21 +12,13 @@ namespace PLib.Extensions.Data.SqlClient
 	public static partial class SqlConnectionExtensions
 	{
 
-		// TODO: Adjust all XML comments for SqlDataReader
-
-
-
 		/// <summary>
-		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query.
+		///     Executes a command using the current connection and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="command">The command to execute.</param>
-		/// <returns>
-		///     The first column of the first row in the result set, or a null reference if
-		///     the result set is empty.
-		/// </returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, CancellationToken cancellationToken, SqlCommand command)
 		{
 			command.Connection = me;
@@ -36,12 +28,13 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		/// TODO: Edit XML Cooment
+		///     Executes a command prepared by a <paramref name="commandFactory"/> using the current
+		///     connection, and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandFactory">The command factory.</param>
-		/// <returns></returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, CancellationToken cancellationToken, Action<SqlCommand> commandFactory)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
@@ -55,16 +48,12 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query.
+		///     Executes a command using the current connection and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <returns>
-		///     The first column of the first row in the result set, or a null reference if
-		///     the result set is empty.
-		/// </returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, CancellationToken cancellationToken, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
@@ -78,17 +67,13 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query.
+		///     Executes a command using the current connection and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters">The SQL parameters.</param>
-		/// <returns>
-		///     The first column of the first row in the result set, or a null reference if
-		///     the result set is empty.
-		/// </returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
@@ -107,17 +92,13 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query.
+		///     Executes a command using the current connection and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <returns>
-		///     The first column of the first row in the result set, or a null reference if
-		///     the result set is empty.
-		/// </returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, SqlTransaction transaction, CancellationToken cancellationToken, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
@@ -132,8 +113,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query.
+		///     Executes a command using the current connection and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandType">
@@ -141,10 +121,7 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <returns>
-		///     The first column of the first row in the result set, or a null reference if
-		///     the result set is empty.
-		/// </returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, CommandType commandType, CancellationToken cancellationToken, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
@@ -159,8 +136,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query.
+		///     Executes a command using the current connection and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
@@ -169,10 +145,7 @@ namespace PLib.Extensions.Data.SqlClient
 		/// </param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
-		/// <returns>
-		///     The first column of the first row in the result set, or a null reference if
-		///     the result set is empty.
-		/// </returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, SqlTransaction transaction, CommandType commandType, CancellationToken cancellationToken, string commandText)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
@@ -188,18 +161,14 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query.
+		///     Executes a command using the current connection and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters">The SQL parameters.</param>
-		/// <returns>
-		///     The first column of the first row in the result set, or a null reference if
-		///     the result set is empty.
-		/// </returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, SqlTransaction transaction, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
@@ -219,8 +188,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query.
+		///     Executes a command using the current connection and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="commandType">
@@ -229,10 +197,7 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters">The SQL parameters.</param>
-		/// <returns>
-		///     The first column of the first row in the result set, or a null reference if
-		///     the result set is empty.
-		/// </returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, CommandType commandType, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
@@ -252,8 +217,7 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     Executes a query, and returns the first column of the first row in the
-		///     result set returned by the query.
+		///     Executes a command using the current connection and builds an <see cref="XmlReader"/>.
 		/// </summary>
 		/// <param name="me">The current connection.</param>
 		/// <param name="transaction">The transaction within which the command executes.</param>
@@ -263,10 +227,7 @@ namespace PLib.Extensions.Data.SqlClient
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <param name="commandText">The command text.</param>
 		/// <param name="sqlParameters">The SQL parameters.</param>
-		/// <returns>
-		///     The first column of the first row in the result set, or a null reference if
-		///     the result set is empty.
-		/// </returns>
+		/// <returns>A task representing the asynchronous operation.</returns>
 		public static async Task<XmlReader> ExecuteXmlReaderAsync(this SqlConnection me, SqlTransaction transaction, CommandType commandType, CancellationToken cancellationToken, string commandText, params SqlParameter[] sqlParameters)
 		{
 			using (SqlCommand cmd = me.CreateCommand())
