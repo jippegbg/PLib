@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicBuilder.cs" />
     <Compile Include="IDataReader\IDataReaderExtensions.Entities.cs" />
     <Compile Include="SqlEntityReader.cs" />
     <Compile Include="IDataReader\IDataReaderExtensions.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="SqlClient\SqlConnection\ExecuteReaderAsync.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteDataSet.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteDataTable.cs" />
-    <Compile Include="SqlClient\SqlConnection\ExecuteEntities.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteEntity.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteExpandoObject.cs" />
     <Compile Include="SqlClient\SqlConnection\ExecuteExpandoObjects.cs" />
@@ -72,9 +72,9 @@
     <Compile Include="SqlClient\SqlParameterCollection\SqlParameterCollectionExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PLib.Extensions.System\PLib.Extensions.System.csproj">
+    <ProjectReference Include="..\PLib.Extensions.Core\PLib.Extensions.Core.csproj">
       <Project>{9e9c73cb-94b5-4108-97eb-9135bb911766}</Project>
-      <Name>PLib.Extensions.System</Name>
+      <Name>PLib.Extensions.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

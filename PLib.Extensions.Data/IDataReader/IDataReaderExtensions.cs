@@ -17,9 +17,11 @@ namespace PLib.Extensions.Data
 	public static partial class IDataReaderExtensions
 	{
 
-		// TODO: DON'T !!!!! return an IEnumerable over a data reader as it only allows one round-trip.
+		/*
 
-		/*/// <summary>
+		// Don't return an IEnumerable over a data reader as it only allows one round-trip.
+
+		/// <summary>
 		///     
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
@@ -99,13 +101,12 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		/// To the list.
+		///     Converts one column of all records in the current data reader to a list of a specified type of objects.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
+		/// <typeparam name="T">The type of objects in the returned list.</typeparam>
+		/// <param name="me">The current data reader.</param>
 		/// <param name="columnIndex">Index of the column.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToList`1
 		public static IList<T> ToList<T>(this IDataReader me, int columnIndex)
 		{
 			List<T> list = new List<T>();
@@ -121,13 +122,12 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		/// To the list.
+		///     Converts one column of all records in the current data reader to a list of a specified type of objects.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
+		/// <typeparam name="T">The type of objects in the returned list.</typeparam>
+		/// <param name="me">The current data reader.</param>
 		/// <param name="columnName">Name of the column.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToList`1
 		public static IList<T> ToList<T>(this IDataReader me, string columnName)
 		{
 			List<T> list = new List<T>();
@@ -143,12 +143,12 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		/// To the list.
+		///     Converts all records in the current data reader to a list of entity objects of a
+		///     specified type.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
+		/// <typeparam name="T">The type of objects in the returned list.</typeparam>
+		/// <param name="me">The current data reader.</param>
 		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToList`1
 		public static IList<T> ToList<T>(this IDataReader me) where T : new()
 		{
 			List<T> list = new List<T>();
@@ -164,11 +164,10 @@ namespace PLib.Extensions.Data
 
 
 		/// <summary>
-		/// To the list.
+		///     Converts all records in the current data reader to a list of dynamic objects.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <returns></returns>
-		/// TODO Edit XML Comment Template for ToList
+		/// <param name="me">The current data reader.</param>
+		/// <returns>A list of dynamic objects.</returns>
 		public static IList<dynamic> ToList(this IDataReader me)
 		{
 			List<dynamic> list = new List<dynamic>();

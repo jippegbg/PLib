@@ -2,9 +2,11 @@
 using System.Data;
 using System.Data.SqlClient;
 
-using PLib.Extensions.System;
+using PLib.Extensions.Core;
 
-namespace PLib.Extensions.Data.SqlClient {
+
+namespace PLib.Extensions.Data.SqlClient
+{
 
 	public static partial class SqlConnectionExtensions
 	{
@@ -185,7 +187,6 @@ namespace PLib.Extensions.Data.SqlClient {
 		{
 			return me.ExecuteReader(transaction, commandType, commandText, sqlParameters).GetEntity<T>();
 		}
-
 
 	}
 

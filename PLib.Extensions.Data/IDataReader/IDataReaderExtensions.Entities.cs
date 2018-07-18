@@ -179,6 +179,8 @@ namespace PLib.Extensions.Data
 
 
 
+		/*
+
 		/// <summary>
 		///     Sets properties and fields in the current entity object with values from the current
 		///     row in a data reader.
@@ -197,9 +199,13 @@ namespace PLib.Extensions.Data
 			reader.SetValuesTo(me, properties, fields);
 		}
 
+		*/
 
 
-		/*internal static void GetTypeInfo(Type type, IEnumerable<string> readerColumns, out PropertyInfo[] properties, out FieldInfo[] fields)
+
+		/*
+		
+		internal static void GetTypeInfo(Type type, IEnumerable<string> readerColumns, out PropertyInfo[] properties, out FieldInfo[] fields)
 		{
 			properties = type
 				.GetProperties(BindingFlags.Public | BindingFlags.Instance)
@@ -225,7 +231,9 @@ namespace PLib.Extensions.Data
 			{
 				fields[i].SetValue(entity, reader[fields[i].Name]);
 			}
-		}*/
+		}
+		
+		*/
 
 	}
 
