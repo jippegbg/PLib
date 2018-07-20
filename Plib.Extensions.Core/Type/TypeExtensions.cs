@@ -13,12 +13,14 @@ namespace PLib.Extensions.Core
 	{
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Determines whether an instance of the current type can be assigned to an instance of
+		///     a specified type.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
+		/// <typeparam name="T">The target type.</typeparam>
+		/// <param name="me">The current type.</param>
 		/// <returns>
-		///     <c>true</c> if [is assignable to] [the specified me]; otherwise, <c>false</c>.
+		///     <c>true</c> if an instance of the current type can be assigned to an instance of the
+		///     specified type <typeparamref name="T"/>; otherwise, <c>false</c>.
 		/// </returns>
 		public static bool IsAssignableTo<T>(this Type me)
 		{
@@ -28,12 +30,14 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Determines whether an instance of the current type can be assigned to an instance of
+		///     a specified type.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <param name="target">The target.</param>
+		/// <param name="me">The current type.</param>
+		/// <param name="target">The target type.</param>
 		/// <returns>
-		///     <c>true</c> if [is assignable to] [the specified target]; otherwise, <c>false</c>.
+		///     <c>true</c> if an instance of the current type can be assigned to an instance of the
+		///     specified <paramref name="target"/> type; otherwise, <c>false</c>.
 		/// </returns>
 		public static bool IsAssignableTo(this Type me, Type target)
 		{
@@ -43,12 +47,14 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Determines whether an instance of the current type can be assigned to an instance of
+		///     at least one of the specified types.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <param name="targets">The targets.</param>
+		/// <param name="me">The current type.</param>
+		/// <param name="targets">The target types.</param>
 		/// <returns>
-		///     <c>true</c> if [is assignable to any] [the specified targets]; otherwise, <c>false</c>.
+		///     <c>true</c> if an instance of the current type can be assigned to an instance of at least one of the
+		///     specified target types; otherwise, <c>false</c>.
 		/// </returns>
 		public static bool IsAssignableToAny(this Type me, IEnumerable<Type> targets)
 		{
@@ -58,12 +64,14 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Determines whether an instance of the current type can be assigned to an instance of
+		///     all of the specified types.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <param name="targets">The targets.</param>
+		/// <param name="me">The current type.</param>
+		/// <param name="targets">The target types.</param>
 		/// <returns>
-		///     <c>true</c> if [is assignable to all] [the specified targets]; otherwise, <c>false</c>.
+		///     <c>true</c> if an instance of the current type can be assigned to an instance of all of the
+		///     specified target types; otherwise, <c>false</c>.
 		/// </returns>
 		public static bool IsAssignableToAll(this Type me, IEnumerable<Type> targets)
 		{
