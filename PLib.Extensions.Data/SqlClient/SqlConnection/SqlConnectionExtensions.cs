@@ -1,8 +1,11 @@
-﻿namespace PLib.Extensions.Data.SqlClient
+﻿using System.Data.SqlClient;
+
+
+namespace PLib.Extensions.Data.SqlClient
 {
 
 	/// <summary>
-	/// TODO: Edit XML Comments
+	///     Extensions of the <see cref="SqlConnection"/> class.
 	/// </summary>
 	public static partial class SqlConnectionExtensions { }
 

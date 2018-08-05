@@ -8,16 +8,16 @@ namespace PLib.Extensions.Data.SqlClient
 {
 
 	/// <summary>
-	///     TODO: Edit XML Comments
+	///     Extensions of the <see cref="SqlCommand"/> class.
 	/// </summary>
-	public static partial class SqlCommandExtensions
+	public static class SqlCommandExtensions
 	{
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Fills and returns a new <see cref="DataSet"/> based on the current <see cref="SqlCommand"/>.
 		/// </summary>
 		/// <param name="me">The current command.</param>
-		/// <returns></returns>
+		/// <returns>A new <see cref="DataSet"/> based on the current <see cref="SqlCommand"/>.</returns>
 		public static DataSet ExecuteDataSet(this SqlCommand me)
 		{
 			DataSet set = new DataSet();
@@ -32,10 +32,33 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Fills and returns a new <see cref="DataSet"/> based on the current
+		///     <see cref="SqlCommand"/>, containing one <see cref="DataTable"/> with the specified <paramref name="tableName"/>.
 		/// </summary>
 		/// <param name="me">The current command.</param>
-		/// <returns></returns>
+		/// <param name="tableName">The name of the source and resulting table to be filled.</param>
+		/// <returns>
+		///     A a new <see cref="DataSet"/> based on the current <see cref="SqlCommand"/>,
+		///     containing one <see cref="DataTable"/> with the specified <paramref name="tableName"/>.
+		/// </returns>
+		public static DataSet ExecuteDataSet(this SqlCommand me, string tableName)
+		{
+			DataSet set = new DataSet();
+			using (SqlDataAdapter dataAdapter = new SqlDataAdapter(me))
+			{
+				dataAdapter.Fill(set, tableName);
+			}
+
+			return set;
+		}
+
+
+
+		/// <summary>
+		///     Fills and returns a new <see cref="DataTable"/> based on the current <see cref="SqlCommand"/>.
+		/// </summary>
+		/// <param name="me">The current command.</param>
+		/// <returns>A new <see cref="DataTable"/> based on the current <see cref="SqlCommand"/>.</returns>
 		public static DataTable ExecuteDataTable(this SqlCommand me)
 		{
 			DataTable table = new DataTable();
@@ -50,33 +73,17 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Retrieves a new empty <see cref="DataTable"/> with the schema configured based on the
+		///     specified <see cref="SchemaType"/>.
 		/// </summary>
 		/// <param name="me">The current command.</param>
-		/// <param name="tableName">
-		///     The name of the table in the resulting DataSet that should be filled with
-		///     the command result.
+		/// <param name="schemaType">
+		///     One of the <see cref="SchemaType"/> values. The default is <see cref="SchemaType.Mapped"/>.
 		/// </param>
-		/// <returns></returns>
-		public static DataSet ExecuteDataTable(this SqlCommand me, string tableName)
-		{
-			DataSet set = new DataSet();
-			using (SqlDataAdapter dataAdapter = new SqlDataAdapter(me))
-			{
-				dataAdapter.Fill(set, tableName);
-			}
-
-			return set;
-		}
-
-
-
-		/// <summary>
-		///     TODO: Edit XML Comment
-		/// </summary>
-		/// <param name="me">The current command.</param>
-		/// <param name="schemaType">Type of the schema.</param>
-		/// <returns></returns>
+		/// <returns>
+		///     A <see cref="DataTable"/> that contains schema information returned from the data
+		///     source, but without any data.
+		/// </returns>
 		public static DataTable ExecuteSchema(this SqlCommand me, SchemaType schemaType = SchemaType.Mapped)
 		{
 			DataTable table = new DataTable();
@@ -91,84 +98,109 @@ namespace PLib.Extensions.Data.SqlClient
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Sends the <see cref="SqlCommand.CommandText"/> to the
+		///     <see cref="SqlCommand.Connection"/> and builds an <see cref="SqlEntityReader{T}"/>.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
-		/// <returns></returns>
-		public static EntityReader<T> ExecuteEntityReader<T>(this SqlCommand me) where T : new()
+		/// <typeparam name="T">The type of entities to read.</typeparam>
+		/// <param name="me">The current command.</param>
+		/// <returns>An <see cref="SqlEntityReader{T}"/> object.</returns>
+		public static SqlEntityReader<T> ExecuteEntityReader<T>(this SqlCommand me) where T : new()
 		{
-			return new EntityReader<T>(me.ExecuteReader());
+			return new SqlEntityReader<T>(me.ExecuteReader());
 		}
 
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Sends the <see cref="SqlCommand.CommandText"/> to the
+		///     <see cref="SqlCommand.Connection"/>, and builds an <see cref="SqlEntityReader{T}"/>
+		///     using one of the <see cref="CommandBehavior"/> values.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
-		/// <param name="behavior">The behavior.</param>
-		/// <returns></returns>
-		public static EntityReader<T> ExecuteEntityReader<T>(this SqlCommand me, CommandBehavior behavior) where T : new()
+		/// <typeparam name="T">The type of entities to read.</typeparam>
+		/// <param name="me">The current command.</param>
+		/// <param name="behavior">One of the <see cref="CommandBehavior"/> values.</param>
+		/// <returns>An <see cref="SqlEntityReader{T}"/> object.</returns>
+		public static SqlEntityReader<T> ExecuteEntityReader<T>(this SqlCommand me, CommandBehavior behavior) where T : new()
 		{
-			return new EntityReader<T>(me.ExecuteReader(behavior));
+			return new SqlEntityReader<T>(me.ExecuteReader(behavior));
 		}
 
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     An asynchronous version of <see cref="ExecuteEntityReader{T}(SqlCommand)"/>, which
+		///     sends the <see cref="SqlCommand.CommandText"/> to the
+		///     <see cref="SqlCommand.Connection"/> and builds an <see cref="SqlEntityReader{T}"/>.
+		///     Exceptions will be reported via the returned <see cref="Task{TResult}"/> object.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
-		/// <returns></returns>
-		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlCommand me) where T : new()
+		/// <typeparam name="T">The type of entities to read.</typeparam>
+		/// <param name="me">The current command.</param>
+		/// <returns>A task representing the asynchronous operation.</returns>
+		public static async Task<SqlEntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlCommand me) where T : new()
 		{
-			return new EntityReader<T>(await me.ExecuteReaderAsync());
+			return new SqlEntityReader<T>(await me.ExecuteReaderAsync());
 		}
 
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     An asynchronous version of <see cref="ExecuteEntityReader{T}(SqlCommand)"/>, which
+		///     sends the <see cref="SqlCommand.CommandText"/> to the
+		///     <see cref="SqlCommand.Connection"/> and builds an <see cref="SqlEntityReader{T}"/>.
+		///     Exceptions will be reported via the returned <see cref="Task{TResult}"/> object.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
-		/// <param name="behavior">The behaviour.</param>
-		/// <returns></returns>
-		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlCommand me, CommandBehavior behavior) where T : new()
+		/// <typeparam name="T">The type of entities to read.</typeparam>
+		/// <param name="me">The current command.</param>
+		/// <param name="behavior">
+		///     Options for statement execution and data retrieval. When is set to
+		///     <see cref="CommandBehavior.Default"/>, <see cref="SqlEntityReader{T}.ReadAsync()"/>
+		///     reads the entire row before returning a complete Task.
+		/// </param>
+		/// <returns>A task representing the asynchronous operation.</returns>
+		public static async Task<SqlEntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlCommand me, CommandBehavior behavior) where T : new()
 		{
-			return new EntityReader<T>(await me.ExecuteReaderAsync(behavior));
+			return new SqlEntityReader<T>(await me.ExecuteReaderAsync(behavior));
 		}
 
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     An asynchronous version of <see cref="ExecuteEntityReader{T}(SqlCommand)"/>, which
+		///     sends the <see cref="SqlCommand.CommandText"/> to the
+		///     <see cref="SqlCommand.Connection"/> and builds an <see cref="SqlEntityReader{T}"/>. The
+		///     cancellation token can be used to request that the operation be abandoned before the
+		///     command timeout elapses. Exceptions will be reported via the returned Task object.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns></returns>
-		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlCommand me, CancellationToken cancellationToken) where T : new()
+		/// <typeparam name="T">The type of entities to read.</typeparam>
+		/// <param name="me">The current command.</param>
+		/// <param name="cancellationToken">The cancellation instruction.</param>
+		/// <returns>A task representing the asynchronous operation.</returns>
+		public static async Task<SqlEntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlCommand me, CancellationToken cancellationToken) where T : new()
 		{
-			return new EntityReader<T>(await me.ExecuteReaderAsync(cancellationToken));
+			return new SqlEntityReader<T>(await me.ExecuteReaderAsync(cancellationToken));
 		}
 
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     An asynchronous version of <see cref="ExecuteEntityReader{T}(SqlCommand)"/>, which
+		///     sends the <see cref="SqlCommand.CommandText"/> to the
+		///     <see cref="SqlCommand.Connection"/> and builds an <see cref="SqlEntityReader{T}"/>. The
+		///     cancellation token can be used to request that the operation be abandoned before the
+		///     command timeout elapses. Exceptions will be reported via the returned Task object.
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="me">Me.</param>
-		/// <param name="behavior">The behaviour.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns></returns>
-		public static async Task<EntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlCommand me, CommandBehavior behavior, CancellationToken cancellationToken) where T : new()
+		/// <typeparam name="T">The type of entities to read.</typeparam>
+		/// <param name="me">The current command.</param>
+		/// <param name="behavior">
+		///     Options for statement execution and data retrieval. When is set to
+		///     <see cref="CommandBehavior.Default"/>, <see cref="SqlEntityReader{T}.ReadAsync()"/>
+		///     reads the entire row before returning a complete Task.
+		/// </param>
+		/// <param name="cancellationToken">The cancellation instruction.</param>
+		/// <returns>A task representing the asynchronous operation.</returns>
+		public static async Task<SqlEntityReader<T>> ExecuteEntityReaderAsync<T>(this SqlCommand me, CommandBehavior behavior, CancellationToken cancellationToken) where T : new()
 		{
-			return new EntityReader<T>(await me.ExecuteReaderAsync(behavior, cancellationToken));
+			return new SqlEntityReader<T>(await me.ExecuteReaderAsync(behavior, cancellationToken));
 		}
 
 	}

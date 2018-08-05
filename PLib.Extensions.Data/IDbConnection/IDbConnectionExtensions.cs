@@ -6,7 +6,7 @@ namespace PLib.Extensions.Data
 {
 
 	/// <summary>
-	/// TODO: Edit XML Comments
+	///     Extensions of the <see cref="IDbConnection"/> interface.
 	/// </summary>
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	public static class IDbConnectionExtensions
@@ -15,7 +15,7 @@ namespace PLib.Extensions.Data
 		/// <summary>
 		/// Ensures the open.
 		/// </summary>
-		/// <param name="me">Me.</param>
+		/// <param name="me">The current connection.</param>
 		/// <returns></returns>
 		public static IDbConnection EnsureOpen(this IDbConnection me)
 		{
@@ -32,7 +32,7 @@ namespace PLib.Extensions.Data
 		/// <summary>
 		/// Determines whether this instance is closed.
 		/// </summary>
-		/// <param name="me">Me.</param>
+		/// <param name="me">The current connection.</param>
 		/// <returns>
 		///   <c>true</c> if the specified me is closed; otherwise, <c>false</c>.
 		/// </returns>
@@ -46,7 +46,7 @@ namespace PLib.Extensions.Data
 		/// <summary>
 		/// Determines whether this instance is open.
 		/// </summary>
-		/// <param name="me">Me.</param>
+		/// <param name="me">The current connection.</param>
 		/// <returns>
 		///   <c>true</c> if the specified me is open; otherwise, <c>false</c>.
 		/// </returns>
