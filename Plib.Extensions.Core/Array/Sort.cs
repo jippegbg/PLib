@@ -30,7 +30,7 @@ namespace PLib.Extensions.Core
 		///     The one-dimensional array that contains the items that correspond to each of the keys
 		///     in the current array.
 		///     -or-
-		///     <c>null</c> to sort only the current array.
+		///     <b>null</b> to sort only the current array.
 		/// </param>
 		public static void Sort(this Array me, Array items)
 		{
@@ -46,7 +46,7 @@ namespace PLib.Extensions.Core
 		/// <param name="comparer">
 		///     The implementation to use when comparing elements.
 		///     -or-
-		///     <c>null</c> to use the <see cref="IComparable"/> implementation of each element.
+		///     <b>null</b> to use the <see cref="IComparable"/> implementation of each element.
 		/// </param>
 		public static void Sort(this Array me, IComparer comparer)
 		{
@@ -65,12 +65,12 @@ namespace PLib.Extensions.Core
 		///     The one-dimensional array that contains the items that correspond to each of the keys
 		///     in the current array.
 		///     -or-
-		///     <c>null</c> to sort only the current array.
+		///     <b>null</b> to sort only the current array.
 		/// </param>
 		/// <param name="comparer">
 		///     The implementation to use when comparing elements.
 		///     -or-
-		///     <c>null</c> to use the <see cref="IComparable"/> implementation of each element.
+		///     <b>null</b> to use the <see cref="IComparable"/> implementation of each element.
 		/// </param>
 		public static void Sort(this Array me, Array items, IComparer comparer)
 		{
@@ -104,7 +104,7 @@ namespace PLib.Extensions.Core
 		///     The one-dimensional array that contains the items that correspond to each of the keys
 		///     in the current array.
 		///     -or-
-		///     <c>null</c> to sort only the current array.
+		///     <b>null</b> to sort only the current array.
 		/// </param>
 		/// <param name="index">The starting index of the range to sort.</param>
 		/// <param name="length">The number of elements in the range to sort.</param>
@@ -125,7 +125,7 @@ namespace PLib.Extensions.Core
 		/// <param name="comparer">
 		///     The implementation to use when comparing elements.
 		///     -or-
-		///     <c>null</c> to use the <see cref="IComparable"/> implementation of each element.
+		///     <b>null</b> to use the <see cref="IComparable"/> implementation of each element.
 		/// </param>
 		public static void Sort(this Array me, int index, int length, IComparer comparer)
 		{
@@ -144,14 +144,14 @@ namespace PLib.Extensions.Core
 		///     The one-dimensional array that contains the items that correspond to each of the keys
 		///     in the current array.
 		///     -or-
-		///     <c>null</c> to sort only the current array.
+		///     <b>null</b> to sort only the current array.
 		/// </param>
 		/// <param name="index">The starting index of the range to sort.</param>
 		/// <param name="length">The number of elements in the range to sort.</param>
 		/// <param name="comparer">
 		///     The implementation to use when comparing elements.
 		///     -or-
-		///     <c>null</c> to use the <see cref="IComparable"/> implementation of each element.
+		///     <b>null</b> to use the <see cref="IComparable"/> implementation of each element.
 		/// </param>
 		public static void Sort(this Array me, Array items, int index, int length, IComparer comparer)
 		{

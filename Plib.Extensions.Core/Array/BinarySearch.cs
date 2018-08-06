@@ -43,7 +43,7 @@ namespace PLib.Extensions.Core
 		/// <param name="comparer">
 		///     The IComparer implementation to use when comparing elements.
 		///     -or-
-		///     <c>null</c> to use the <see cref="IComparable"/> implementation of
+		///     <b>null</b> to use the <see cref="IComparable"/> implementation of
 		///     each element.
 		/// </param>
 		/// <returns>
@@ -102,7 +102,7 @@ namespace PLib.Extensions.Core
 		/// <param name="comparer">
 		///     The IComparer implementation to use when comparing elements.
 		///     -or-
-		///     <c>null</c> to use the <see cref="IComparable"/> implementation of
+		///     <b>null</b> to use the <see cref="IComparable"/> implementation of
 		///     each element.
 		/// </param>
 		/// <returns>

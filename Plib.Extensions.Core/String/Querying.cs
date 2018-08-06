@@ -103,11 +103,11 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Determines whether the specified string is not <c>null</c> nor an empty string.
+		///     Determines whether the specified string is not <b>null</b> nor an empty string.
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <b>true</b> if the string is not <c>null</c> nor an empty string (""); otherwise,
+		///     <b>true</b> if the string is not <b>null</b> nor an empty string (""); otherwise,
 		///     false <b>false</b>.
 		/// </returns>
 		public static bool IsNotNullOrEmpty(this string me)
@@ -118,12 +118,12 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Determines whether a specified string is not <c>null</c>, not empty, and doesn't
+		///     Determines whether a specified string is not <b>null</b>, not empty, and doesn't
 		///     consists of only white-space characters.
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <b>true</b> if the string is not <c>null</c> nor an empty string (""), and if the
+		///     <b>true</b> if the string is not <b>null</b> nor an empty string (""), and if the
 		///     string doesn't consists exclusively of white-space characters; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsNotNullOrWhiteSpace(this string me)
@@ -242,11 +242,11 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Determines whether the specified string is <c>null</c> or an empty string.
+		///     Determines whether the specified string is <b>null</b> or an empty string.
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <b>true</b> if the string is <c>null</c> or an empty string (""); otherwise, false <b>false</b>.
+		///     <b>true</b> if the string is <b>null</b> or an empty string (""); otherwise, false <b>false</b>.
 		/// </returns>
 		public static bool IsNullOrEmpty(this string me)
 		{
@@ -256,12 +256,12 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Determines whether a specified string is <c>null</c>, empty, or consists only of
+		///     Determines whether a specified string is <b>null</b>, empty, or consists only of
 		///     white-space characters.
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <b>true</b> if the string is <c>null</c> or an empty string (""), or if the string
+		///     <b>true</b> if the string is <b>null</b> or an empty string (""), or if the string
 		///     consists exclusively of white-space characters; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsNullOrWhiteSpace(this string me)
