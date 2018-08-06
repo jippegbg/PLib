@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using JetBrains.Annotations;
-
 
 namespace PLib.Extensions.Core
 {
 
-	public static partial class ArrayExtensions
+	public static partial class GenericArrayExtensions
 	{
 
 		/// <summary>
@@ -17,7 +15,7 @@ namespace PLib.Extensions.Core
 		/// <param name="me">The this.</param>
 		/// <exception cref="ArgumentNullException">this</exception>
 		/// TODO: Edit XML Comment
-		public static void Sort<T>([NotNull] this T[] me)
+		public static void Sort<T>(this T[] me)
 		{
 			if (me == null)
 			{
@@ -41,7 +39,7 @@ namespace PLib.Extensions.Core
 		/// comparer
 		/// </exception>
 		/// TODO: Edit XML Comment
-		public static void Sort<T>([NotNull] this T[] me, [NotNull] IComparer<T> comparer)
+		public static void Sort<T>(this T[] me, IComparer<T> comparer)
 		{
 			if (me == null)
 			{
@@ -70,7 +68,7 @@ namespace PLib.Extensions.Core
 		/// comparison
 		/// </exception>
 		/// TODO: Edit XML Comment
-		public static void Sort<T>([NotNull] this T[] me, [NotNull] Comparison<T> comparison)
+		public static void Sort<T>(this T[] me, Comparison<T> comparison)
 		{
 			if (me == null)
 			{

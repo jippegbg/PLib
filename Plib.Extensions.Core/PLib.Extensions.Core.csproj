@@ -49,9 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Array\GetCopy.cs" />
+    <Compile Include="Array\Clear.cs" />
+    <Compile Include="Array\ConstrainedCopy.cs" />
+    <Compile Include="Array\IndexOf.cs" />
+    <Compile Include="Array\LastIndexOf.cs" />
+    <Compile Include="Array\Reverse.cs" />
+    <Compile Include="Array\Sort.cs" />
+    <Compile Include="GenericArray\GenericArrayExtensions.cs" />
+    <Compile Include="Array\BlockCopyTo.cs" />
+    <Compile Include="GenericArray\GetBlockCopy.cs" />
+    <Compile Include="GenericArray\GetCopy.cs" />
     <Compile Include="Array\CopyTo.cs" />
-    <Compile Include="Array\Sorting.cs" />
+    <Compile Include="GenericArray\Sorting.cs" />
     <Compile Include="ByteArray\ByteArrayExtensions.cs" />
     <Compile Include="ByteArray\Convertions.cs" />
     <Compile Include="Primitives\Boolean\BooleanExtensiond.cs" />
