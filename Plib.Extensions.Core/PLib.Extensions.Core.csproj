@@ -62,9 +62,9 @@
     <Compile Include="GenericArray\GetBlockCopy.cs" />
     <Compile Include="GenericArray\GetCopy.cs" />
     <Compile Include="Array\CopyTo.cs" />
-    <Compile Include="GenericArray\Sort.cs" />
     <Compile Include="ByteArray\ByteArrayExtensions.cs" />
     <Compile Include="ByteArray\Convertions.cs" />
+    <Compile Include="GenericArray\Sort.cs" />
     <Compile Include="Primitives\Boolean\BooleanExtensiond.cs" />
     <Compile Include="Primitives\Byte\ByteExtensions.cs" />
     <Compile Include="Primitives\Byte\Math.cs" />
