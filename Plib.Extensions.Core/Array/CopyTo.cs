@@ -1,7 +1,5 @@
 ﻿using System;
 
-using JetBrains.Annotations;
-
 
 namespace PLib.Extensions.Core
 {
@@ -10,7 +8,7 @@ namespace PLib.Extensions.Core
 	{
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Copies all elements from the current array into another array.
 		/// </summary>
 		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
@@ -22,7 +20,7 @@ namespace PLib.Extensions.Core
 		/// <exception cref="ArgumentException">
 		///     The destination array is to short to fit the element of the current array.
 		/// </exception>
-		public static void CopyTo([NotNull] this Array me, [NotNull] Array dstArray)
+		public static void CopyTo(this Array me, Array dstArray)
 		{
 			if (me == null)
 			{
@@ -36,7 +34,7 @@ namespace PLib.Extensions.Core
 
 			if (dstArray.LongLength < me.LongLength)
 			{
-				throw new ArgumentException("The destination array is to short to fit the element of the current array.");
+				throw new ArgumentException("The destination array is to short to fit the elements of the current array.");
 			}
 
 			Array.Copy(me, dstArray, me.LongLength);
@@ -45,21 +43,22 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Copies a number of elements from the current array starting at the first element and pastes
+		///     them into another array starting at the first element.
 		/// </summary>
 		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
-		/// <param name="length">The length.</param>
+		/// <param name="length">The number of elements to copy.</param>
 		/// <exception cref="ArgumentNullException">
 		///     <paramref name="me"/> is null
 		///     -or-
 		///     <paramref name="dstArray"/>
 		/// </exception>
 		/// <exception cref="ArgumentOutOfRangeException">
-		///     if the <paramref name="length"/> is ouside the bound of either
-		///     <paramref name="me"/> or <paramref name="dstArray"/>
+		///     if the <paramref name="length"/> is ouside the bound of either <paramref name="me"/>
+		///     or <paramref name="dstArray"/>
 		/// </exception>
-		public static void CopyTo([NotNull] this Array me, [NotNull] Array dstArray, int length)
+		public static void CopyTo(this Array me, Array dstArray, int length)
 		{
 			if (me == null)
 			{
@@ -82,32 +81,32 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Copies a number of elements from the current array starting at the specified offset and
+		///     pastes them to another array starting at the specified destination offset.
 		/// </summary>
 		/// <param name="me">The current array.</param>
-		/// <param name="offset">The offset.</param>
+		/// <param name="index">The index in the current array at which copying begins.</param>
 		/// <param name="dstArray">The destination array.</param>
-		/// <param name="dstOffset">The destination offest.</param>
-		/// <param name="length">The length.</param>
+		/// <param name="dstIndex">The index in the destination array at which storing begins.</param>
+		/// <param name="length">The number of elements to copy.</param>
 		/// <exception cref="ArgumentNullException">
 		///     <paramref name="me"/> is null
 		///     -or-
 		///     <paramref name="dstArray"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentOutOfRangeException">
-		///     <paramref name="offset"/> is outside the bounds of the current array. -or-
-		///     <paramref name="dstOffset"/> is outside the bound of the
-		///     <paramref name="dstArray"/> array.
+		///     <paramref name="index"/> is outside the bounds of the current array.
+		///     -or-
+		///     <paramref name="dstIndex"/> is outside the bound of the <paramref name="dstArray"/> array.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		///     The <paramref name="length"/> length is greater than the number of elements
-		///     from <paramref name="offset"/> to the end of the current array
+		///     The <paramref name="length"/> length is greater than the number of elements from
+		///     <paramref name="index"/> to the end of the current array
 		///     -or-
-		///     the <paramref name="length"/> is greater than the number of elements
-		///     from <paramref name="dstOffset"/> to the end of the
-		///     <paramref name="dstArray"/> array.
+		///     the <paramref name="length"/> is greater than the number of elements from
+		///     <paramref name="dstIndex"/> to the end of the <paramref name="dstArray"/> array.
 		/// </exception>
-		public static void CopyTo([NotNull] this Array me, int offset, [NotNull] Array dstArray, int dstOffset, int length)
+		public static void CopyTo(this Array me, int index, Array dstArray, int dstIndex, int length)
 		{
 			if (me == null)
 			{
@@ -119,37 +118,38 @@ namespace PLib.Extensions.Core
 				throw new ArgumentNullException(nameof(dstArray));
 			}
 
-			if (offset < 0 || me.Length <= offset)
+			if (index < 0 || me.Length <= index)
 			{
-				throw new ArgumentOutOfRangeException(nameof(offset));
+				throw new ArgumentOutOfRangeException(nameof(index));
 			}
 
-			if (dstOffset < 0 || dstArray.Length <= dstOffset)
+			if (dstIndex < 0 || dstArray.Length <= dstIndex)
 			{
-				throw new ArgumentOutOfRangeException(nameof(dstOffset));
+				throw new ArgumentOutOfRangeException(nameof(dstIndex));
 			}
 
-			if (me.Length < offset + length)
+			if (me.Length < index + length)
 			{
 				throw new ArgumentException("The length is greater than the number of elements from offset to the end of the current array.");
 			}
 
-			if (dstArray.Length < dstOffset + length)
+			if (dstArray.Length < dstIndex + length)
 			{
 				throw new ArgumentException("The length is greater than the number of elements from destination offset to the end of the destination array.");
 			}
 
-			Array.Copy(me, offset, dstArray, dstOffset, length);
+			Array.Copy(me, index, dstArray, dstIndex, length);
 		}
 
 
 
 		/// <summary>
-		///     TODO: Edit XML Comment
+		///     Copies a number of elements from the current array starting at the first element and pastes
+		///     them into another array starting at the first element.
 		/// </summary>
 		/// <param name="me">The current array.</param>
 		/// <param name="dstArray">The destination array.</param>
-		/// <param name="length">The length.</param>
+		/// <param name="length">The number of elements to copy.</param>
 		/// <exception cref="ArgumentNullException">
 		///     <paramref name="me"/> is null
 		///     -or-
@@ -159,7 +159,7 @@ namespace PLib.Extensions.Core
 		///     if the <paramref name="length"/> is ouside the bound of either
 		///     <paramref name="me"/> or <paramref name="dstArray"/>
 		/// </exception>
-		public static void CopyTo([NotNull] this Array me, [NotNull] Array dstArray, long length)
+		public static void CopyTo(this Array me, Array dstArray, long length)
 		{
 			if (me == null)
 			{
@@ -182,14 +182,32 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// TODO: Edit XML Comment
+		///     Copies a number of elements from the current array starting at the specified offset
+		///     and pastes them to another array starting at the specified destination offset.
 		/// </summary>
 		/// <param name="me">The current array.</param>
-		/// <param name="offset">The offset.</param>
+		/// <param name="index">The index in the current array at which copying begins.</param>
 		/// <param name="dstArray">The destination array.</param>
-		/// <param name="dstOffset">The destination offset.</param>
-		/// <param name="length">The length.</param>
-		public static void CopyTo([NotNull] this Array me, long offset, [NotNull] Array dstArray, long dstOffset, long length)
+		/// <param name="dstIndex">The index in the destination array at which storing begins.</param>
+		/// <param name="length">The number of elements to copy.</param>
+		/// <exception cref="ArgumentNullException">
+		///     <paramref name="me"/> is null
+		///     -or-
+		///     <paramref name="dstArray"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentOutOfRangeException">
+		///     <paramref name="index"/> is outside the bounds of the current array.
+		///     -or-
+		///     <paramref name="dstIndex"/> is outside the bound of the <paramref name="dstArray"/> array.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		///     The <paramref name="length"/> length is greater than the number of elements from
+		///     <paramref name="index"/> to the end of the current array
+		///     -or-
+		///     the <paramref name="length"/> is greater than the number of elements from
+		///     <paramref name="dstIndex"/> to the end of the <paramref name="dstArray"/> array.
+		/// </exception>
+		public static void CopyTo(this Array me, long index, Array dstArray, long dstIndex, long length)
 		{
 			if (me == null)
 			{
@@ -201,57 +219,27 @@ namespace PLib.Extensions.Core
 				throw new ArgumentNullException(nameof(dstArray));
 			}
 
-			if (offset < 0L || me.LongLength <= offset)
+			if (index < 0L || me.LongLength <= index)
 			{
-				throw new ArgumentOutOfRangeException(nameof(offset));
+				throw new ArgumentOutOfRangeException(nameof(index));
 			}
 
-			if (dstOffset < 0L || dstArray.LongLength <= dstOffset)
+			if (dstIndex < 0L || dstArray.LongLength <= dstIndex)
 			{
-				throw new ArgumentOutOfRangeException(nameof(dstOffset));
+				throw new ArgumentOutOfRangeException(nameof(dstIndex));
 			}
 
-			if (me.LongLength < offset + length)
+			if (me.LongLength < index + length)
 			{
 				throw new ArgumentException("The length is greater than the number of elements from offset to the end of the current array.");
 			}
 
-			if (dstArray.LongLength < dstOffset + length)
+			if (dstArray.LongLength < dstIndex + length)
 			{
 				throw new ArgumentException("The length is greater than the number of elements from destination offset to the end of the destination array.");
 			}
 
-			Array.Copy(me, offset, dstArray, dstOffset, length);
-		}
-
-
-
-		/// <summary>
-		/// TODO: Edit XML Comment
-		/// </summary>
-		/// <param name="me">The current array.</param>
-		/// <param name="dstArray">The destination array.</param>
-		/// <remarks>
-		///     <para>
-		///         This method provides better performance for copying primitive types
-		///         than the other copy methods.
-		///     </para>
-		///     <para>
-		///         Only applicable to arrays of <see cref="Boolean"/>, <see cref="Char"/>,
-		///         <see cref="SByte"/>, <see cref="Byte"/>, <see cref="Int16"/>,
-		///         <see cref="UInt16"/>, <see cref="Int32"/>, <see cref="UInt32"/>,
-		///         <see cref="Int64"/>, <see cref="UInt64"/>, <see cref="IntPtr"/>,
-		///         <see cref="UIntPtr"/>, <see cref="Single"/>, and <see cref="Double"/>.
-		///     </para>
-		/// </remarks>
-		public static void BlockCopyTo([NotNull] this Array me, [NotNull] Array dstArray)
-		{
-			if (me == null)
-			{
-				throw new ArgumentNullException(nameof(me));
-			}
-
-			Buffer.BlockCopy(me, 0, dstArray, 0, me.Length);
+			Array.Copy(me, index, dstArray, dstIndex, length);
 		}
 
 	}

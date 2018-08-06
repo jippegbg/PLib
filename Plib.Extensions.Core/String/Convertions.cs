@@ -172,10 +172,10 @@ namespace PLib.Extensions.Core
 		///     This parameter is passed uninitialized.
 		/// </param>
 		/// <param name="ignoreCase">
-		///     If <c>true</c>, ignore case; otherwise, regard case. Default is true.
+		///     If <b>true</b>, ignore case; otherwise, regard case. Default is true.
 		/// </param>
 		/// <returns>
-		///     <c>true</c> if the value parameter was converted successfully; otherwise, <c>false</c>.
+		///     <b>true</b> if the value parameter was converted successfully; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool ToEnum<T>(this string me, out T result, bool ignoreCase) where T : struct
 		{
@@ -194,7 +194,7 @@ namespace PLib.Extensions.Core
 		/// </typeparam>
 		/// <param name="me">The current string.</param>
 		/// <param name="ignoreCase">
-		///     If <c>true</c>, ignore case; otherwise, regard case. Default is true.
+		///     If <b>true</b>, ignore case; otherwise, regard case. Default is true.
 		/// </param>
 		/// <returns>
 		///     An object of type <typeparamref name="T"/> whose value is represented by

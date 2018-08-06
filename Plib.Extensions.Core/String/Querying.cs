@@ -19,7 +19,7 @@ namespace PLib.Extensions.Core
 		///     Default <see cref="StringComparison.CurrentCulture"/>.
 		/// </param>
 		/// <returns>
-		///     <c>true</c> if the current string contains the given substring; otherwise <c>false</c>.
+		///     <b>true</b> if the current string contains the given substring; otherwise <b>false</b>.
 		/// </returns>
 		public static bool Contains(this string me, string value, StringComparison comparisonType = StringComparison.CurrentCulture)
 		{
@@ -35,7 +35,7 @@ namespace PLib.Extensions.Core
 		/// <param name="comparisonType">Type of the comparison.</param>
 		/// <param name="values">The values.</param>
 		/// <returns>
-		///   <c>true</c> if the specified comparison type contains all; otherwise, <c>false</c>.
+		///   <b>true</b> if the specified comparison type contains all; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool ContainsAll(this string me, StringComparison comparisonType = StringComparison.CurrentCulture, params string[] values)
 		{
@@ -59,7 +59,7 @@ namespace PLib.Extensions.Core
 		/// <param name="comparisonType">Type of the comparison.</param>
 		/// <param name="values">The values.</param>
 		/// <returns>
-		///   <c>true</c> if the specified comparison type contains any; otherwise, <c>false</c>.
+		///   <b>true</b> if the specified comparison type contains any; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool ContainsAny(this string me, StringComparison comparisonType = StringComparison.CurrentCulture, params string[] values)
 		{
@@ -80,7 +80,7 @@ namespace PLib.Extensions.Core
 		///     Determines whether the current string has any unicode letter characters.
 		/// </summary>
 		/// <param name="me">The string to test.</param>
-		/// <returns><c>true</c> if the current string has any letters; otherwise, <c>false</c>.</returns>
+		/// <returns><b>true</b> if the current string has any letters; otherwise, <b>false</b>.</returns>
 		public static bool HasAlpha(this string me)
 		{
 			return me != null && me.Any(char.IsLetter);
@@ -93,7 +93,7 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <c>true</c> if the current string has any decimal digits; otherwise, <c>false</c>.
+		///     <b>true</b> if the current string has any decimal digits; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool HasDecimalDigits(this string me)
 		{
@@ -107,8 +107,8 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <c>true</c> if the string is not <c>null</c> nor an empty string (""); otherwise,
-		///     false <c>false</c>.
+		///     <b>true</b> if the string is not <c>null</c> nor an empty string (""); otherwise,
+		///     false <b>false</b>.
 		/// </returns>
 		public static bool IsNotNullOrEmpty(this string me)
 		{
@@ -123,8 +123,8 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <c>true</c> if the string is not <c>null</c> nor an empty string (""), and if the
-		///     string doesn't consists exclusively of white-space characters; otherwise, <c>false</c>.
+		///     <b>true</b> if the string is not <c>null</c> nor an empty string (""), and if the
+		///     string doesn't consists exclusively of white-space characters; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsNotNullOrWhiteSpace(this string me)
 		{
@@ -140,7 +140,7 @@ namespace PLib.Extensions.Core
 		/// <param name="values">A list of strings to compare with the current one.</param>
 		/// <returns>
 		///     true if the list of strings contains an element that equals the current string;
-		///     otherwise, <c>false</c>.
+		///     otherwise, <b>false</b>.
 		/// </returns>
 		/// <remarks>Comparison is case sensitive.</remarks>
 		public static bool IsIn(this string me, params string[] values)
@@ -158,7 +158,7 @@ namespace PLib.Extensions.Core
 		/// <param name="ignoreCase">If case should be ignored when comparing stings.</param>
 		/// <returns>
 		///     true if the sequence of strings contains an element that equals the current string;
-		///     otherwise, <c>false</c>.
+		///     otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsIn(this string me, IEnumerable<string> values, bool ignoreCase = false)
 		{
@@ -171,10 +171,10 @@ namespace PLib.Extensions.Core
 		///     Determines whether the current string is composed of all unicode letter characters.
 		/// </summary>
 		/// <param name="me">The string to test.</param>
-		/// <param name="includeSpace">if set to <c>true</c>, allow spaces.</param>
+		/// <param name="includeSpace">if set to <b>true</b>, allow spaces.</param>
 		/// <returns>
-		///     <c>true</c> if the current string is composed of all letter characters (and spaces);
-		///     otherwise, <c>false</c>.
+		///     <b>true</b> if the current string is composed of all letter characters (and spaces);
+		///     otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsAlpha(this string me, bool includeSpace = false)
 		{
@@ -188,10 +188,10 @@ namespace PLib.Extensions.Core
 		///     including spaces.
 		/// </summary>
 		/// <param name="me">The string to test.</param>
-		/// <param name="includeSpace">if set to <c>true</c>, allow spaces.</param>
+		/// <param name="includeSpace">if set to <b>true</b>, allow spaces.</param>
 		/// <returns>
-		///     <c>true</c> if the current string has only letters and decimal digits (and spaces);
-		///     otherwise, <c>false</c>.
+		///     <b>true</b> if the current string has only letters and decimal digits (and spaces);
+		///     otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsAlphaNumeric(this string me, bool includeSpace = false)
 		{
@@ -204,7 +204,7 @@ namespace PLib.Extensions.Core
 		///     Determines whether the current string is an email address.
 		/// </summary>
 		/// <param name="me">The string to test.</param>
-		/// <returns><c>true</c> if the current string is an email address; otherwise, <c>false</c>.</returns>
+		/// <returns><b>true</b> if the current string is an email address; otherwise, <b>false</b>.</returns>
 		public static bool IsEmailAddress(this string me)
 		{
 			return !string.IsNullOrEmpty(me) && RxEmailAddress.Value.IsMatch(me);
@@ -217,7 +217,7 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <c>true</c> if the current string is a valid IPv4 address; otherwise, <c>false</c>.
+		///     <b>true</b> if the current string is a valid IPv4 address; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsIPv4Address(this string me)
 		{
@@ -231,9 +231,9 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <c>true</c> if all letters in the current string are all lower case; otherwise, <c>false</c>.
+		///     <b>true</b> if all letters in the current string are all lower case; otherwise, <b>false</b>.
 		/// </returns>
-		/// <remarks>If the string contains no letters, <c>true</c> is returned.</remarks>
+		/// <remarks>If the string contains no letters, <b>true</b> is returned.</remarks>
 		public static bool IsLower(this string me)
 		{
 			return me != null && me.All(c => !char.IsLetter(c) || char.IsLower(c));
@@ -246,7 +246,7 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <c>true</c> if the string is <c>null</c> or an empty string (""); otherwise, false <c>false</c>.
+		///     <b>true</b> if the string is <c>null</c> or an empty string (""); otherwise, false <b>false</b>.
 		/// </returns>
 		public static bool IsNullOrEmpty(this string me)
 		{
@@ -261,8 +261,8 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <c>true</c> if the string is <c>null</c> or an empty string (""), or if the string
-		///     consists exclusively of white-space characters; otherwise, <c>false</c>.
+		///     <b>true</b> if the string is <c>null</c> or an empty string (""), or if the string
+		///     consists exclusively of white-space characters; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsNullOrWhiteSpace(this string me)
 		{
@@ -276,9 +276,9 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The string to test.</param>
 		/// <returns>
-		///     <c>true</c> if all letters in the current string are all upper case; otherwise, <c>false</c>.
+		///     <b>true</b> if all letters in the current string are all upper case; otherwise, <b>false</b>.
 		/// </returns>
-		/// <remarks>If the string contains no letters, <c>true</c> is returned.</remarks>
+		/// <remarks>If the string contains no letters, <b>true</b> is returned.</remarks>
 		public static bool IsUpper(this string me)
 		{
 			return me != null && me.All(c => !char.IsLetter(c) || char.IsUpper(c));

@@ -195,8 +195,8 @@ namespace PLib.Extensions.Core
 		/// <typeparam name="T">The target type.</typeparam>
 		/// <param name="me">The current object.</param>
 		/// <returns>
-		///     <c>true</c> if the current object can be assigned to an instance of the specified
-		///     type <typeparamref name="T"/>; otherwise, <c>false</c>.
+		///     <b>true</b> if the current object can be assigned to an instance of the specified
+		///     type <typeparamref name="T"/>; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsAssignableTo<T>(this object me)
 		{
@@ -211,8 +211,8 @@ namespace PLib.Extensions.Core
 		/// <param name="me">The current object.</param>
 		/// <param name="target">The target type.</param>
 		/// <returns>
-		///     <c>true</c> if the object type can be assigned to an instance of the specified
-		///     <paramref name="target"/> type; otherwise, <c>false</c>.
+		///     <b>true</b> if the object type can be assigned to an instance of the specified
+		///     <paramref name="target"/> type; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsAssignableTo(this object me, Type target)
 		{
@@ -228,8 +228,8 @@ namespace PLib.Extensions.Core
 		/// <param name="me">The current object.</param>
 		/// <param name="targets">The target types.</param>
 		/// <returns>
-		///     <c>true</c> if the current object can be assigned to an instance of at least one of
-		///     the specified target types; otherwise, <c>false</c>.
+		///     <b>true</b> if the current object can be assigned to an instance of at least one of
+		///     the specified target types; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsAssignableToAny(this object me, IEnumerable<Type> targets)
 		{
@@ -246,8 +246,8 @@ namespace PLib.Extensions.Core
 		/// <param name="me">The current object.</param>
 		/// <param name="targets">The target types.</param>
 		/// <returns>
-		///     <c>true</c> if the current object can be assigned to an instance of all of the
-		///     specified target types; otherwise, <c>false</c>.
+		///     <b>true</b> if the current object can be assigned to an instance of all of the
+		///     specified target types; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsAssignableToAll(this object me, IEnumerable<Type> targets)
 		{

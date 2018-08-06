@@ -179,9 +179,9 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="other">The other.</param>
-		/// <param name="ignoreCase">if set to <c>true</c> [ignore case].</param>
+		/// <param name="ignoreCase">if set to <b>true</b> [ignore case].</param>
 		/// <returns>
-		///   <c>true</c> if the specified other is anagram; otherwise, <c>false</c>.
+		///   <b>true</b> if the specified other is anagram; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsAnagram(this string me, string other, bool ignoreCase = false)
 		{
@@ -206,9 +206,9 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="other">The other.</param>
-		/// <param name="ignoreCase">if set to <c>true</c> [ignore case].</param>
+		/// <param name="ignoreCase">if set to <b>true</b> [ignore case].</param>
 		/// <returns>
-		///   <c>true</c> if the specified other is palindrome; otherwise, <c>false</c>.
+		///   <b>true</b> if the specified other is palindrome; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsPalindrome(this string me, string other, bool ignoreCase = false)
 		{
@@ -223,7 +223,7 @@ namespace PLib.Extensions.Core
 		/// <param name="me">The current string.</param>
 		/// <param name="pattern">The pattern.</param>
 		/// <returns>
-		///   <c>true</c> if the specified pattern is like; otherwise, <c>false</c>.
+		///   <b>true</b> if the specified pattern is like; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool IsLike(this string me, string pattern)
 		{
@@ -566,7 +566,7 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The this.</param>
 		/// <param name="fileName">Name of the file.</param>
-		/// <param name="append">if set to <c>true</c> [append].</param>
+		/// <param name="append">if set to <b>true</b> [append].</param>
 		/// TODO: Edit XML Comment
 		public static void SaveAs(this string me, string fileName, bool append = false)
 		{
@@ -584,7 +584,7 @@ namespace PLib.Extensions.Core
 		/// <param name="me">The this.</param>
 		/// <param name="fileName">Name of the file.</param>
 		/// <param name="encoding">The encoding.</param>
-		/// <param name="append">if set to <c>true</c> [append].</param>
+		/// <param name="append">if set to <b>true</b> [append].</param>
 		/// TODO: Edit XML Comment
 		public static void SaveAs(this string me, string fileName, Encoding encoding, bool append = false)
 		{
@@ -601,7 +601,7 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The this.</param>
 		/// <param name="file">The file.</param>
-		/// <param name="append">if set to <c>true</c> [append].</param>
+		/// <param name="append">if set to <b>true</b> [append].</param>
 		/// TODO: Edit XML Comment
 		public static void SaveAs(this string me, FileInfo file, bool append)
 		{
@@ -619,7 +619,7 @@ namespace PLib.Extensions.Core
 		/// <param name="me">The this.</param>
 		/// <param name="file">The file.</param>
 		/// <param name="encoding">The encoding.</param>
-		/// <param name="append">if set to <c>true</c> [append].</param>
+		/// <param name="append">if set to <b>true</b> [append].</param>
 		/// TODO: Edit XML Comment
 		public static void SaveAs(this string me, FileInfo file, Encoding encoding, bool append = false)
 		{
