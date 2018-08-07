@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\ActionExtensions.cs" />
     <Compile Include="Array\Clear.cs" />
     <Compile Include="Array\ConstrainedCopy.cs" />
     <Compile Include="Array\IndexOf.cs" />
@@ -57,6 +58,8 @@
     <Compile Include="Array\Reverse.cs" />
     <Compile Include="Array\BinarySearch.cs" />
     <Compile Include="Array\Sort.cs" />
+    <Compile Include="EventHandler\EventHandlerExtensions.cs" />
+    <Compile Include="Func\FuncExtensions.cs" />
     <Compile Include="GenericArray\BinarySearch.cs" />
     <Compile Include="GenericArray\Find.cs" />
     <Compile Include="GenericArray\FindIndex.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="GenericArray\IndexOf.cs" />
     <Compile Include="GenericArray\LastIndexOf.cs" />
     <Compile Include="GenericArray\Sort.cs" />
+    <Compile Include="GenericObject\GenericObjectExtensions.cs" />
     <Compile Include="Primitives\Boolean\BooleanExtensiond.cs" />
     <Compile Include="Primitives\Byte\ByteExtensions.cs" />
     <Compile Include="Primitives\Byte\Math.cs" />

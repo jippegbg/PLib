@@ -11,7 +11,7 @@ namespace PLib.Extensions.Core
 	{
 
 		/// <summary>
-		///     Adds a delegate to the invocation list of the current delegate.
+		///     Adds the invocation list of a delegate to the invocation list of the current delegate.
 		/// </summary>
 		/// <param name="me">The current delegate.</param>
 		/// <param name="other">The other delegate.</param>
@@ -29,7 +29,7 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Adds an array of delegates to the invocation list of the current delegate.
+		///     Adds the invocation lists of an array of delegates to the invocation list of the current delegate.
 		/// </summary>
 		/// <param name="me">The current delegate.</param>
 		/// <param name="delegates">

@@ -5,9 +5,9 @@ namespace PLib.Extensions.Core
 {
 
 	/// <summary>
-	///     Extensions of the <see cref="Enum"/> class.
+	///     Extensions of the Func delegates.
 	/// </summary>
-	public static class EnumExtensions
+	public static class FuncExtensions
 	{
 
 
