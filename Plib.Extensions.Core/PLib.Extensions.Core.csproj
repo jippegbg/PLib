@@ -57,6 +57,9 @@
     <Compile Include="Array\Reverse.cs" />
     <Compile Include="Array\BinarySearch.cs" />
     <Compile Include="Array\Sort.cs" />
+    <Compile Include="GenericArray\BinarySearch.cs" />
+    <Compile Include="GenericArray\Find.cs" />
+    <Compile Include="GenericArray\FindIndex.cs" />
     <Compile Include="GenericArray\GenericArrayExtensions.cs" />
     <Compile Include="Array\BlockCopyTo.cs" />
     <Compile Include="GenericArray\GetBlockCopy.cs" />
@@ -64,6 +67,8 @@
     <Compile Include="Array\CopyTo.cs" />
     <Compile Include="ByteArray\ByteArrayExtensions.cs" />
     <Compile Include="ByteArray\Convertions.cs" />
+    <Compile Include="GenericArray\IndexOf.cs" />
+    <Compile Include="GenericArray\LastIndexOf.cs" />
     <Compile Include="GenericArray\Sort.cs" />
     <Compile Include="Primitives\Boolean\BooleanExtensiond.cs" />
     <Compile Include="Primitives\Byte\ByteExtensions.cs" />
