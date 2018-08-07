@@ -77,8 +77,8 @@
     <Compile Include="Primitives\Char\CharExtensions.cs" />
     <Compile Include="DateTimeOffset\DateTimeOffsetExtensions.cs" />
     <Compile Include="DateTime\DateTimeExtensions.cs" />
-    <Compile Include="Decimal\DecimalExtensions.cs" />
-    <Compile Include="Decimal\Math.cs" />
+    <Compile Include="Primitives\Decimal\DecimalExtensions.cs" />
+    <Compile Include="Primitives\Decimal\Math.cs" />
     <Compile Include="Primitives\Double\Math.cs" />
     <Compile Include="Delegate\DelegateExtensions.cs" />
     <Compile Include="Primitives\Double\DoubleExtensions.cs" />

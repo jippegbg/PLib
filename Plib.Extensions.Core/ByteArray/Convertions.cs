@@ -5,10 +5,6 @@ using System.Text;
 namespace PLib.Extensions.Core
 {
 
-	/// <summary>
-	/// 
-	/// </summary>
-	/// TODO: Edit XML Comment
 	public static partial class ByteArrayExtensions
 	{
 
@@ -48,11 +44,13 @@ namespace PLib.Extensions.Core
 		#region [ ToBase64String ]
 
 		/// <summary>
-		/// To the base64 string.
+		///     Converts the current byte array to its equivalent string representation that is
+		///     encoded with base-64 digits.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <returns></returns>
-		/// TODO: Edit XML Comment
+		/// <param name="me">The current byte array.</param>
+		/// <returns>
+		///     The string representation, in base 64, of the contents of the current byte array.
+		/// </returns>
 		public static string ToBase64String(this byte[] me)
 		{
 			return Convert.ToBase64String(me);
@@ -61,12 +59,18 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// To the base64 string.
+		///     Converts the current byte array to its equivalent string representation that is
+		///     encoded with base-64 digits. A parameter specifies whether to insert line breaks in
+		///     the return value.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <param name="options">The options.</param>
-		/// <returns></returns>
-		/// TODO: Edit XML Comment
+		/// <param name="me">The current byte array.</param>
+		/// <param name="options">
+		///     <see cref="Base64FormattingOptions.InsertLineBreaks"/> to insert a line break every
+		///     76 characters, or <see cref="Base64FormattingOptions.None"/> to not insert line breaks.
+		/// </param>
+		/// <returns>
+		///     The string representation, in base 64, of the contents of the current byte array.
+		/// </returns>
 		public static string ToBase64String(this byte[] me, Base64FormattingOptions options)
 		{
 			return Convert.ToBase64String(me, options);
@@ -75,13 +79,17 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// To the base64 string.
+		///     Converts a subset of the current byte array to its equivalent string representation
+		///     that is encoded with base-64 digits. Parameters specify the subset as an offset in
+		///     the current array, and the number of elements to convert.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <param name="offset">The offset.</param>
-		/// <param name="length">The length.</param>
-		/// <returns></returns>
-		/// TODO: Edit XML Comment
+		/// <param name="me">The current byte array.</param>
+		/// <param name="offset">An offset in the current byte array.</param>
+		/// <param name="length">The number of elements to convert.</param>
+		/// <returns>
+		///     The string representation in base 64 of <paramref name="length"/> elements of the current byte array,
+		///     starting at position <paramref name="offset"/>.
+		/// </returns>
 		public static string ToBase64String(this byte[] me, int offset, int length)
 		{
 			return Convert.ToBase64String(me, offset, length);
@@ -90,14 +98,22 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// To the base64 string.
+		///     Converts a subset of the current byte array to its equivalent string representation
+		///     that is encoded with base-64 digits. Parameters specify the subset as an offset in
+		///     the current byte array, the number of elements to convert, and whether to insert line
+		///     breaks in the return value.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <param name="offset">The offset.</param>
-		/// <param name="length">The length.</param>
-		/// <param name="options">The options.</param>
-		/// <returns></returns>
-		/// TODO: Edit XML Comment
+		/// <param name="me">The current byte array.</param>
+		/// <param name="offset">An offset in the current byte array.</param>
+		/// <param name="length">The number of elements to convert.</param>
+		/// <param name="options">
+		///     <see cref="Base64FormattingOptions.InsertLineBreaks"/> to insert a line break every
+		///     76 characters, or <see cref="Base64FormattingOptions.None"/> to not insert line breaks.
+		/// </param>
+		/// <returns>
+		///     The string representation in base 64 of <paramref name="length"/> elements of the current byte array,
+		///     starting at position <paramref name="offset"/>.
+		/// </returns>
 		public static string ToBase64String(this byte[] me, int offset, int length, Base64FormattingOptions options)
 		{
 			return Convert.ToBase64String(me, offset, length, options);
@@ -113,23 +129,29 @@ namespace PLib.Extensions.Core
 		{
 			return (int)Math.Ceiling(bytesCount / 3.0) * 4;
 
-			/*int count = (int)((4.0d / 3.0d) * bytesCount);
+			/*
+			int count = (int)((4.0d / 3.0d) * bytesCount);
 			int rem = count % 4;
 			if (rem != 0)
 			{
 				count += 4 - rem;
 			}
 
-			return count;*/
+			return count;
+			*/
 		}
 
 
 
 		/// <summary>
-		/// To the base64 character array.
+		///     Converts the current byte array to an equivalent array of a Unicode characters
+		///     encoded with base-64 digits.
 		/// </summary>
 		/// <param name="me">The current byte array.</param>
-		/// <returns></returns>
+		/// <returns>
+		///     A character array of Unicode characters that's equivalent to the current byte array
+		///     encoded with base-64 digits.
+		/// </returns>
 		public static char[] ToBase64CharArray(this byte[] me)
 		{
 			int length = me.Length;
@@ -144,12 +166,19 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// To the base64 character array.
+		///     Converts the current byte array to an equivalent array of a Unicode characters
+		///     encoded with base-64 digits. A parameter specify whether line breaks are inserted in
+		///     the output array.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <param name="options">The options.</param>
-		/// <returns></returns>
-		/// TODO: Edit XML Comment
+		/// <param name="me">The current byte array.</param>
+		/// <param name="options">
+		///     <see cref="Base64FormattingOptions.InsertLineBreaks"/> to insert a line break every
+		///     76 characters, or <see cref="Base64FormattingOptions.None"/> to not insert line breaks.
+		/// </param>
+		/// <returns>
+		///     A character array of Unicode characters that's equivalent to the current byte array
+		///     encoded with base-64 digits.
+		/// </returns>
 		public static char[] ToBase64CharArray(this byte[] me, Base64FormattingOptions options)
 		{
 			int length = me.Length;
@@ -164,13 +193,18 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// To the base64 character array.
+		///     Converts a subset of the current byte array to an equivalent subset of a Unicode
+		///     character array encoded with base-64 digits. Parameters specify the subsets as
+		///     offsets in the input and output arrays, and the number of elements in the input array
+		///     to convert.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <param name="offset">The offset.</param>
-		/// <param name="length">The length.</param>
-		/// <returns></returns>
-		/// TODO: Edit XML Comment
+		/// <param name="me">The current byte array.</param>
+		/// <param name="offset">An offset in the current byte array.</param>
+		/// <param name="length">The number of elements to convert.</param>
+		/// <returns>
+		///     A character array of Unicode characters that's equivalent to a subset of the current
+		///     byte array encoded with base-64 digits.
+		/// </returns>
 		public static char[] ToBase64CharArray(this byte[] me, int offset, int length)
 		{
 			char[] chars = new char[CalculateBase64Count(length)];
@@ -183,14 +217,22 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// To the base64 character array.
+		///     Converts a subset of the current byte array to an equivalent subset of a Unicode
+		///     character array encoded with base-64 digits. Parameters specify the subsets as
+		///     offsets in the input and output arrays, the number of elements in the input array to
+		///     convert, and whether line breaks are inserted in the output array.
 		/// </summary>
-		/// <param name="me">Me.</param>
-		/// <param name="offset">The offset.</param>
-		/// <param name="length">The length.</param>
-		/// <param name="options">The options.</param>
-		/// <returns></returns>
-		/// TODO: Edit XML Comment
+		/// <param name="me">The current byte array.</param>
+		/// <param name="offset">An offset in the current byte array.</param>
+		/// <param name="length">The number of elements to convert.</param>
+		/// <param name="options">
+		///     <see cref="Base64FormattingOptions.InsertLineBreaks"/> to insert a line break every
+		///     76 characters, or <see cref="Base64FormattingOptions.None"/> to not insert line breaks.
+		/// </param>
+		/// <returns>
+		///     A character array of Unicode characters that's equivalent to a subset of the current
+		///     byte array encoded with base-64 digits.
+		/// </returns>
 		public static char[] ToBase64CharArray(this byte[] me, int offset, int length, Base64FormattingOptions options)
 		{
 			char[] chars = new char[CalculateBase64Count(length)];
