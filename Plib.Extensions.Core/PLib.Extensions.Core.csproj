@@ -73,7 +73,15 @@
     <Compile Include="GenericArray\IndexOf.cs" />
     <Compile Include="GenericArray\LastIndexOf.cs" />
     <Compile Include="GenericArray\Sort.cs" />
+    <Compile Include="GenericObject\Comparison.cs" />
     <Compile Include="GenericObject\GenericObjectExtensions.cs" />
+    <Compile Include="GenericObject\NullIf.cs" />
+    <Compile Include="GenericObject\Try.cs" />
+    <Compile Include="GenericObject\When.cs" />
+    <Compile Include="Object\Casting.cs" />
+    <Compile Include="Object\ChangeType.cs" />
+    <Compile Include="Object\ConvertTo.cs" />
+    <Compile Include="Object\IsAssignableTo.cs" />
     <Compile Include="Primitives\Boolean\BooleanExtensiond.cs" />
     <Compile Include="Primitives\Byte\ByteExtensions.cs" />
     <Compile Include="Primitives\Byte\Math.cs" />
