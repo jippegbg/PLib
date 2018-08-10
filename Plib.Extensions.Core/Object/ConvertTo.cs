@@ -8,6 +8,43 @@ namespace PLib.Extensions.Core {
 	{
 
 		/// <summary>
+		///     Determines if an object can be converted to a specified type.
+		/// </summary>
+		/// <typeparam name="T">The target type to convert to.</typeparam>
+		/// <param name="me">The current object.</param>
+		/// <returns></returns>
+		public static bool CanConvertTo<T>(this object me)
+		{
+			return me.CanConvertTo(typeof(T));
+		}
+
+
+
+		/// <summary>
+		///     Determines if an object can be converted to a specified type.
+		/// </summary>
+		/// <param name="me">The current object.</param>
+		/// <param name="targetType">The target type to convert to.</param>
+		/// <returns></returns>
+		public static bool CanConvertTo(this object me, Type targetType)
+		{
+			if (me == null)
+			{
+				return false;
+			}
+
+			TypeConverter toConverter = TypeDescriptor.GetConverter(me);
+			bool canConvertTo = toConverter.CanConvertTo(targetType);
+
+			TypeConverter fromConverter = TypeDescriptor.GetConverter(targetType);
+			bool canConvertFrom = fromConverter.CanConvertFrom(me.GetType());
+
+			return canConvertTo || canConvertFrom;
+		}
+
+
+
+		/// <summary>
 		///     Converts the current object into a specified target type.
 		/// </summary>
 		/// <typeparam name="T">The target type to convert to.</typeparam>
