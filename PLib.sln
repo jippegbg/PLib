@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Extensions.Data", "PLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Functional", "PLib.Functional\PLib.Functional.csproj", "{CF4695DE-073D-49E9-8678-C6C3DD781959}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Interval", "PLib.Interval\PLib.Interval.csproj", "{C42D955E-BB78-46B8-A322-F253C1485686}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLib.Utils", "PLib.Utils\PLib.Utils.csproj", "{11B7D9F2-CE34-4175-8CBF-4C70F0D95455}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,10 @@ Global
 		{CF4695DE-073D-49E9-8678-C6C3DD781959}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF4695DE-073D-49E9-8678-C6C3DD781959}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF4695DE-073D-49E9-8678-C6C3DD781959}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C42D955E-BB78-46B8-A322-F253C1485686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C42D955E-BB78-46B8-A322-F253C1485686}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C42D955E-BB78-46B8-A322-F253C1485686}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C42D955E-BB78-46B8-A322-F253C1485686}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11B7D9F2-CE34-4175-8CBF-4C70F0D95455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11B7D9F2-CE34-4175-8CBF-4C70F0D95455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11B7D9F2-CE34-4175-8CBF-4C70F0D95455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11B7D9F2-CE34-4175-8CBF-4C70F0D95455}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

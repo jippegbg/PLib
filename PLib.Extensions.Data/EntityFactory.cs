@@ -7,20 +7,26 @@ using System.Reflection.Emit;
 namespace PLib.Extensions.Data
 {
 
-	public class EntityFactory<T>
+	internal static class EntityFactoryHelpers
 	{
 
-		private static readonly MethodInfo GetValueMethod = typeof(IDataRecord).GetMethod("get_Item", new Type[] { typeof(int) });
+		public static readonly MethodInfo GetValueMethod = typeof(IDataRecord).GetMethod("get_Item", new[] { typeof(int) });
 
-		private static readonly MethodInfo IsDbNullMethod = typeof(IDataRecord).GetMethod("IsDBNull", new Type[] { typeof(int) });
+		public static readonly MethodInfo IsDbNullMethod = typeof(IDataRecord).GetMethod("IsDBNull", new[] { typeof(int) });
+
+	}
 
 
+
+	public class EntityFactory<T>
+	{
 
 		private delegate T Loader(IDataRecord dataRecord);
 
 
 
 		private readonly Loader m_loader;
+
 
 
 		/// <summary>
@@ -65,7 +71,7 @@ namespace PLib.Extensions.Data
 				new DynamicMethod(
 					name: "LoadDataRecord",
 					returnType: typeof(T),
-					parameterTypes: new Type[] { typeof(IDataRecord) },
+					parameterTypes: new[] { typeof(IDataRecord) },
 					owner: typeof(T),
 					skipVisibility: true
 				);
@@ -86,13 +92,13 @@ namespace PLib.Extensions.Data
 				{
 					generator.Emit(OpCodes.Ldarg_0);
 					generator.Emit(OpCodes.Ldc_I4, i);
-					generator.Emit(OpCodes.Callvirt, IsDbNullMethod);
+					generator.Emit(OpCodes.Callvirt, EntityFactoryHelpers.IsDbNullMethod);
 					generator.Emit(OpCodes.Brtrue, endIfLabel);
 
 					generator.Emit(OpCodes.Ldloc, result);
 					generator.Emit(OpCodes.Ldarg_0);
 					generator.Emit(OpCodes.Ldc_I4, i);
-					generator.Emit(OpCodes.Callvirt, GetValueMethod);
+					generator.Emit(OpCodes.Callvirt, EntityFactoryHelpers.GetValueMethod);
 					generator.Emit(OpCodes.Unbox_Any, dataRecord.GetFieldType(i));
 					generator.Emit(OpCodes.Callvirt, propertyInfo.GetSetMethod());
 
