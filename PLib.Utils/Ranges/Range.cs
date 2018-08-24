@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 using PLib.Extensions.Core;
@@ -970,9 +969,12 @@ namespace PLib.Utils.Ranges
 		///     range if the <paramref name="value"/> is outside, or at any bound of, the current
 		///     range. An array containing two new ranges if the <paramref name="value"/> is strictly
 		///     inside the current range, where the first range starts at the current
-		///     <see cref="Range{T}.LowerBound"/> and ends at <paramref name="value"/>, and the
-		///     second range starts at <paramref name="value"/> and ends at the current <see cref="Range{T}.UpperBound"/>.
+		///     <see cref="LowerBound"/> and ends at <paramref name="value"/>, and the
+		///     second range starts at <paramref name="value"/> and ends at the current <see cref="UpperBound"/>.
 		/// </returns>
+		/// <remarks>
+		///     Any returned range will have the same value of <see cref="Reverse"/> as the current range.
+		/// </remarks>
 		public Range[] Split(int value)
 		{
 			if (!Contains(value) || LowerBound == value || UpperBound == value)
@@ -980,7 +982,11 @@ namespace PLib.Utils.Ranges
 				return new[] { this };
 			}
 
-			return new[] { new Range(LowerBound, value), new Range(value, UpperBound) };
+			return new[]
+			{
+				new Range(LowerBound, value) { Reverse = Reverse },
+				new Range(value, UpperBound) { Reverse = Reverse }
+			};
 		}
 
 		#endregion [ Set Operations ]
