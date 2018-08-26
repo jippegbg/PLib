@@ -90,7 +90,12 @@ namespace PLib.Extensions.Core
 		///     Converts the current string to title-case.
 		/// </summary>
 		/// <param name="me">The current string.</param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A copy of the current string where the first character of every word in the
+		///     current string are replaced with an upper case letter. All other letters in
+		///     every word are replace with lower caps letters. Except for words in the
+		///     current string that have all upper case letters, which are considered to be acronyms.
+		/// </returns>
 		public static string ToTitleCase(this string me)
 		{
 			if (me == null)

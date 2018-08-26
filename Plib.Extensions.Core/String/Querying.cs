@@ -29,13 +29,17 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// TODO: Edit XML Comment
+		///     Checks if a string contains all of the specified substrings.
 		/// </summary>
-		/// <param name="me">The this.</param>
-		/// <param name="comparisonType">Type of the comparison.</param>
-		/// <param name="values">The values.</param>
+		/// <param name="me">The current string.</param>
+		/// <param name="comparisonType">
+		///     One of the enumeration values that specifies the rules for the search.
+		///     Default <see cref="StringComparison.CurrentCulture"/>.
+		/// </param>
+		/// <param name="values">The sub-strings to check.</param>
 		/// <returns>
-		///   <b>true</b> if the specified comparison type contains all; otherwise, <b>false</b>.
+		///     <b>true</b> if the current string contains all of the sppecified
+		///     sub-strings; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool ContainsAll(this string me, StringComparison comparisonType = StringComparison.CurrentCulture, params string[] values)
 		{
@@ -53,13 +57,17 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// TODO: Edit XML Comment
+		///     Checks if a string contains any of the specified substrings.
 		/// </summary>
-		/// <param name="me">The this.</param>
-		/// <param name="comparisonType">Type of the comparison.</param>
-		/// <param name="values">The values.</param>
+		/// <param name="me">The current string.</param>
+		/// <param name="comparisonType">
+		///     One of the enumeration values that specifies the rules for the search.
+		///     Default <see cref="StringComparison.CurrentCulture"/>.
+		/// </param>
+		/// <param name="values">The sub-strings to check.</param>
 		/// <returns>
-		///   <b>true</b> if the specified comparison type contains any; otherwise, <b>false</b>.
+		///     <b>true</b> if the current string contains any of the sppecified
+		///     sub-strings; otherwise, <b>false</b>.
 		/// </returns>
 		public static bool ContainsAny(this string me, StringComparison comparisonType = StringComparison.CurrentCulture, params string[] values)
 		{

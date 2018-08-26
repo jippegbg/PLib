@@ -9,13 +9,17 @@ namespace PLib.Extensions.Core
 	{
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number spaces are added to the left.
+		///     Returns a copy of the current string where a specified number spaces are
+		///     added to the left.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="numSpaces">The number of spaces to add to the left side.</param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A copy of the current string where a specified number spaces are added to
+		///     the left.
+		/// </returns>
 		/// <exception cref="ArgumentOutOfRangeException">
-		///     numSpaces - The number of spaces cannot be less than zero.
+		///     If <paramref name="numSpaces"/> is less than zero.
 		/// </exception>
 		public static string ExtendLeft(this string me, int numSpaces)
 		{
@@ -35,15 +39,18 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number characters are added to
-		///     the left.
+		///     Returns a copy of the current string where a specified number characters
+		///     are added to the left.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="numChars">The number of characters to add to the left side.</param>
 		/// <param name="extensionChar">A Unicode extension character.</param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A copy of the current string where a specified number characters are added
+		///     to the left.
+		/// </returns>
 		/// <exception cref="ArgumentOutOfRangeException">
-		///     numChars - The number of characters cannot be less than zero.
+		///     If <paramref name="numChars"/> is less than zero.
 		/// </exception>
 		public static string ExtendLeft(this string me, int numChars, char extensionChar)
 		{
@@ -63,13 +70,17 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number spaces are added to the right.
+		///     Returns a copy of the current string where a specified number spaces are
+		///     added to the right.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="numSpaces">The number of spaces to add to the right side.</param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A copy of the current string where a specified number spaces are added to
+		///     the right.
+		/// </returns>
 		/// <exception cref="ArgumentOutOfRangeException">
-		///     numSpaces - The number of spaces cannot be less than zero.
+		///     If <paramref name="numSpaces"/> is less than zero.
 		/// </exception>
 		public static string ExtendRight(this string me, int numSpaces)
 		{
@@ -89,15 +100,18 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number characters are added to
-		///     the right.
+		///     Returns a copy of the current string where a specified number characters
+		///     are added to the right.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="numChars">The number of characters to add to the right side.</param>
 		/// <param name="extensionChar">A Unicode extension character.</param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A copy of the current string where a specified number characters are added
+		///     to the right.
+		/// </returns>
 		/// <exception cref="ArgumentOutOfRangeException">
-		///     numChars - The number of characters cannot be less than zero.
+		///     If <paramref name="numChars"/> is less than zero.
 		/// </exception>
 		public static string ExtendRight(this string me, int numChars, char extensionChar)
 		{
@@ -121,9 +135,12 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="numSpaces">
-		///     The number of spaces to add. Add to the left if positive and to the right if negative.
+		///     The number of spaces to add. Add to the left if positive and to the right
+		///     if negative.
 		/// </param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A copy of the current string where a specified number spaces are added.
+		/// </returns>
 		public static string Extend(this string me, int numSpaces)
 		{
 			if (me == null)
@@ -137,14 +154,18 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number characters are added.
+		///     Returns a copy of the current string where a specified number characters
+		///     are added.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="numChars">
-		///     The number of characters to add. Add to the left if positive and to the right if negative.
+		///     The number of characters to add. Add to the left if positive and to the
+		///     right if negative.
 		/// </param>
 		/// <param name="extensionChar">A Unicode extension character.</param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A copy of the current string where a specified number characters are added.
+		/// </returns>
 		public static string Extend(this string me, int numChars, char extensionChar)
 		{
 			if (me == null)
@@ -160,12 +181,17 @@ namespace PLib.Extensions.Core
 		#region [ Multi-Line ]
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number spaces are added to the
-		///     left of each line.
+		///     Returns a copy of the current string where a specified number spaces are
+		///     added to the left of each line.
 		/// </summary>
 		/// <param name="me">The current string.</param>
-		/// <param name="numSpaces">The number of spaces to add to the left side of each line.</param>
-		/// <returns>TODO</returns>
+		/// <param name="numSpaces">
+		///     The number of spaces to add to the left side of each line.
+		/// </param>
+		/// <returns>
+		///     A a copy of the current string where a specified number spaces are added to
+		///     the left of each line.
+		/// </returns>
 		public static string ExtendLinesLeft(this string me, int numSpaces)
 		{
 			return me?
@@ -177,15 +203,18 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number characters are added to
-		///     the left of each line.
+		///     Returns a copy of the current string where a specified number characters
+		///     are added to the left of each line.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="numChars">
 		///     The number of characters to add to the left side of each line.
 		/// </param>
 		/// <param name="extensionChar">A Unicode extension character.</param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A copy of the current string where a specified number characters are added
+		///     to the left of each line.
+		/// </returns>
 		public static string ExtendLinesLeft(this string me, int numChars, char extensionChar)
 		{
 			return me?
@@ -197,12 +226,17 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number spaces are added to the
-		///     right of each line.
+		///     Returns a copy of the current string where a specified number spaces are
+		///     added to the right of each line.
 		/// </summary>
 		/// <param name="me">The current string.</param>
-		/// <param name="numSpaces">The number of spaces to add to the right side of each line.</param>
-		/// <returns>TODO</returns>
+		/// <param name="numSpaces">
+		///     The number of spaces to add to the right side of each line.
+		/// </param>
+		/// <returns>
+		///     A copy of the current string where a specified number spaces are added to
+		///     the right of each line.
+		/// </returns>
 		public static string ExtendLinesRight(this string me, int numSpaces)
 		{
 			return me?
@@ -214,15 +248,18 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number characters are added to
-		///     the right of each line.
+		///     Returns a copy of the current string where a specified number characters
+		///     are added to the right of each line.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="numChars">
 		///     The number of characters to add to the right side of each line.
 		/// </param>
 		/// <param name="extensionChar">A Unicode extension character.</param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A a copy of the current string where a specified number characters are
+		///     added to the right of each line.
+		/// </returns>
 		public static string ExtendLinesRight(this string me, int numChars, char extensionChar)
 		{
 			return me?
@@ -234,15 +271,18 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Returns a copy of the current string where a specified number spaces are added to
-		///     each line.
+		///     Returns a copy of the current string where a specified number spaces are
+		///     added to each line.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="numSpaces">
-		///     The number of spaces to add to each line. Add to the left if positive and to the
-		///     right if negative.
+		///     The number of spaces to add to each line. Add to the left if positive and
+		///     to the right if negative.
 		/// </param>
-		/// <returns>TODO</returns>
+		/// <returns>
+		///     A copy of the current string where a specified number spaces are added to
+		///     each line.
+		/// </returns>
 		public static string ExtendLines(this string me, int numSpaces)
 		{
 			return me?

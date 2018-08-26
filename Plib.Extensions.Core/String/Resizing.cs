@@ -116,12 +116,27 @@ namespace PLib.Extensions.Core
 		#region [ Multi-Line ]
 
 		/// <summary>
-		/// TODO: Edit XML Comment
+		///     Returns a copy of the current string with ensured minimum and maximum
+		///     length of every line in the current string.
 		/// </summary>
-		/// <param name="me"></param>
-		/// <param name="minLineLength"></param>
-		/// <param name="maxLineLength"></param>
-		/// <returns></returns>
+		/// <param name="me">The current string.</param>
+		/// <param name="minLineLength">
+		///     The minimum length of every line in the resulting string. Pads with spaces
+		///     on the left side if the line in the current string is shorter than this length.
+		/// </param>
+		/// <param name="maxLineLength">
+		///     The maximum length of every line in the resulting string. Removes
+		///     characters from the left side if the line in the current string is longer
+		///     than this maximum length.
+		/// </param>
+		/// <returns>
+		///     A copy of the current string with ensured minimum and maximum length of
+		///     every line in the current string.
+		/// </returns>
+		/// <remarks>
+		///     The lines that are longer than the minimum length but shorter than the maximum length
+		///     will be left untouched.
+		/// </remarks>
 		public static string ResizeLinesLeft(this string me, int minLineLength, int maxLineLength)
 		{
 			return me?
@@ -133,12 +148,27 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// TODO: Edit XML Comment
+		///     Returns a copy of the current string with ensured minimum and maximum
+		///     length of every line in the current string.
 		/// </summary>
-		/// <param name="me"></param>
-		/// <param name="minLineLength"></param>
-		/// <param name="maxLineLength"></param>
-		/// <returns></returns>
+		/// <param name="me">The current string.</param>
+		/// <param name="minLineLength">
+		///     The minimum length of every line in the resulting string. Pads with spaces
+		///     on the right side if the line in the current string is shorter than this length.
+		/// </param>
+		/// <param name="maxLineLength">
+		///     The maximum length of every line in the resulting string. Removes
+		///     characters from the right side if the line in the current string is longer
+		///     than this maximum length.
+		/// </param>
+		/// <returns>
+		///     A copy of the current string with ensured minimum and maximum length of
+		///     every line in the current string.
+		/// </returns>
+		/// <remarks>
+		///     The lines that are longer than the minimum length but shorter than the maximum length
+		///     will be left untouched.
+		/// </remarks>
 		public static string ResizeLinesRight(this string me, int minLineLength, int maxLineLength)
 		{
 			return me?

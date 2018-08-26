@@ -38,11 +38,13 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Splits the current string into a substring array based on the separate lines in the
-		///     current string.
+		///     Splits the current string into a substring array based on the separate
+		///     lines in the current string.
 		/// </summary>
 		/// <param name="me">The current string.</param>
-		/// <returns>An array whose elements contains the separate lines in the current string.</returns>
+		/// <returns>
+		///     An array whose elements contains the separate lines in the current string.
+		/// </returns>
 		public static string[] Lines(this string me)
 		{
 			return me?.Split(Environment.NewLine);
@@ -51,8 +53,8 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Retrieves a segment of the current string, that starts and ends
-		///     at specified indexes.
+		///     Retrieves a segment of the current string, that starts and ends at
+		///     specified indexes.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="startIndex">
@@ -63,7 +65,8 @@ namespace PLib.Extensions.Core
 		/// </param>
 		/// <returns>
 		///     A string that is equivalent to the substring that begins at
-		///     <paramref name="startIndex"/> and end before <paramref name="endIndex"/> of the current string.
+		///     <paramref name="startIndex"/> and end before <paramref name="endIndex"/> of
+		///     the current string.
 		/// </returns>
 		public static string Slice(this string me, int startIndex, int endIndex)
 		{
@@ -73,16 +76,17 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Splits the current string into a substring array based on the separators in an array.
+		///     Splits the current string into a substring array based on the separators in
+		///     an array.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="separators">
-		///     A string array that delimits the substrings in this string, an empty array that
-		///     contains no delimiters, or null.
+		///     A string array that delimits the substrings in this string, an empty array
+		///     that contains no delimiters, or null.
 		/// </param>
 		/// <returns>
-		///     An array whose elements contain the substrings in the current string that are delimited by
-		///     one or more sub-strings in <paramref name="separators"/>.
+		///     An array whose elements contain the substrings in the current string that
+		///     are delimited by one or more sub-strings in <paramref name="separators"/>.
 		/// </returns>
 		public static string[] Split(this string me, params string[] separators)
 		{
@@ -92,21 +96,21 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		///     Splits the current string into a substring array based on a single separator
-		///     character and split options.
+		///     Splits the current string into a substring array based on a single
+		///     separator character and split options.
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="separator">
 		///     A single Unicode character that delimit the substrings in this instance.
 		/// </param>
 		/// <param name="options">
-		///     <see cref="StringSplitOptions.RemoveEmptyEntries"/> to omit empty array elements from
-		///     the array returned; or <see cref="StringSplitOptions.None"/> to include empty array
-		///     elements in the array returned.
+		///     <see cref="StringSplitOptions.RemoveEmptyEntries"/> to omit empty array
+		///     elements from the array returned; or <see cref="StringSplitOptions.None"/>
+		///     to include empty array elements in the array returned.
 		/// </param>
 		/// <returns>
-		///     An array whose elements contain the substrings in the current string that are
-		///     delimited by the <paramref name="separator"/> character.
+		///     An array whose elements contain the substrings in the current string that
+		///     are delimited by the <paramref name="separator"/> character.
 		/// </returns>
 		public static string[] Split(this string me, char separator, StringSplitOptions options)
 		{
@@ -116,11 +120,17 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// TODO: Edit XML Comment
+		///     Gets the right part of the current string starting at, and including, a
+		///     specified index.
 		/// </summary>
-		/// <param name="me"></param>
-		/// <param name="startIndex"></param>
-		/// <returns></returns>
+		/// <param name="me">The current string.</param>
+		/// <param name="startIndex">The zero-based starting character position.</param>
+		/// <returns>
+		///     A string that is equivalent to the substring that begins at
+		///     <paramref name="startIndex"/> in this instance, or
+		///     <see cref="string.Empty"/> if <paramref name="startIndex"/> is equal to the
+		///     <see cref="string.Length"/> of the current string.
+		/// </returns>
 		public static string From(this string me, int startIndex)
 		{
 			return me.Substring(startIndex);
@@ -129,11 +139,16 @@ namespace PLib.Extensions.Core
 
 
 		/// <summary>
-		/// TODO: Edit XML Comment
+		///     Gets the left part of the current string ending at, not including, a
+		///     specified index.
 		/// </summary>
-		/// <param name="me"></param>
-		/// <param name="endIndex"></param>
-		/// <returns></returns>
+		/// <param name="me">The current string.</param>
+		/// <param name="endIndex">The zero-based ending character position.</param>
+		/// <returns>
+		///     A string that is equivalent to the substring that ends at
+		///     <paramref name="endIndex"/> in this instance, or <see cref="string.Empty"/>
+		///     if <paramref name="endIndex"/> is zero.
+		/// </returns>
 		public static string Until(this string me, int endIndex)
 		{
 			return me.Substring(0, endIndex);
