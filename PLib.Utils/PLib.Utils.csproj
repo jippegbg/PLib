@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CF4695DE-073D-49E9-8678-C6C3DD781959}</ProjectGuid>
+    <ProjectGuid>{11B7D9F2-CE34-4175-8CBF-4C70F0D95455}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PLib.Functional</RootNamespace>
-    <AssemblyName>PLib.Functional</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>PLib.Utils</RootNamespace>
+    <AssemblyName>PLib.Utils</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,22 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Action\ActionExtensions.cs" />
-    <Compile Include="Action\Curry.cs" />
-    <Compile Include="Action\CurryR.cs" />
-    <Compile Include="Action\PartialInvoke.cs" />
-    <Compile Include="Func\Chaining.cs" />
-    <Compile Include="Func\Composing.cs" />
-    <Compile Include="Func\Curry.cs" />
-    <Compile Include="Func\CurryR.cs" />
-    <Compile Include="DelegateExtensions.cs" />
-    <Compile Include="Func\FuncExtensions.cs" />
-    <Compile Include="Func\PartialInvoke.cs" />
-    <Compile Include="HashCode.cs" />
+    <Compile Include="Assert.cs" />
+    <Compile Include="ExpressionUtil.cs" />
+    <Compile Include="Intervals\Interval.cs" />
+    <Compile Include="Intervals\IntervalExtensions.cs" />
+    <Compile Include="Intervals\Limit.cs" />
+    <Compile Include="Intervals\Position.cs" />
+    <Compile Include="NullOp.cs" />
+    <Compile Include="Operator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ranges\Range.cs" />
+    <Compile Include="Ranges\RangeExtensions.cs" />
+    <Compile Include="Ranges\Sequence.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Lists\" />
+    <ProjectReference Include="..\PLib.Extensions.Core\PLib.Extensions.Core.csproj">
+      <Project>{9e9c73cb-94b5-4108-97eb-9135bb911766}</Project>
+      <Name>PLib.Extensions.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

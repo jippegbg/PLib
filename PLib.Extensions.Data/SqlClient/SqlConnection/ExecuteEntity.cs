@@ -2,8 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 
-using PLib.Extensions.Core;
-
 
 namespace PLib.Extensions.Data.SqlClient
 {
