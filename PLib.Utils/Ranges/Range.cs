@@ -6,6 +6,8 @@ using System.Text.RegularExpressions;
 
 using PLib.Extensions.Core;
 
+using static PLib.Utils.Ranges.Common;
+
 
 namespace PLib.Utils.Ranges
 {
@@ -64,10 +66,6 @@ namespace PLib.Utils.Ranges
 
 
 
-		private static readonly Regex RxExpression = new Regex(@"\[?\s*(?<s>[+-]?\d+)\s*(?:\.\.|,)\s*(?<e>[+-]?\d+)\s*\]?");
-
-
-
 		/// <summary>
 		///     Converts the specified expression into a new <see cref="Range"/> object.
 		/// </summary>
@@ -109,7 +107,7 @@ namespace PLib.Utils.Ranges
 
 			try
 			{
-				match = RxExpression.Match(expression);
+				match = RxRangeExpression.Value.Match(expression);
 			}
 			catch (RegexMatchTimeoutException e)
 			{
@@ -322,8 +320,8 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Determines if the left range is a proper subrange of the right range.
 		/// </summary>
-		/// <param name="left">The left range.</param>
-		/// <param name="right">The right.</param>
+		/// <param name="left">The left range operand.</param>
+		/// <param name="right">The right range operand.</param>
 		/// <returns>
 		///     <see langword="true"/> if the <paramref name="left"/> range is a proper subrange of the
 		///     <paramref name="right"/> range; otherwise, <see langword="false"/>.
@@ -338,8 +336,8 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Determines if the left range is a subrange of the right range.
 		/// </summary>
-		/// <param name="left">The left range.</param>
-		/// <param name="right">The right range.</param>
+		/// <param name="left">The left range operand.</param>
+		/// <param name="right">The right range operand.</param>
 		/// <returns>
 		///     <see langword="true"/> if the <paramref name="left"/> range is a subrange of the
 		///     <paramref name="right"/> range; otherwise, <see langword="false"/>.
@@ -354,8 +352,8 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Determines if the left range is a proper superrange of the right range.
 		/// </summary>
-		/// <param name="left">The left range.</param>
-		/// <param name="right">The right range.</param>
+		/// <param name="left">The left range operand.</param>
+		/// <param name="right">The right range operand.</param>
 		/// <returns>
 		///     <see langword="true"/> if the <paramref name="left"/> range is a proper superrange of
 		///     the <paramref name="right"/> range; otherwise, <see langword="false"/>.
@@ -370,8 +368,8 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		/// Determines if the left range is a superrange of the right range.
 		/// </summary>
-		/// <param name="left">The left range.</param>
-		/// <param name="right">The right range.</param>
+		/// <param name="left">The left range operand.</param>
+		/// <param name="right">The right range operand.</param>
 		/// <returns>
 		///     <see langword="true"/> if the <paramref name="left"/> range is a proper superrange of the
 		///     <paramref name="right"/> range; otherwise, <see langword="false"/>.
@@ -386,8 +384,8 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Calculates the union between two ranges.
 		/// </summary>
-		/// <param name="left">The left range.</param>
-		/// <param name="right">The right range.</param>
+		/// <param name="left">The left range operand.</param>
+		/// <param name="right">The right range operand.</param>
 		/// <returns>A range that hold the values that exists in either of the operands.</returns>
 		public static Range operator |(Range left, Range right)
 		{
@@ -399,8 +397,8 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Calculates the intersection between two ranges.
 		/// </summary>
-		/// <param name="left">The left range.</param>
-		/// <param name="right">The right range.</param>
+		/// <param name="left">The left range operand.</param>
+		/// <param name="right">The right range operand.</param>
 		/// <returns>A range that holds the values that exists in both the ranges.</returns>
 		public static Range operator &(Range left, Range right)
 		{
@@ -412,8 +410,8 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Calculates the difference between two ranges.
 		/// </summary>
-		/// <param name="left">The left range.</param>
-		/// <param name="right">The right range.</param>
+		/// <param name="left">The left range operand.</param>
+		/// <param name="right">The right range operand.</param>
 		/// <returns>
 		///     The <paramref name="left"/> range without the values from the
 		///     <paramref name="right"/> range.
@@ -428,8 +426,8 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Calculates the symmetric difference between two ranges.
 		/// </summary>
-		/// <param name="left">The left operand.</param>
-		/// <param name="right">The right operand.</param>
+		/// <param name="left">The left range operand.</param>
+		/// <param name="right">The right range operand.</param>
 		/// <returns>
 		///     A pair of new ranges that together is the symmetric difference of the
 		///     <paramref name="left"/> and <paramref name="right"/> ranges, if they overlap;
@@ -650,7 +648,7 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Determines whether whether the current range is contained by a specified range.
 		/// </summary>
-		/// <param name="other">The range to check against.</param>
+		/// <param name="other">The range to check.</param>
 		/// <returns>
 		///     <see langword="true"/> if the current range is inside, or equal to, the specified range
 		///     <paramref name="other"/>; otherwise, <see langword="false"/>.
@@ -684,7 +682,7 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Determines whether whether the current range is contained by a specified range.
 		/// </summary>
-		/// <param name="other">The range to check against.</param>
+		/// <param name="other">The range to check.</param>
 		/// <returns>
 		///     <see langword="true"/> if the current range is inside, and not equal to, the specified range
 		///     <paramref name="other"/>; otherwise, <see langword="false"/>.
@@ -713,7 +711,7 @@ namespace PLib.Utils.Ranges
 		/// <summary>
 		///     Determines whether the current range and another specified range have any common values.
 		/// </summary>
-		/// <param name="other">The other range to check against.</param>
+		/// <param name="other">The other range to check.</param>
 		/// <returns>
 		///     <see langword="true"/> if the current range, and the specified range
 		///     <paramref name="other"/> has any common values; otherwise, <see langword="false"/>.

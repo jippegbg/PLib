@@ -1,6 +1,6 @@
 ﻿namespace PLib.Utils.Intervals
 {
 
-	public enum Position { Lower, Upper }
+	public enum Position { Undefined, Lower, Upper }
 
 }

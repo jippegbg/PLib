@@ -1,45 +1,70 @@
 ﻿using System;
+using System.Collections.Generic;
 
 
 namespace PLib.Utils.Intervals
 {
 
-	public sealed class Limit<T> : IEquatable<Limit<T>> where T : IComparable<T>, IEquatable<T>
+	public enum LimitPosition { Lower, Upper, Undefined }
+
+	public enum LimitType { Closed, Open, Infinite }
+
+
+
+	public class Limit<T> : IEquatable<Limit<T>> where T : IComparable<T>, IEquatable<T>
 	{
 
-		/// <summary>
-		///     Initializes a new instance of the <see cref="Limit{T}"/> class.
-		/// </summary>
-		/// <param name="value">The value of the limit.</param>
-		/// <param name="inclusive">
-		///     A value that determines whether the limit value should be included (closed) or not (open).
-		///     Optional. Default true.
-		/// </param>
-		public Limit(T value, bool inclusive = true)
+		public Limit(T value, LimitType type)
 		{
-			Value     = value;
-			Inclusive = inclusive;
+			Value    = value;
+			Type     = type;
+			Position = LimitPosition.Undefined;
 		}
 
 
 
-		/// <summary>
-		///     The actual value of the limit.
-		/// </summary>
-		public T Value { get; }
+		internal Limit(T value, LimitType type, LimitPosition pos)
+		{
+			Value    = value;
+			Type     = type;
+			Position = pos;
+		}
 
 
 
-		/// <summary>
-		///     States whether the value should be included (closed) or not (open).
-		/// </summary>
-		public bool Inclusive { get; }
+		public LimitPosition Position { get; }
+		public LimitType     Type     { get; }
+		public T             Value    { get; }
 
 
-		/// <summary>
-		///     States whether the value should be excluded (open) or not (closed).
-		/// </summary>
-		public bool Exclusive => !Inclusive;
+		public bool Closed => Type == LimitType.Closed;
+
+		public bool Open => Type == LimitType.Open;
+
+		public bool Infinite => Type == LimitType.Infinite;
+
+		public bool Lower => Position == LimitPosition.Lower;
+
+		public bool Upper => Position == LimitPosition.Upper;
+
+		public bool LowerClosed => Lower && Closed;
+
+		public bool LowerOpen => Lower && Open;
+
+		public bool LowerInfinite => Lower && Infinite;
+
+		public bool UpperClosed => Upper && Closed;
+
+		public bool UpperOpen => Upper && Open;
+
+		public bool UpperInfinite => Upper && Infinite;
+
+
+
+		public int CompareTo(Limit<T> other)
+		{
+			throw new NotImplementedException();
+		}
 
 
 
@@ -55,7 +80,7 @@ namespace PLib.Utils.Intervals
 				return true;
 			}
 
-			return Value.Equals(other.Value) && Inclusive == other.Inclusive;
+			return Position == other.Position && Type == other.Type && EqualityComparer<T>.Default.Equals(Value, other.Value);
 		}
 
 
@@ -81,48 +106,253 @@ namespace PLib.Utils.Intervals
 		{
 			unchecked
 			{
-				int h1 = Value.GetHashCode();
-				int h2 = Inclusive.GetHashCode();
-
-				return ((h1 << 5) + h1) ^ h2;
+				int hashCode = (int)Position;
+				hashCode = (hashCode * 397) ^ (int)Type;
+				hashCode = (hashCode * 397) ^ EqualityComparer<T>.Default.GetHashCode(Value);
+				return hashCode;
 			}
+		}
+
+
+
+		public static bool operator ==(Limit<T> left, Limit<T> right)
+		{
+			return Equals(left, right);
+		}
+
+
+
+		public static bool operator !=(Limit<T> left, Limit<T> right)
+		{
+			return !Equals(left, right);
+		}
+
+
+
+		public static bool operator <(Limit<T> left, Limit<T> right)
+		{
+			return left.CompareTo(right) < 0;
+		}
+
+
+
+		public static bool operator >(Limit<T> left, Limit<T> right)
+		{
+			return left.CompareTo(right) > 0;
+		}
+
+
+
+		public static bool operator <=(Limit<T> left, Limit<T> right)
+		{
+			return left.CompareTo(right) <= 0;
+		}
+
+
+
+		public static bool operator >=(Limit<T> left, Limit<T> right)
+		{
+			return left.CompareTo(right) >= 0;
 		}
 
 	}
 
-
-
-	public static class LimitExtensions
+	/*public class Limit<T> : IComparable<Limit<T>>, IEquatable<Limit<T>> where T : IComparable<T>, IEquatable<T>
 	{
 
-		public static string GetString<T>(this Limit<T> limit, Position pos) where T : IComparable<T>, IEquatable<T>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="value"></param>
+		/// <param name="closed"></param>
+		public Limit(T value, bool closed = true)
 		{
-			switch (pos)
+			Value    = value;
+			Closed   = closed;
+			Position = Position.Undefined;
+		}
+
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="value"></param>
+		/// <param name="closed"></param>
+		/// <param name="pos"></param>
+		internal Limit(T value, bool closed, Position pos)
+		{
+			Value    = value;
+			Closed   = closed;
+			Position = pos;
+		}
+
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public T Value { get; }
+
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public bool Closed { get; }
+
+
+
+		public bool Inclusive => Closed;
+		public bool Exclusive => !Closed;
+
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public bool Open => !Closed;
+
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public Position Position { get; internal set; }
+
+
+
+		public bool Lower => Position == Position.Lower;
+
+		public bool Upper => Position == Position.Upper;
+
+
+
+
+		/// <inheritdoc />
+		public bool Equals(Limit<T> other)
+		{
+			if (ReferenceEquals(null, other))
 			{
-				case Position.Lower:
+				return false;
+			}
 
-					if (limit == null)
-					{
-						return "(-∞";
-					}
+			if (ReferenceEquals(this, other))
+			{
+				return true;
+			}
 
-					return $"{(limit.Inclusive ? "[" : "(")}{limit.Value}";
+			return EqualityComparer<T>.Default.Equals(Value, other.Value) &&
+			       Closed == other.Closed &&
+			       Position == other.Position;
+		}
 
-				case Position.Upper:
 
-					if (limit == null)
-					{
-						return "+∞)";
-					}
 
-					return $"{limit.Value}{(limit.Inclusive ? "]" : ")")}";
+		/// <inheritdoc />
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+			{
+				return false;
+			}
 
-				default:
+			if (ReferenceEquals(this, obj))
+			{
+				return true;
+			}
 
-					throw new NotSupportedException();
+			return obj.GetType() == GetType() && Equals((Limit<T>)obj);
+		}
+
+
+
+		/// <inheritdoc />
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				int hashCode = EqualityComparer<T>.Default.GetHashCode(Value);
+				hashCode = (hashCode * 397) ^ Closed.GetHashCode();
+				hashCode = (hashCode * 397) ^ (int)Position;
+				return hashCode;
 			}
 		}
 
-	}
+
+
+		/// <inheritdoc />
+		public int CompareTo(Limit<T> other)
+		{
+			if (ReferenceEquals(this, other))
+			{
+				return 0;
+			}
+
+
+
+			/*if (ReferenceEquals(null, other))
+			{
+				return 1;
+			}
+
+			int valueComparison = Value.CompareTo(other.Value);
+			if (valueComparison != 0)
+			{
+				return valueComparison;
+			}
+
+			int closedComparison = Closed.CompareTo(other.Closed);
+			if (closedComparison != 0)
+			{
+				return closedComparison;
+			}
+
+			return Position.CompareTo(other.Position);#1#
+		}
+
+
+
+		public static bool operator ==(Limit<T> left, Limit<T> right)
+		{
+			return Equals(left, right);
+		}
+
+
+
+		public static bool operator !=(Limit<T> left, Limit<T> right)
+		{
+			return !Equals(left, right);
+		}
+
+
+
+		public static bool operator <(Limit<T> left, Limit<T> right)
+		{
+			return left.CompareTo(right) < 0;
+		}
+
+
+
+		public static bool operator >(Limit<T> left, Limit<T> right)
+		{
+			return left.CompareTo(right) > 0;
+		}
+
+
+
+		public static bool operator <=(Limit<T> left, Limit<T> right)
+		{
+			return left.CompareTo(right) <= 0;
+		}
+
+
+
+		public static bool operator >=(Limit<T> left, Limit<T> right)
+		{
+			return left.CompareTo(right) >= 0;
+		}
+
+	}*/
 
 }

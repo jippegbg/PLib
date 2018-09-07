@@ -147,11 +147,11 @@ namespace PLib.Extensions.Core
 		/// <param name="me">The current string.</param>
 		/// <param name="values">A list of strings to compare with the current one.</param>
 		/// <returns>
-		///     true if the list of strings contains an element that equals the current string;
+		///     <see langword="true"/> if the list of strings contains an element that equals the current string;
 		///     otherwise, <see langword="false"/>.
 		/// </returns>
-		/// <remarks>Comparison is case sensitive.</remarks>
-		public static bool IsIn(this string me, params string[] values)
+		/// <remarks>This method performs an ordinal (case-sensitive and culture-insensitive) comparison.</remarks>
+		public static bool EqualsAnyOf(this string me, params string[] values)
 		{
 			return Array.IndexOf(values, me) != -1;
 		}
@@ -163,14 +163,48 @@ namespace PLib.Extensions.Core
 		/// </summary>
 		/// <param name="me">The current string.</param>
 		/// <param name="values">A sequence of strings to compare with the current one.</param>
-		/// <param name="ignoreCase">If case should be ignored when comparing stings.</param>
+		/// <param name="comparer">An equality comparer to compare strings.</param>
 		/// <returns>
 		///     <see langword="true"/> if the sequence of strings contains an element that equals the current string;
 		///     otherwise, <see langword="false"/>.
 		/// </returns>
-		public static bool IsIn(this string me, IEnumerable<string> values, bool ignoreCase = false)
+		public static bool EqualsAnyOf(this string me, StringComparer comparer, params string[] values)
 		{
-			return values.Contains(me, ignoreCase ? StringComparer.OrdinalIgnoreCase : StringComparer.Ordinal);
+			return values.Contains(me, comparer);
+		}
+
+
+
+		/// <summary>
+		///     Determines whether the current object differs from all the strings in the provided array.
+		/// </summary>
+		/// <param name="me">The current string.</param>
+		/// <param name="values">A list of strings to compare with the current one.</param>
+		/// <returns>
+		///     <see langword="true"/> if the current string differs from all (not equals any) of the
+		///     specified items; otherwise, <see langword="false"/> if it does.
+		/// </returns>
+		/// <remarks>This method performs an ordinal (case-sensitive and culture-insensitive) comparison.</remarks>
+		public static bool EqualsNoneOf(this string me, params string[] values)
+		{
+			return Array.IndexOf(values, me) == -1;
+		}
+
+
+
+		/// <summary>
+		///     Determines whether the current object differs from all the strings in the provided array.
+		/// </summary>
+		/// <param name="me">The current string.</param>
+		/// <param name="values">A list of strings to compare with the current one.</param>
+		/// <param name="comparer">An equality comparer to compare strings.</param>
+		/// <returns>
+		///     <see langword="true"/> if the current string differs from all (not equals any) of the
+		///     specified items; otherwise, <see langword="false"/> if it does.
+		/// </returns>
+		public static bool EqualsNoneOf(this string me, StringComparer comparer, params string[] values)
+		{
+			return !values.Contains(me, comparer);
 		}
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 
 
 namespace PLib.Extensions.Core
@@ -21,6 +22,64 @@ namespace PLib.Extensions.Core
 		public static T ConvertTo<T>(this object me)
 		{
 			return (T)me.ConvertTo(typeof(T));
+		}
+
+
+
+		/// <summary>
+		/// </summary>
+		/// <typeparam name="T">The target type to convert to.</typeparam>
+		/// <param name="me">The current object.</param>
+		/// <param name="value">
+		///     The current object converted to type <typeparamref name="T"/> if conversion succeeds;
+		///     otherwise, the default value of type <typeparamref name="T"/>, if it fails.
+		/// </param>
+		/// <returns>
+		///     <see langword="true"/> if the current object was converted successfully; otherwise, <see langword="false"/>.
+		/// </returns>
+		/// <seealso cref="ConvertTo{T}(object)"/>
+		public static bool TryConvertTo<T>(this object me, out T value)
+		{
+			Exception exception;
+			return TryConvertTo(me, out value, out exception);
+		}
+
+
+
+		/// <summary>
+		///     Tries to convert the current object into a specified target type.
+		///     A return value indicates whether the conversion succeeded.
+		/// </summary>
+		/// <typeparam name="T">The target type to convert to.</typeparam>
+		/// <param name="me">The current object.</param>
+		/// <param name="value">
+		///     The current object converted to type <typeparamref name="T"/> if conversion succeeds;
+		///     otherwise, the default value of type <typeparamref name="T"/>, if it fails.
+		/// </param>
+		/// <param name="exception">
+		///     An <see cref="Exception"/> describing the cause if the conversion fails, or
+		///     <see langword="null"/> if it succeeds.
+		/// </param>
+		/// <returns>
+		///     <see langword="true"/> if the current object was converted
+		///     successfully; otherwise, <see langword="false"/>.
+		/// </returns>
+		/// <seealso cref="ConvertTo{T}(object)"/>
+		[SuppressMessage("ReSharper", "CatchAllClause")]
+		public static bool TryConvertTo<T>(this object me, out T value, out Exception exception)
+		{
+			try
+			{
+				value     = ConvertTo<T>(me);
+				exception = null;
+				return true;
+			}
+			catch (Exception e)
+			{
+				value     = default(T);
+				exception = e;
+				return false;
+			}
 		}
 
 
@@ -60,6 +119,66 @@ namespace PLib.Extensions.Core
 			}
 
 			return me;
+		}
+
+
+
+		/// <summary>
+		///     Tries to convert the current object into a specified target type.
+		///     A return value indicates whether the conversion succeeded.
+		/// </summary>
+		/// <param name="me">The current object.</param>
+		/// <param name="targetType">The type to convert to.</param>
+		/// <param name="value">
+		///     The current object converted to type <paramref name="targetType"/> if conversion succeeds;
+		///     otherwise, the default value of type <paramref name="targetType"/>, if it fails.
+		/// </param>
+		/// <returns>
+		///     <see langword="true"/> if the current object was converted
+		///     successfully; otherwise, <see langword="false"/>.
+		/// </returns>
+		[SuppressMessage("ReSharper", "CatchAllClause")]
+		public static bool ConvertTo(this object me, Type targetType, out object value)
+		{
+			Exception exception;
+			return ConvertTo(me, targetType, out value, out exception);
+		}
+
+
+
+		/// <summary>
+		///     Tries to convert the current object into a specified target type.
+		///     A return value indicates whether the conversion succeeded.
+		/// </summary>
+		/// <param name="me">The current object.</param>
+		/// <param name="targetType">The type to convert to.</param>
+		/// <param name="value">
+		///     The current object converted to type <paramref name="targetType"/> if conversion succeeds;
+		///     otherwise, the default value of type <paramref name="targetType"/>, if it fails.
+		/// </param>
+		/// <param name="exception">
+		///     An <see cref="Exception"/> describing the cause if the conversion fails, or
+		///     <see langword="null"/> if it succeeds.
+		/// </param>
+		/// <returns>
+		///     <see langword="true"/> if the current object was converted
+		///     successfully; otherwise, <see langword="false"/>.
+		/// </returns>
+		[SuppressMessage("ReSharper", "CatchAllClause")]
+		public static bool ConvertTo(this object me, Type targetType, out object value, out Exception exception)
+		{
+			try
+			{
+				value     = ConvertTo(me, targetType);
+				exception = null;
+				return true;
+			}
+			catch (Exception e)
+			{
+				value     = null;
+				exception = e;
+				return false;
+			}
 		}
 
 	}
